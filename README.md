@@ -1,3 +1,11 @@
-# Capstone Projects Template Repo 
+### Renting App Repo 
 
-- Write a production README.md 
+
+
+### Team Members
+
+* Adam Tahiri
+* Anas Nahil
+* Carina Taveras
+* Demi Job
+* Vanessa Watson
