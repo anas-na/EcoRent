@@ -18,5 +18,5 @@
 * Adam Tahiri
 * Anas Nahil
 * Carina Taveras
-* Demi Job
+* Demi Jobi
 * Vanessa Watson
