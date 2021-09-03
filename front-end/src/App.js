@@ -5,6 +5,7 @@ const API = apiURL();
 
 function App() {
   const [days, setDays] = useState([]);
+  debugger;
   useEffect(() => {
     axios
       .get(`${API}/test`)
