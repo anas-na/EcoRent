@@ -2,7 +2,7 @@
 
 INSERT INTO test (name) VALUES
 ('Monday'),
-('Tuesday'),
+('Monday@'),
 ('Wednesday'),
 ('Thursday'),
 ('Friday'),
