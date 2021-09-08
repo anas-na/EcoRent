@@ -1,6 +1,6 @@
 INSERT INTO test (name) VALUES
 ('Monday'),
-('Tuesday'),
+('MONDAY@'),
 ('Wednesday'),
 ('Thursday'),
 ('Friday'),
