@@ -5,6 +5,8 @@ const {getAllItems, getItem, createItem, deleteItem, updateItem} = require("../q
 
 items.get("/", async (req,res)=>{
     const items = await getAllItems()
+    console.log("RESPONSEEEE!!!", items);
+    res.json({success: true, payload: items});
 })
 items.post("/", (req,res)=>{
     
@@ -16,3 +18,4 @@ items.delete("/:id", (req,res)=>{
     
 })
 
+module.exports = items
