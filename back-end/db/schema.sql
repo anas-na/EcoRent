@@ -1,3 +1,6 @@
+DROP DATABASE IF EXISTS eco_rent_dev;
+CREATE DATABASE eco_rent_dev;
+
 \c eco_rent_dev;
 
 DROP TABLE IF EXISTS categories;
@@ -15,7 +18,7 @@ CREATE TABLE items (
     name TEXT,
     description TEXT,
     price INT,
-    location TEXT,
+    location TEXT
 );
 
 DROP TABLE IF EXISTS transactions;
