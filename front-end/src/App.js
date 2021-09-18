@@ -1,27 +1,23 @@
-import axios from "axios";
 import { useState, useEffect } from "react";
 import { apiURL } from "./util/apiURL.js";
+import AuthRoute from "./components/AuthRoute.js";
+import { BrowserRouter as Router, Route } from "react-router-dom";
+import Home from "./pages/Home"
+import SignUp from "./pages/Signup"
+import LogIn from "./pages/Login.js";
 const API = apiURL();
 
 function App() {
-  const [days, setDays] = useState([]);
-  debugger;
   useEffect(() => {
-    axios
-      .get(`${API}/test`)
-      .then(
-        (response) => setDays(response.data),
-        (error) => console.log("get", error)
-      )
-      .catch((c) => console.warn("catch", c));
+    
   }, []);
   return (
     <div>
-      <ul>
-        {days.map((day) => (
-          <li key={day.name}>{day.name}</li>
-        ))}
-      </ul>
+      <Router>
+        <AuthRoute exact path = "/" component={Home} />
+        <Route exact path="/signup" component={SignUp}/>
+        <Route exact path="/login" component={LogIn}/>
+      </Router>
     </div>
   );
 }
