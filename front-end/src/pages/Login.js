@@ -29,19 +29,19 @@ const LogIn = () => {
 <p >Please enter your login and password!</p>
 <form onSubmit={handleLogIn}>
 <div >
-  <input type="email" id="email" class="form-control form-control-lg" />
-  <label  for="email">Email</label>
+  <input type="email" id="email" className="form-control form-control-lg" />
+  <label  htmlFor="email">Email</label>
 </div>
 
 <div >
-  <input type="password" id="password" class="form-control form-control-lg" />
-  <label  for="password">Password</label>
+  <input type="password" id="password" className="form-control form-control-lg" />
+  <label  htmlFor="password">Password</label>
 </div>
 <button type="submit">Login</button>
 </form>
 
 <div>
-<p>Don't have an account? <a href="/signup" class="text-white-50 fw-bold">Sign Up</a></p>
+<p>Don't have an account? <a href="/signup" className="text-white-50 fw-bold">Sign Up</a></p>
 </div>
 
         </section>
