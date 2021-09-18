@@ -6,16 +6,14 @@ import {
     onAuthStateChanged,
     signOut
 } from "firebase/auth"
-
-import app from "../services/Firebase";
+import app from "../services/Firebase.js";
 
 const useUser = () => {
-    const [user, setUser] = useState(null)
-    const auth = getAuth()
+    const [user, setUser] = useState(null);
+    const auth = getAuth();
     
-    const signUp = async (userData) => {
-        const { firstName, lastName, phoneNumber,dateOfBirth, address, email, password } = userData
-        createUserWithEmailAndPassword(auth, firstName, lastName, phoneNumber, dateOfBirth, address, email, password)
+    const signUp = async (firstName, lastName, phoneNumber, dateOfBirth, address, email, password ) => {
+        createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
             return user;

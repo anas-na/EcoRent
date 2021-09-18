@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import { apiURL } from "./util/apiURL.js";
 import AuthRoute from "./components/AuthRoute.js";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import * as mdb from 'mdb-ui-kit'; 
 import Home from "./pages/Home"
 import SignUp from "./pages/Signup"
 import LogIn from "./pages/Login.js";

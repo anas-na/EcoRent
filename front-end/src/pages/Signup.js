@@ -18,14 +18,6 @@ const SignUp = () => {
         password,
     } = event.target.elements;
 
-    //  firstName = firstName.value
-    //  lastName = firstName.value
-    //  phoneNumber = phoneNumber.value
-    //  dateOfBirth = dateOfBirth.value
-    //  address = address.value
-    //  email = email.value
-    //  password = password.value
-     debugger
     try {
       await signUp(
         firstName.value,
