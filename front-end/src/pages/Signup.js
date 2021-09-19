@@ -1,23 +1,34 @@
 import React from "react";
 import { useHistory } from "react-router";
 import useUser from "../hooks/useUser";
+import { apiURL } from "../util/apiURL";
+import axios from "axios"
+const API = apiURL();
 
 const SignUp = () => {
   const { signUp } = useUser();
+  console.log("hello")
   const history = useHistory();
-    console.log(signUp)
   const handleSignUp = async (event) => {
     event.preventDefault();
+    
     let {
-        firstName,
-        lastName,
-        phoneNumber,
-        dateOfBirth,
-        address,
-        email,
-        password,
+      firstName,
+      lastName,
+      phoneNumber,
+      dateOfBirth,
+      address,
+      email,
+      password,
     } = event.target.elements;
-
+    
+    const body = { firstName,
+      lastName,
+      phoneNumber,
+      dateOfBirth,
+      address,
+      email,
+      password };
     try {
       await signUp(
         firstName.value,
@@ -28,6 +39,7 @@ const SignUp = () => {
         email.value,
         password.value
         );
+      axios.post(`${API}/users`, body);
       history.push("/");
     } catch (error) {
       alert(error);

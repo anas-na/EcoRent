@@ -16,6 +16,8 @@ const useUser = () => {
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
+            debugger;
+            console.log("hello")
             return user;
         }) .catch ((error) => {
             const message = error.message
@@ -49,13 +51,14 @@ const useUser = () => {
     
     useEffect(() => {
         onAuthStateChanged(auth, (user) => {
+            console.log("hello")
             if (user) {
                 setUser(user);
             } else {
                 setUser(null)
             }
         })
-    })
+    }, [])
     
     return {
         user,
