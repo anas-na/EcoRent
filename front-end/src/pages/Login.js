@@ -5,7 +5,9 @@ import { useHistory, Redirect } from "react-router";
 const LogIn = () => {
   const { user, logIn } = useUser();
   const history = useHistory();
+  
   const handleLogIn = async (event) => {
+    console.log('HANDLE LOGIN!!');
     event.preventDefault();
     const { email, password } = event.target.elements;
     try {
@@ -16,10 +18,12 @@ const LogIn = () => {
     }
   };
 
-  if (user) {
-    return <Redirect to='/' />;
-  }
+  // if (user) {
+  //   console.log("ABOUT TO REDIRECT TO ")
+  //   return <Redirect to='/' />;
+  // }
 
+  console.log('SINGLE TIME!');
   return (
     <section>
       <h2>Login</h2>

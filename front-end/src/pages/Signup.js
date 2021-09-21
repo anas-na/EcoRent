@@ -5,7 +5,8 @@ import useUser from "../hooks/useUser";
 
 
 const SignUp = () => {
-  const { signUp } = useUser();
+  const { signUp, user } = useUser();
+  console.log('SIGNUP', user);
   const history = useHistory();
   
 

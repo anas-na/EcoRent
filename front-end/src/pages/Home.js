@@ -9,14 +9,14 @@ import {useState} from "react"
 const Home = () => {
     const { logOut } = useUser();
     const { firstName } = SignUp();
-    const [image , setImage] = useState('');
+    // const [image , setImage] = useState('');
 
-  const upload = ()=>{
-    if(image == null)
-      return;
-    storage.ref(`/images/${image.name}`).put(image)
-    .on("state_changed" , alert("success") , alert);
-  }
+  // const upload = ()=>{
+  //   if(image == null)
+  //     return;
+  //   storage.ref(`/images/${image.name}`).put(image)
+  //   .on("state_changed" , alert("success") , alert);
+  // }
 
     const handleLogOut = () => {
         try {

@@ -16,9 +16,9 @@ function App() {
     <div>
       <Router>
       <Switch>
-        <AuthRoute exact path="/" component={Home} />
         <Route exact path="/signup" component={SignUp}/>
         <Route exact path="/login" component={LogIn}/>
+        <AuthRoute exact path="/" component={Home} />
         <Route  path="*" component={FourOFour}/>
         {/* <Route path = "*">
           <FourOFour />
