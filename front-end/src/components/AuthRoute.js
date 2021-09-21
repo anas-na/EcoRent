@@ -4,10 +4,13 @@ import useUser from "../hooks/useUser"
 
 const AuthRoute = ({ component: AuthorizeComponent, ...allProps }) => {
     const { user } = useUser()
+    console.log(user)
+    console.log(allProps)
+    // <AuthRoute exact path="/" component={Home} />
   return (
     <Route
       {...allProps}
-      render={(routeProps) => user 
+      render={(routeProps) => console.log(routeProps) ||  user 
         ? (<AuthorizeComponent { ...routeProps } />) 
         : (<Redirect to={"/login"} />)
     }

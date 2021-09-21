@@ -12,7 +12,7 @@ const useUser = () => {
     const [user, setUser] = useState(null);
     const auth = getAuth();
     
-    const signUp = async (firstName, lastName, phoneNumber, dateOfBirth, address, email, password ) => {
+    const signUp = async (firstName, lastName, phoneNumber, dateOfBirth, address, email, password, displayName ) => {
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
