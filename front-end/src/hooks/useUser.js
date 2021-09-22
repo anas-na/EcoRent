@@ -13,7 +13,7 @@ const useUser = () => {
     const user = useContext(UserContext);
     const auth = getAuth();
     
-    const signUp = async (firstName, lastName, phoneNumber, dateOfBirth, address, email, password ) => {
+    const signUp =  (firstName, lastName, phoneNumber, dateOfBirth, address, email, password, displayName ) => {
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
@@ -26,8 +26,8 @@ const useUser = () => {
         })
     }
     
-    const logIn = async (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
+    const logIn = (email, password) => {
+       const res = signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
             return user;
@@ -37,8 +37,10 @@ const useUser = () => {
             const message = error.message
             alert(`${message}`)
         })
+        console.log(res)
+        return res
     }
-    const logOut = async () => {
+    const logOut = () => {
         signOut(auth)
             .then(() => {
                 alert("you have logged out");
