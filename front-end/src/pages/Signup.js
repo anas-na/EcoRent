@@ -1,45 +1,50 @@
 import React from "react";
 import { useHistory } from "react-router";
 import useUser from "../hooks/useUser";
-
-
+import { apiURL } from "../util/apiURL";
+import axios from "axios"
+const API = apiURL();
 
 const SignUp = () => {
-//   const { signUp, user } = useUser();
-//   console.log('SIGNUP', user);
-//   const history = useHistory();
-  
-
-//   const handleSignUp = async (event) => {
-//     event.preventDefault();
-//     let {
-//       firstName,
-//       lastName,
-//       phoneNumber,
-//       dateOfBirth,
-//       address,
-//       email,
-//       password,
-//       displayName,
-//     } = event.target.elements;
+  const { signUp } = useUser();
+  console.log("hello")
+  const history = useHistory();
+  const handleSignUp = async (event) => {
+    event.preventDefault();
     
-//     try {
-//       await signUp(
-//         firstName.value,
-//         lastName.value,
-//         phoneNumber.value,
-//         dateOfBirth.value,
-//         address.value,
-//         email.value,
-//         password.value,
-//         displayName.value,
-//         );
-//         history.push("/");
-//       } catch (error) {
-//         alert(error);
-//       }
-//       console.log(event.target.elements)
-//     };
+    let {
+      firstName,
+      lastName,
+      phoneNumber,
+      dateOfBirth,
+      address,
+      email,
+      password,
+    } = event.target.elements;
+    
+    const body = { firstName,
+      lastName,
+      phoneNumber,
+      dateOfBirth,
+      address,
+      email,
+      password };
+    try {
+      await signUp(
+        firstName.value,
+        lastName.value,
+        phoneNumber.value,
+        dateOfBirth.value,
+        address.value,
+        email.value,
+        password.value
+        );
+      axios.post(`${API}/users`, body);
+      history.push("/");
+    } catch (error) {
+      alert(error);
+    }
+  };
     
 //     return (
 //       <section>

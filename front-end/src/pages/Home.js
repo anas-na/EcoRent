@@ -1,4 +1,7 @@
 import React from "react";
+import useUser from "../hooks/useUser"
+import { useContext } from "react";
+import { UserContext } from "../providers/UserProvider";
 import useUser from "../hooks/useUser";
 import SignUp from "./Signup";
 
@@ -7,6 +10,8 @@ import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/
 import { useState } from "react";
 
 const Home = () => {
+    const string = useContext(UserContext);
+    const { logOut } = useUser();
 //   const { logOut } = useUser();
 //   const { firstName } = SignUp();
 //   const [image, setImage] = useState("");
@@ -49,8 +54,13 @@ const Home = () => {
 //       alert(error);
 //     }
 //   };
-
-//   return (
+  
+    return (
+        <div>
+            {string ? string.email : "Hi"}
+            <h1>Welcome To EcoRent</h1>
+            <button onClick={() => handleLogOut()}>Log Out</button>
+        </div>
 //     <div>
 //       <h1>Welcome To EcoRent ${}</h1>
 //       <button onClick={() => handleLogOut()}>Log Out</button>
@@ -60,7 +70,8 @@ const Home = () => {
 //         <img src={imageAsUrl} alt="image_test" />
 //       </form>
 //     </div>
-//   );
+  );
 };
+
 
 export default Home;

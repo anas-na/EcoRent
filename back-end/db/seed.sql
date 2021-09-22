@@ -1,5 +1,10 @@
 \c eco_rent_dev;
 
+INSERT INTO users (id, first_name, last_name, phone_number, date_of_birth, address, email, password) VALUES 
+('LKsCOf3HykTTIk4RN54h1Q0f1p92', 'Adam', 'Tahiri', 3472829710, '1994-12-03', '383 Raritan Avenue', 'tahiri08@hotmail.com', 'pursuit24'),
+('BPC19CTufQXRv3Gxa0vBvsR8u462', 'Anas', 'Nahil', 3471234567, '1980-01-01', '111 Made Up Street', 'JohnDoe@gmail.com', 'password123');
+
+
 INSERT INTO categories (name) VALUES
 ('Seasonal'),
 ('Special Occasion'),
