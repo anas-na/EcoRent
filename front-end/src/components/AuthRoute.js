@@ -3,6 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 import useUser from "../hooks/useUser"
 
 const AuthRoute = ({ component: AuthorizeComponent, ...allProps }) => {
+  debugger
     const { user } = useUser()
     if (!user) {
       console.log("ABOUT TO REDIRECT TO LOGIN")
@@ -13,8 +14,7 @@ const AuthRoute = ({ component: AuthorizeComponent, ...allProps }) => {
       {...allProps}
       render={(routeProps) => user 
         ? (<AuthorizeComponent { ...routeProps } />) 
-        : (<AuthorizeComponent { ...routeProps } />) 
-        // : (<Redirect to={"/login"} />)
+        : (<Redirect to={"/login"} />)
     }
     />
   );

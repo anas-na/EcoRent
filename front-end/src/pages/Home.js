@@ -1,41 +1,66 @@
 import React from "react";
-import useUser from "../hooks/useUser"
+import useUser from "../hooks/useUser";
 import SignUp from "./Signup";
 
-import storage from "../services/Firebase"
-import {useState} from "react"
-
+import { storage } from "../services/Firebase";
+import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage";
+import { useState } from "react";
 
 const Home = () => {
-    const { logOut } = useUser();
-    const { firstName } = SignUp();
-    // const [image , setImage] = useState('');
+//   const { logOut } = useUser();
+//   const { firstName } = SignUp();
+//   const [image, setImage] = useState("");
+//   const [imageAsUrl, setImageAsUrl] = useState('')
 
-  // const upload = ()=>{
-  //   if(image == null)
-  //     return;
-  //   storage.ref(`/images/${image.name}`).put(image)
-  //   .on("state_changed" , alert("success") , alert);
-  // }
+//   console.log(image);
+//   const handleImage = (event) => {
+//     const img = event.target.files[0];
+//     setImage((image) => img);
+//   };
 
-    const handleLogOut = () => {
-        try {
-            logOut()
-            return;
-        } catch (error) {
-            alert(error)
-        }
-    }
+//   const handleUpload = (event) => {
+//     event.preventDefault();
+//     const storage = getStorage();
+//     const storageRef = ref(storage, "images/" + image.name);
+//     const uploadTask = uploadBytesResumable(storageRef, image);
+//     uploadTask.on(
+//       "state_changed",
+//       (snapShot) => {
+//         console.log(snapShot);
+//       },
+//       (err) => {
+//         console.log(err);
+//       },
+//       () => {
+//         // Upload completed successfully, now we can get the download URL
+//         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+//           console.log("File available at", downloadURL);
+//           setImageAsUrl(downloadURL)
+//         });
+//       }
+//     );
+//   };
 
-    return (
-        <div>
-            <h1>Welcome To EcoRent ${}</h1>
-            
-            <button onClick={() => handleLogOut()}>Log Out</button>
-            {/* <input type="file" onChange={(e)=>{setImage(e.target.files[0])}}/>
-      <button onClick={upload}>Upload</button> */}
-        </div>
-    )
-}
+//   const handleLogOut = () => {
+//     try {
+//       logOut();
+//       return;
+//     } catch (error) {
+//       alert(error);
+//     }
+//   };
+
+//   return (
+//     <div>
+//       <h1>Welcome To EcoRent ${}</h1>
+//       <button onClick={() => handleLogOut()}>Log Out</button>
+//       <form>
+//         <input type='file' onChange={handleImage} />
+//         <button onClick={handleUpload}>Upload</button>
+//         <img src={imageAsUrl} alt="image_test" />
+//       </form>
+//     </div>
+//   );
+};
 
 export default Home;

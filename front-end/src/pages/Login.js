@@ -3,7 +3,9 @@ import useUser from "../hooks/useUser";
 import { useHistory, Redirect } from "react-router";
 
 const LogIn = () => {
+  debugger
   const { user, logIn } = useUser();
+  
   const history = useHistory();
   
   const handleLogIn = async (event) => {
@@ -18,10 +20,12 @@ const LogIn = () => {
     }
   };
 
-  // if (user) {
-  //   console.log("ABOUT TO REDIRECT TO ")
-  //   return <Redirect to='/' />;
-  // }
+  if (user) {
+    
+    console.log("ABOUT TO REDIRECT TO ")
+    history.push("/")
+    // return <Redirect to='/' />;
+  }
 
   console.log('SINGLE TIME!');
   return (

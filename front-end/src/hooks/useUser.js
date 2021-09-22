@@ -25,7 +25,7 @@ const useUser = () => {
     }
     
     const logIn = (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
+       const res = signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
             return user;
@@ -35,6 +35,8 @@ const useUser = () => {
             const message = error.message
             alert(`${message}`)
         })
+        console.log(res)
+        return res
     }
     const logOut = () => {
         signOut(auth)
@@ -57,7 +59,7 @@ const useUser = () => {
                 setUser(null)
             }
         })
-    })
+    }, [])
     
     return {
         user,
