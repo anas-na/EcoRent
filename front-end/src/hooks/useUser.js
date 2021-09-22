@@ -3,13 +3,14 @@ import {
     getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
-    onAuthStateChanged,
     signOut
 } from "firebase/auth"
 import app from "../services/Firebase.js";
+import  { useContext } from "react";
+import { UserContext } from "../providers/UserProvider";
 
 const useUser = () => {
-    const [user, setUser] = useState(null);
+    const user = useContext(UserContext);
     const auth = getAuth();
     
     const signUp = async (firstName, lastName, phoneNumber, dateOfBirth, address, email, password ) => {
@@ -22,7 +23,6 @@ const useUser = () => {
         }) .catch ((error) => {
             const message = error.message
                 alert(`${message}`)
-                // alert(`can't sign up`)
         })
     }
     
@@ -48,17 +48,6 @@ const useUser = () => {
             alert(`${message}`)
         })
     }
-    
-    useEffect(() => {
-        onAuthStateChanged(auth, (user) => {
-            console.log("hello")
-            if (user) {
-                setUser(user);
-            } else {
-                setUser(null)
-            }
-        })
-    }, [])
     
     return {
         user,

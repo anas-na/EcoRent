@@ -5,6 +5,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Home from "./pages/Home"
 import SignUp from "./pages/Signup"
 import LogIn from "./pages/Login.js";
+import UserProvider from "./providers/UserProvider.js";
+
 const API = apiURL();
 
 function App() {
@@ -13,11 +15,13 @@ function App() {
   }, []);
   return (
     <div>
+      <UserProvider>
       <Router>
         <AuthRoute exact path = "/" component={Home} />
         <Route exact path="/signup" component={SignUp}/>
         <Route exact path="/login" component={LogIn}/>
       </Router>
+      </UserProvider>
     </div>
   );
 }

@@ -1,8 +1,11 @@
 import React from "react";
 import useUser from "../hooks/useUser";
 import { useHistory, Redirect } from "react-router";
+import  { useContext } from "react";
+import { UserContext } from "../providers/UserProvider";
 
 const LogIn = () => {
+    const string = useContext(UserContext);
     const {user, logIn } = useUser();
     const history = useHistory();
     const handleLogIn = async (event) => {
@@ -23,6 +26,7 @@ const LogIn = () => {
     return (
 
         <section>
+            {string ? string.email : "Hi"}
             
 
 <h2 >Login</h2>
