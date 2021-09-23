@@ -1,10 +1,10 @@
 import { useState } from "react";
 import axios from "axios";
-
-import { apiUrl } from '../util/apiURL'
+import { useHistory } from "react-router";
+import { apiURL } from '../util/apiURL'
 const API = apiURL()
 
-const newItem = () => {
+const ItemNew = () => {
     let history = useHistory()
   const [item, setItem] = useState({
     catergory_id: 0,
@@ -61,3 +61,5 @@ const handleSubmit = (e) => {
     </section>
   );
 };
+
+export default ItemNew

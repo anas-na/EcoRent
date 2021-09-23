@@ -6,7 +6,7 @@ return(
         <Link to ='/items'>Items</Link>
         <Link to='/myItems'>My Items</Link>
         <Link to='/account'>Account</Link>
-        <Link to='/listItem'>List An Item</Link>
+        <Link to='/items/new'>List An Item</Link>
 
     </nav>
 )

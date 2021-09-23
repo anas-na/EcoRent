@@ -9,6 +9,7 @@ import UserProvider from "./providers/UserProvider.js";
 import FourOFour from "./pages/FourOFour"
 import MyItems from "./components/MyItems.js";
 import HowItWorks from "./pages/HowItWorks.js";
+import ItemNew from "./components/ItemNew.js";
 
 
 const API = apiURL();
@@ -28,9 +29,9 @@ function App() {
 
         <Route path ='/howItWorks'> <HowItWorks /> </Route>
         <Route path='/myItems' component={MyItems} />
-        <Route path='/items'  component={ItemList}/>
-        <Route path='/account' component={Account}/>
-        <Route path ='/listItem' component={ItemNew}/>
+        <Route path ='/items/new' component={ItemNew}/>
+        {/* <Route path='/items'  component={ItemList}/> */}
+        {/* <Route path='/account' component={Account}/> */}
 
 
         <Route  path="*" component={FourOFour}/>
