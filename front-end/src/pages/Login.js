@@ -1,33 +1,28 @@
 import React from "react";
 import useUser from "../hooks/useUser";
 import { useHistory, Redirect } from "react-router";
+import  { useContext } from "react";
+import { UserContext } from "../providers/UserProvider";
 
 const LogIn = () => {
-  debugger
-  const { user, logIn } = useUser();
-  
-  const history = useHistory();
-  
-  const handleLogIn = async (event) => {
-    console.log('HANDLE LOGIN!!');
-    event.preventDefault();
-    const { email, password } = event.target.elements;
-    try {
-      await logIn(email.value, password.value);
-      history.push("/");
-    } catch (error) {
-      alert(error);
-    }
-  };
-
-  if (user) {
+    const string = useContext(UserContext);
+    const {user, logIn } = useUser();
+    const history = useHistory();
+    const handleLogIn = async (event) => {
+        event.preventDefault();
+        const { email, password } = event.target.elements;
+        try {
+            await logIn(email.value, password.value)
+            history.push("/")
+        } catch (error) {
+            alert(error)
+        };
+    };
     
-    console.log("ABOUT TO REDIRECT TO ")
-    history.push("/")
-    // return <Redirect to='/' />;
-  }
-
-  console.log('SINGLE TIME!');
+    if(user) {
+        return <Redirect to="/" />;
+    }
+  
   return (
     <section>
       <h2>Login</h2>

@@ -3,14 +3,29 @@ CREATE DATABASE eco_rent_dev;
 
 \c eco_rent_dev;
 
+DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS categories;
+DROP TABLE IF EXISTS items;
+DROP TABLE IF EXISTS transactions;
+DROP TABLE IF EXISTS reviews;
+
+CREATE TABLE users (
+    id VARCHAR PRIMARY KEY,
+    first_name TEXT,
+    last_name TEXT,
+    phone_number BIGINT,
+    date_of_birth DATE,
+    address TEXT,
+    email TEXT,
+    password TEXT
+);
+
 
 CREATE TABLE categories (
     id SERIAL PRIMARY KEY, 
     name TEXT
 );
 
-DROP TABLE IF EXISTS items;
 
 CREATE TABLE items (
     id SERIAL PRIMARY KEY, 
@@ -21,7 +36,6 @@ CREATE TABLE items (
     location TEXT
 );
 
-DROP TABLE IF EXISTS transactions;
 
 CREATE TABLE transactions (
     id SERIAL PRIMARY KEY, 
@@ -30,7 +44,6 @@ CREATE TABLE transactions (
     rentee_id INT
 );
 
-DROP TABLE IF EXISTS reviews;
 
 CREATE TABLE reviews (
     id SERIAL PRIMARY KEY, 

@@ -1,7 +1,7 @@
 const express = require("express");
 const reviews = express.Router();
 
-
+const { getAllReviews, getReview, createReview, updateReview, deleteReview } = require("../queries/reviews");
 
 reviews.get("/", async (req, res) => {
     res.json(await getAllReviews())
@@ -25,3 +25,5 @@ reviews.get("/", async (req, res) => {
       const { id } = req.params;
       res.json(await deleteReview(id))
   });
+
+  module.exports = reviews;
