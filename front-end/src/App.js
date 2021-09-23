@@ -1,28 +1,19 @@
 import axios from "axios";
 import { useState, useEffect } from "react";
 import { apiURL } from "./util/apiURL.js";
-const API = apiURL();
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import { Provider } from "react-redux";
+
+import store from "./store";
+
 
 function App() {
-  const [days, setDays] = useState([]);
-  debugger;
-  useEffect(() => {
-    axios
-      .get(`${API}/test`)
-      .then(
-        (response) => setDays(response.data),
-        (error) => console.log("get", error)
-      )
-      .catch((c) => console.warn("catch", c));
-  }, []);
+  console.log(store);
   return (
-    <div>
-      <ul>
-        {days.map((day) => (
-          <li key={day.name}>{day.name}</li>
-        ))}
-      </ul>
-    </div>
+    <Provider store={store}>
+      <div className="App"></div>
+    </Provider>
   );
 }
 
