@@ -13,45 +13,47 @@ const useUser = () => {
     const user = useContext(UserContext);
     const auth = getAuth();
     
-    const signUp = async (firstName, lastName, phoneNumber, dateOfBirth, address, email, password ) => {
+    const signUpFireBase =  ( email, password, displayName ) => {
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            const user = userCredential.user;
-            debugger;
-            console.log("hello")
-            return user;
+            // const user = userCredential.user;
+            console.log(`User ${user} is signed up`)
+            return undefined;
         }) .catch ((error) => {
-            const message = error.message
-                alert(`${message}`)
+            const message = error.message;
+            console.log(`FireBase Sign up Error: ${message}`);
         })
     }
     
-    const logIn = async (email, password) => {
-        signInWithEmailAndPassword(auth, email, password)
+    const logIn = (email, password) => {
+       const res = signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            return user;
+            console.log(`User ${user} is logged in`);
 
         })
         .catch ((error) => {
-            const message = error.message
-            alert(`${message}`)
+            const message = error.message;
+            console.log(`FireBase LogIn error: ${message}`);
         })
+       
+        // return res
     }
-    const logOut = async () => {
+    
+    const logOut = () => {
         signOut(auth)
             .then(() => {
                 alert("you have logged out");
             })
          .catch ((error) => {
             const message = error.message
-            alert(`${message}`)
+            console.log(`Firebase Logout error: ${message}`)
         })
     }
     
     return {
         user,
-        signUp,
+        signUpFireBase,
         logIn,
         logOut,
     }

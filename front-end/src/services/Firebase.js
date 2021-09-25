@@ -1,4 +1,7 @@
-import {initializeApp} from "firebase/app";
+// import {initializeApp} from "firebase/app";
+import { getStorage, ref } from "firebase/storage";
+import firebase from 'firebase/compat/app'
+import 'firebase/storage'; 
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -11,5 +14,10 @@ const firebaseConfig = {
 };
 
 
-const app = initializeApp(firebaseConfig);
-export default app;
+const app = firebase.initializeApp(firebaseConfig);
+const storage = getStorage(app);
+const storageRef = ref(storage);
+
+
+
+export {storage, storageRef, firebase as default}

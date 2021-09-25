@@ -11,10 +11,10 @@ const UserProvider = (props) => {
       auth,
       (user) => {
           if (user) {
-          const { displayName, email, phoneNumber, photoURL } = user;
-          setUser({ displayName, email, phoneNumber, photoURL });
+          const { displayName, email, phoneNumber, photoURL, uid } = user;
+          setUser({ displayName, email, phoneNumber, photoURL, uid });
         } else {
-          setUser(null);
+          setUser("No User");
         }
       }
     );
