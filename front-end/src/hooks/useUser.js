@@ -13,16 +13,15 @@ const useUser = () => {
     const user = useContext(UserContext);
     const auth = getAuth();
     
-    const signUp =  (firstName, lastName, phoneNumber, dateOfBirth, address, email, password, displayName ) => {
+    const signUpFireBase =  ( email, password, displayName ) => {
         createUserWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
-            const user = userCredential.user;
-            debugger;
-            console.log("hello")
-            return user;
+            // const user = userCredential.user;
+            console.log(`User ${user} is signed up`)
+            return undefined;
         }) .catch ((error) => {
-            const message = error.message
-                alert(`${message}`)
+            const message = error.message;
+            console.log(`FireBase Sign up Error: ${message}`);
         })
     }
     
@@ -30,16 +29,17 @@ const useUser = () => {
        const res = signInWithEmailAndPassword(auth, email, password)
         .then((userCredential) => {
             const user = userCredential.user;
-            return user;
+            console.log(`User ${user} is logged in`);
 
         })
         .catch ((error) => {
-            const message = error.message
-            alert(`${message}`)
+            const message = error.message;
+            console.log(`FireBase LogIn error: ${message}`);
         })
-        console.log(res)
-        return res
+       
+        // return res
     }
+    
     const logOut = () => {
         signOut(auth)
             .then(() => {
@@ -47,13 +47,13 @@ const useUser = () => {
             })
          .catch ((error) => {
             const message = error.message
-            alert(`${message}`)
+            console.log(`Firebase Logout error: ${message}`)
         })
     }
     
     return {
         user,
-        signUp,
+        signUpFireBase,
         logIn,
         logOut,
     }

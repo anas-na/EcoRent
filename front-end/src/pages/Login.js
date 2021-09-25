@@ -1,7 +1,7 @@
 import React from "react";
 import useUser from "../hooks/useUser";
 import { useHistory, Redirect } from "react-router";
-import  { useContext } from "react";
+import { useContext } from "react";
 import { UserContext } from "../providers/UserProvider";
 
 const LogIn = () => {
