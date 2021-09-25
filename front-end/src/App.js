@@ -27,9 +27,9 @@ function App() {
         <Route exact path="/signup" component={SignUp}/>
         <Route exact path="/login" component={LogIn}/>
 
-        <Route path ='/howItWorks'> <HowItWorks /> </Route>
-        <Route path='/myItems' component={MyItems} />
-        <Route path ='/items/new' component={ItemNew}/>
+        <AuthRoute path ='/howItWorks' component={HowItWorks}/>
+        <AuthRoute path='/myItems' component={MyItems} />
+        <AuthRoute path ='/items/new' component={ItemNew}/>
         {/* <Route path='/items'  component={ItemList}/> */}
         {/* <Route path='/account' component={Account}/> */}
 
