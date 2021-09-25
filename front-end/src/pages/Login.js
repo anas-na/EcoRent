@@ -5,6 +5,7 @@ import { useContext } from "react";
 import { UserContext } from "../providers/UserProvider";
 
 const LogIn = () => {
+    console.log("In LogIn Component");
     const string = useContext(UserContext);
     const {user, logIn } = useUser();
     const history = useHistory();

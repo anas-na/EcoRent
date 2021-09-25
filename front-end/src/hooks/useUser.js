@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import {
-    getAuth,
+    // getAuth,
     createUserWithEmailAndPassword,
     signInWithEmailAndPassword,
     signOut
@@ -8,10 +8,10 @@ import {
 import app from "../services/Firebase.js";
 import  { useContext } from "react";
 import { UserContext } from "../providers/UserProvider";
+import { auth } from "../services/Firebase";
 
 const useUser = () => {
     const user = useContext(UserContext);
-    const auth = getAuth();
     
     const signUpFireBase =  ( email, password, displayName ) => {
         createUserWithEmailAndPassword(auth, email, password)
@@ -39,7 +39,7 @@ const useUser = () => {
        
         // return res
     }
-    
+
     const logOut = () => {
         signOut(auth)
             .then(() => {

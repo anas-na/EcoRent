@@ -10,11 +10,12 @@ const UserProvider = (props) => {
     onAuthStateChanged(
       auth,
       (user) => {
+          console.log("user is changing");
           if (user) {
           const { displayName, email, phoneNumber, photoURL, uid } = user;
           setUser({ displayName, email, phoneNumber, photoURL, uid });
         } else {
-          setUser("No User");
+          setUser(null);
         }
       }
     );
