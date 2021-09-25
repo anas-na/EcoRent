@@ -21,6 +21,7 @@ const getUser = async () => {
 
 const createUser = async (newUser) => {
     const { id, first_name, last_name, phone_number, date_of_birth, address, email, password } = newUser;
+    console.log(newUser);
     try {
         const createdUser = await db.one(
             `INSERT INTO users (id, first_name, last_name, phone_number, date_of_birth, address, email, password) VALUES ($1, $2, $3, $4, $5, $6, $7, $8) RETURNING *`,
