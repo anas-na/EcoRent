@@ -59,8 +59,8 @@ const Home = () => {
 
   return (
     <div>
-      {string ? string.email : "Hi"}
-      <h1>Welcome To EcoRent ${}</h1>
+      {string ? string.email : "Hi you are in Home"}
+      <h1>Welcome To EcoRent</h1>
       <button onClick={() => handleLogOut()}>Log Out</button>
       <form>
         <input type="file" onChange={handleImage} />
