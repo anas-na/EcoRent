@@ -7,7 +7,7 @@ const API = apiURL()
 const newItem = () => {
     let history = useHistory()
   const [item, setItem] = useState({
-    catergory_id: 0,
+    category_id: 0,
     name: "",
     description: "",
     price: 0,
@@ -42,8 +42,8 @@ const handleSubmit = (e) => {
           <label htmlFor="name">Name: </label>
           <input id="name" value={item.name} required />
 
-          <label htmlFor="catergory">Catergorg: </label>
-          <select id="catergory" value={item.catergory_id} required />
+          <label htmlFor="category">Catergorg: </label>
+          <select id="category" value={item.category_id} required />
 
           <label htmlFor='price'>Price: </label>
           <input type='number'

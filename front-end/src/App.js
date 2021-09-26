@@ -28,9 +28,9 @@ function App() {
 
         <Route path ='/howItWorks'> <HowItWorks /> </Route>
         <Route path='/myItems' component={MyItems} />
-        <Route path='/items'  component={ItemList}/>
+        {/* <Route path='/items'  component={ItemList}/>
         <Route path='/account' component={Account}/>
-        <Route path ='/listItem' component={ItemNew}/>
+        <Route path ='/listItem' component={ItemNew}/> */}
 
 
         <Route  path="*" component={FourOFour}/>
