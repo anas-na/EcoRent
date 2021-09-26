@@ -20,7 +20,7 @@ function App() {
   // }, []);
   return (
     <div>
-      <UserProvider>
+      {/* <UserProvider> */}
       <Router>
       <Switch>
         <AuthRoute exact path="/" component={Home} />
@@ -38,7 +38,7 @@ function App() {
         
       </Switch>
       </Router>
-      </UserProvider>
+      {/* </UserProvider> */}
     </div>
   );
 }

@@ -8,8 +8,8 @@ import axios from "axios"
 const API = apiURL();
 
 const SignUp = () => {
-  const user = useContext(UserContext);
-  const { signUpFireBase } = useUser();
+  // const user = useContext(UserContext);
+  const { user } = useUser();
   const history = useHistory();
   const handleSignUp = async (event) => {
     event.preventDefault();
@@ -26,13 +26,13 @@ const SignUp = () => {
     } = event.target.elements;
     
     const body = { 
-      firstName,
-      lastName,
-      phoneNumber,
-      dateOfBirth,
-      address,
-      email,
-      password };
+      firstName: firstName.value,
+      lastName: lastName.value,
+      phoneNumber: phoneNumber.value,
+      dateOfBirth: dateOfBirth.value,
+      address: address.value,
+      email: email.value,
+      password: password.value };
       try {
         await signUpFireBase(
           email.value,
