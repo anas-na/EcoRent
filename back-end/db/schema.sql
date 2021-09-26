@@ -11,13 +11,13 @@ DROP TABLE IF EXISTS reviews;
 
 CREATE TABLE users (
     id VARCHAR PRIMARY KEY,
-    first_name TEXT,
-    last_name TEXT,
-    phone_number BIGINT,
-    date_of_birth DATE,
-    address TEXT,
-    email TEXT,
-    password TEXT
+    first_name TEXT NOT NULL,
+    last_name TEXT NOT NULL,
+    phone_number BIGINT NOT NULL,
+    date_of_birth DATE NOT NULL,
+    address TEXT NOT NULL,
+    email TEXT NOT NULL,
+    password TEXT NOT NULL
 );
 
 
