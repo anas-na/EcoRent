@@ -1,10 +1,9 @@
-import ItemList from "../Components/ItemList";
+import ItemsList from "../components/ItemsList";
 
 function Index() {
   return (
     <div className="Index">
-      <h2>Index</h2>
-      <ItemList />
+      <ItemsList />
     </div>
   );
 }
