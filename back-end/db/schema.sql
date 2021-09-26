@@ -33,7 +33,8 @@ CREATE TABLE items (
     name TEXT,
     description TEXT,
     price INT,
-    location TEXT
+    location TEXT,
+    user_id VARCHAR
 );
 
 
