@@ -17,7 +17,7 @@ const AuthRoute = ({ component: AuthorizeComponent, ...allProps }) => {
       console.log("ABOUT TO REDIRECT TO LOGIN")
     }
     // <AuthRoute exact path="/" component={Home} />
-    debugger
+    
     if(loading) {
       return <div>loading ...</div>
     }
