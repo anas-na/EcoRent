@@ -49,8 +49,12 @@ const SignUp = () => {
     }
   };
 
-  return (
-    <section>
+  if(user) {
+    return <Redirect to="/" />;
+}
+    
+    return (
+      <section>
       <h2>Create an account</h2>
       <form onSubmit={handleSignUp}>
         <div>
