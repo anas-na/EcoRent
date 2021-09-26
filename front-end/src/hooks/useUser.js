@@ -1,79 +1,51 @@
+import { auth } from "../services/Firebase";
 import { useState, useEffect } from "react";
 import {
-    getAuth,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword,
-    signOut
-} from "firebase/auth"
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signOut,
+} from "firebase/auth";
 import app from "../services/Firebase.js";
-// import  { useContext } from "react";
-// import { UserContext } from "../providers/UserProvider";
-// import { auth } from "../services/Firebase";
+import { useContext } from "react";
+import { UserContext } from "../providers/UserProvider";
 
 const useUser = () => {
-    const [user, setUser] = useState(null);
-    const auth = getAuth();
-    // const user = useContext(UserContext);
-    
-    const signUpFireBase =  ( email, password, displayName ) => {
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            console.log(`User ${user} is signed up`)
-            return user
-        }) .catch ((error) => {
-            const message = error.message;
-            console.log(`FireBase Sign up Error: ${message}`);
-        })
-    }
-    
-    const logIn = (email, password) => {
-       signInWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            const user = userCredential.user;
-            console.log(`User ${user} is logged in`);
-            return user;
-        })
-        .catch ((error) => {
-            const message = error.message;
-            console.log(`FireBase LogIn error: ${message}`);
-        })
-       
-        // return res
-    }
+  const user = useContext(UserContext);
 
-    const logOut = () => {
-        signOut(auth)
-            .then(() => {
-                alert("you have logged out");
-            })
-         .catch ((error) => {
-            const message = error.message
-            console.log(`Firebase Logout error: ${message}`)
-        })
-    }
+  const signUpFireBase = async (email, password, displayName) => {
+    const res = await createUserWithEmailAndPassword(auth, email, password);
+    return res;
+  };
 
-    useEffect(() => {
-        onAuthStateChanged(
-          auth,
-          (user) => {
-              console.log("user is changing");
-              if (user) {
-            //   const { displayName, email, phoneNumber, photoURL, uid } = user;
-              setUser(user);
-            } else {
-              setUser(null);
-            }
-          }
-        );
-      }, [user]);
-    
-    return {
-        user,
-        signUpFireBase,
-        logIn,
-        logOut,
-    }
-}
+  const logIn = (email, password) => {
+    const res = signInWithEmailAndPassword(auth, email, password)
+      .then((userCredential) => {
+        console.log(`User ${user} is logged in`);
+      })
+      .catch((error) => {
+        const message = error.message;
+        console.log(`FireBase LogIn error: ${message}`);
+      });
+    console.log(res);
+    return res;
+  };
+  const logOut = () => {
+    signOut(auth)
+      .then(() => {
+        alert("you have logged out");
+      })
+      .catch((error) => {
+        const message = error.message;
+        console.log(`Firebase logout error: ${message}`);
+      });
+  };
+
+  return {
+    user,
+    signUpFireBase,
+    logIn,
+    logOut,
+  };
+};
 
 export default useUser;

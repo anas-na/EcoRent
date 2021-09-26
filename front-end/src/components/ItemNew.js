@@ -17,7 +17,7 @@ const ItemNew = () => {
   };
 
   const [item, setItem] = useState({
-    category: "",
+    category_id: 0,
     name: "",
     description: "",
     price: 0.0,
@@ -38,6 +38,11 @@ const ItemNew = () => {
   const handleChange = (e) => {
     setItem({ ...item, [e.target.id]: e.target.value });
   };
+  
+  const handleCategory = (e) =>  {
+    debugger
+    setItem({ ...item, [e.target.id]: Number(e.target.value) });
+  }
 
 
   const handleSubmit = (e) => {
@@ -47,8 +52,7 @@ const ItemNew = () => {
 
   const options = categories.map((category) => {
     return (
-      <option value={category.name} onChange={handleChange}>
-       { console.log(category.id)}
+      <option value={category.id} >
         {category.name}
       </option>
     );
@@ -70,7 +74,7 @@ const ItemNew = () => {
 
           <label htmlFor="category">Category: </label>
 
-          <select id="category" required>
+          <select id="category_id" required onChange={handleCategory}>
             <option disabled defaultValue>
               Select A Category
             </option>
