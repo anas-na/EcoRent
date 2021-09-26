@@ -3,7 +3,6 @@ import useUser from "../hooks/useUser";
 import { useContext } from "react";
 import { UserContext } from "../providers/UserProvider";
 import SignUp from "./Signup";
-
 import { storage } from "../services/Firebase";
 import {
   getStorage,
@@ -19,7 +18,6 @@ const Home = () => {
   const [image, setImage] = useState("");
   const [imageAsUrl, setImageAsUrl] = useState("");
 
-  console.log(image);
   const handleImage = (event) => {
     const img = event.target.files[0];
     setImage((image) => img);

@@ -1,5 +1,5 @@
 import React from "react";
-import { useHistory } from "react-router";
+import { useHistory, Redirect } from "react-router";
 import useUser from "../hooks/useUser";
 import { apiURL } from "../util/apiURL";
 import { useContext } from "react";
@@ -47,6 +47,10 @@ const SignUp = () => {
       console.log("SignUp Function:", error);
     }
   };
+
+  if(user) {
+    return <Redirect to="/" />;
+}
     
     return (
       <section>

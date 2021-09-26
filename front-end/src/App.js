@@ -10,6 +10,8 @@ import FourOFour from "./pages/FourOFour"
 import MyItems from "./components/MyItems.js";
 import HowItWorks from "./pages/HowItWorks.js";
 import ItemNew from "./components/ItemNew.js";
+import ItemsList from "./components/ItemsList"
+import Index from "./pages/Index.js";
 
 
 const API = apiURL();
@@ -30,7 +32,7 @@ function App() {
         <AuthRoute path ='/howItWorks' component={HowItWorks}/>
         <AuthRoute path='/myItems' component={MyItems} />
         <AuthRoute path ='/items/new' component={ItemNew}/>
-        {/* <Route path='/items'  component={ItemList}/> */}
+        <Route path='/items'  component={Index}/>
         {/* <Route path='/account' component={Account}/> */}
 
 
