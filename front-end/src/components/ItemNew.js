@@ -40,7 +40,6 @@ const ItemNew = () => {
   };
   
   const handleCategory = (e) =>  {
-    debugger
     setItem({ ...item, [e.target.id]: Number(e.target.value) });
   }
 

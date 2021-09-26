@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-import { apiURL } from "./util/apiURL.js";
 import AuthRoute from "./components/AuthRoute.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home"
@@ -10,14 +8,11 @@ import FourOFour from "./pages/FourOFour"
 import MyItems from "./components/MyItems.js";
 import HowItWorks from "./pages/HowItWorks.js";
 import ItemNew from "./components/ItemNew.js";
-
-
-const API = apiURL();
+import ItemsList from "./components/ItemsList"
+import Index from "./pages/Index.js";
 
 function App() {
-  // useEffect(() => {
-    
-  // }, []);
+
   return (
     <div>
       <UserProvider>
@@ -30,12 +25,11 @@ function App() {
         <AuthRoute path ='/howItWorks' component={HowItWorks}/>
         <AuthRoute path='/myItems' component={MyItems} />
         <AuthRoute path ='/items/new' component={ItemNew}/>
-        {/* <Route path='/items'  component={ItemList}/> */}
+        <Route path='/items'  component={Index}/>
         {/* <Route path='/account' component={Account}/> */}
 
 
         <Route  path="*" component={FourOFour}/>
-        
       </Switch>
       </Router>
       </UserProvider>
