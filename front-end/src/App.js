@@ -8,6 +8,7 @@ import FourOFour from "./pages/FourOFour"
 import MyItems from "./components/MyItems.js";
 import HowItWorks from "./pages/HowItWorks.js";
 import ItemNew from "./components/ItemNew.js";
+import NavBar from "./components/NavBar";
 import ItemsList from "./components/ItemsList"
 import Index from "./pages/Index.js";
 
@@ -17,6 +18,7 @@ function App() {
     <div>
       <UserProvider>
       <Router>
+      <NavBar />
       <Switch>
         <AuthRoute exact path="/" component={Home} />
         <Route exact path="/signup" component={SignUp}/>

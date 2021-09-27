@@ -48,58 +48,46 @@ const SignUp = () => {
       console.log("SignUp Function:", error);
     }
   };
-
-  if(user) {
+  
+   if(user) {
     return <Redirect to="/" />;
 }
-    
-    return (
-      <section>
+   
+  return (
+    <section>
       <h2>Create an account</h2>
       <form onSubmit={handleSignUp}>
         <div>
+          <label htmlFor="firstName">First Name</label>
           <input name="firstName" type="text" id="firstName" />
-          <label className="form-label" htmlFor="firstName">
-            First Name
-          </label>
         </div>
         <div>
+          <label htmlFor="lastName">Last Name</label>
           <input name="lastName" type="text" id="lastName" />
-          <label className="form-label" htmlFor="lastName">
-            Last Name
-          </label>
         </div>
         <div>
+          <label htmlFor="displayName">Display Name</label>
           <input name="displayName" type="text" id="displayName" />
-          <label className="form-label" htmlFor="displayName">
-            Display Name
-          </label>
-        </div>
-
         <div>
+          <label htmlFor="email">Your Email</label>
           <input name="email " type="email" id="email" />
-          <label className="form-label" htmlFor="email">
-            Your Email
-          </label>
         </div>
-
         <div>
-          <input name="password" type="password" id="password" />
           <label htmlFor="password">Password</label>
+          <input name="password" type="password" id="password" />
         </div>
         <div>
-          <input name="address" type="adress" id="address" />
-          <label htmlFor="address">Adress</label>
+          <label htmlFor="address">Address</label>
+          <input name="address" type="address" id="address" />
         </div>
         <div>
-          <input name="dateOfBirth" type="date" id="dateOfBirth" />
           <label htmlFor="dateOfBirth">Date Of Birth</label>
+          <input name="dateOfBirth" type="date" id="dateOfBirth" />
         </div>
         <div>
-          <input name="phoneNumber" type="tel" id="phoneNumber" />
           <label htmlFor="phoneNumber">Phone Number</label>
+          <input name="phoneNumber" type="tel" id="phoneNumber" />
         </div>
-
         <button type="submit">Register</button>
       </form>
       <p>
