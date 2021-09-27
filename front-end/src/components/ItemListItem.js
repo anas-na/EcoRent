@@ -20,7 +20,8 @@ const ItemListItem = ({ item }) => {
 
   const category = categories.filter(
     (category) => category.id === item.category_id
-  );
+    );
+    console.log(category)
   return (
     <tr>
       <td>

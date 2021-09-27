@@ -60,12 +60,11 @@ const ItemNew = () => {
 
   return (
     <section className="formContainer">
-      <h1>Add New Item</h1>
+      <h1 className='formTitle'>Add New Item</h1>
+
       <section className="form">
-
-
         <form onSubmit={handleSubmit}>
-
+         <div className='inputs'> 
           <label htmlFor="name">Name: </label>
           <input type='text' id="name" value={item.name} onChange={handleChange} required />
 
@@ -98,8 +97,8 @@ const ItemNew = () => {
             onChange={handleChange}
             required
           />
-
-          <input type="submit" />
+        </div>
+          <input type="submit" className='button' />
         </form>
       </section>
     </section>
