@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useHistory } from "react-router";
+import { Redirect, useHistory } from "react-router";
 import useUser from "../hooks/useUser";
 import { apiURL } from "../util/apiURL";
 import { useContext } from "react";
@@ -89,6 +89,7 @@ const SignUp = () => {
           <input name="phoneNumber" type="tel" id="phoneNumber" />
         </div>
         <button type="submit">Register</button>
+        </div>
       </form>
       <p>
         Have already an account?{" "}

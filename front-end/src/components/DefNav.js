@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom'
 
-const defNavBar = () => {
+const DefNavBar = () => {
     return(
         <nav>
             <Link to='/howItWorks'>How It Works</Link>
@@ -10,4 +10,4 @@ const defNavBar = () => {
     )
 }
 
-export default defNavBar;
+export default DefNavBar;
