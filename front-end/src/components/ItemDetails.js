@@ -14,8 +14,8 @@ const ItemDetails = () => {
       try {
         const res = await axios.get(`${API}/items/${id}`);
         console.log(res);
-        debugger;
         setItem(res.data);
+        debugger;
       } catch (error) {
         console.log(error);
       }
@@ -27,8 +27,11 @@ const ItemDetails = () => {
     <div>
         <article>
             <div>
-                In Item Detail Page
-                {item.name}
+            <p>Category:</p>
+            <p>Name: {item.name}</p>
+            <p>Description: {item.description}</p>
+            <p>Price: ${item.price}</p>
+            <p>Location: {item.location}</p>
             </div>
         </article>
     </div>

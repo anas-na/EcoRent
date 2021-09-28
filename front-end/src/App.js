@@ -10,9 +10,9 @@ import MyItems from "./components/MyItems.js";
 import HowItWorks from "./pages/HowItWorks.js";
 import ListAnItem from "./pages/New.js";
 import NavBar from "./components/NavBar";
-import ItemsList from "./components/ItemsList"
 import Index from "./pages/Index.js";
 import ItemDetails from './components/ItemDetails';
+import ItemNew from './components/ItemNew';
 
 function App() {
 
@@ -28,7 +28,7 @@ function App() {
         <AuthRoute path ='/howItWorks' component={HowItWorks}/>
         <AuthRoute path='/items/:id' component={ItemDetails} />
         <AuthRoute path='/myItems' component={MyItems} />
-        <AuthRoute path ='/items/new' component={ListAnItem}/>
+        <AuthRoute path ='/items/new' component={ItemNew}/>
         <Route path='/items'  component={Index}/>
         {/* <Route path='/account' component={Account}/> */}
 

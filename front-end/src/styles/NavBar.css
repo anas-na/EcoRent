@@ -1,10 +1,9 @@
 .navContainer {
-    background-color: #5092A8;
+    background-color: #186E8B;
     width: 100%;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    margin-bottom: 1%;
 }
 
  .links {
@@ -33,6 +32,7 @@ a {
 a:hover {
     color: #98BD89;
     font-family: Comfortaa Bold;
+    cursor: pointer;
 }
 
 

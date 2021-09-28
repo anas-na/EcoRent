@@ -26,23 +26,13 @@ const ItemsList = () => {
 
 	return (
 		<div>
-			<section>
-				<table>
-					<thead >
-						<tr>
-							<th scope="col">Name</th>
-							<th scope="col">category</th>
-							<th scope="col">Description</th>
-							<th scope="col">Price</th>
-							<th scope="col">Location</th>
-						</tr>
-					</thead>
-					<tbody>
+			<section className='itemsContainer'>
+				<h1>Items </h1>
+					<div className='allItemsContainer'>
 						{items.map((item) => {
-							return <ItemListItem key={item.id} item={item} />;
+							return <ItemListItem key={item.id} item={item}/>;
 						})}
-					</tbody>
-				</table>
+					</div>
 			</section>
 		</div>
 	);

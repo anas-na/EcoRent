@@ -1,3 +1,4 @@
+import '../styles/ItemList.css'
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
@@ -22,16 +23,17 @@ const ItemListItem = ({ item }) => {
     (category) => category.id === item.category_id
   );
   return (
-    <tr>
-      <td>
-        <Link to={`/items/${item.id}`}>{item.name}</Link>
-      </td>
-      <td>{category[0].name}</td>
 
-      <td>{item.description}</td>
-      <td>${item.price}</td>
-      <td>{item.location}</td>
-    </tr>
+      
+    <div className='singleItem'>
+      <Link to={`/items/${item.id}`} className='itemName'>{item.name}</Link>
+      <p>Category: {category[0].name}</p>
+      <p>Price: ${item.price}</p>
+      <p>Location: {item.location}</p>
+      <img src={item.image} />
+   
+
+    </div>
   );
 };
 
