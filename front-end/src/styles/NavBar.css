@@ -32,6 +32,7 @@ a {
 a:hover {
     color: #98BD89;
     font-family: Comfortaa Bold;
+    cursor: pointer;
 }
 
 
