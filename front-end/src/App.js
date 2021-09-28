@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-=======
 import './App.css'
->>>>>>> 37c09054d1b1f6ebbb01618478c65f769c58022f
 import AuthRoute from "./components/AuthRoute.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home"
@@ -15,6 +12,7 @@ import ListAnItem from "./pages/New.js";
 import NavBar from "./components/NavBar";
 import ItemsList from "./components/ItemsList"
 import Index from "./pages/Index.js";
+import ItemDetails from './components/ItemDetails';
 
 function App() {
 
@@ -28,7 +26,7 @@ function App() {
         <Route exact path="/signup" component={SignUp}/>
         <Route exact path="/login" component={LogIn}/>
         <AuthRoute path ='/howItWorks' component={HowItWorks}/>
-        
+        <AuthRoute path='/items/:id' component={ItemDetails} />
         <AuthRoute path='/myItems' component={MyItems} />
         <AuthRoute path ='/items/new' component={ListAnItem}/>
         <Route path='/items'  component={Index}/>
