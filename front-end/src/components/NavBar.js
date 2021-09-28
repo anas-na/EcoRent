@@ -31,9 +31,9 @@ const NavBar = () => {
             <img src={logo} className="logo" />
           </div>
           <div className="links">
-            <Link to="/howItWorks">How It Works</Link>
-            <Link to="/about">About</Link>
-            <Link to="/signUpLogIn">SignUp/LogIn</Link>
+            <NavLink to="/howItWorks">How It Works</NavLink>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/signUpLogIn">SignUp/LogIn</NavLink>
           </div>
         </div>
       </nav>
