@@ -30,12 +30,8 @@ Form {
     font-family: Comfortaa Bold;
     border-radius: 25px;
     border: solid white .3em;
+    box-shadow: 5px 5px 8px #004d21;
 
-}
-
-form:hover{
-    background-color: #008037;
-    
 }
 
 input {
