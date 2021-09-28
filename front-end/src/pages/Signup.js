@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useHistory } from "react-router";
+import { Redirect, useHistory } from "react-router";
 import useUser from "../hooks/useUser";
 import { apiURL } from "../util/apiURL";
 import { useContext } from "react";
@@ -48,7 +48,11 @@ const SignUp = () => {
       console.log("SignUp Function:", error);
     }
   };
-
+  
+   if(user) {
+    return <Redirect to="/" />;
+}
+   
   return (
     <section>
       <h2>Create an account</h2>
@@ -64,12 +68,10 @@ const SignUp = () => {
         <div>
           <label htmlFor="displayName">Display Name</label>
           <input name="displayName" type="text" id="displayName" />
-        </div>
         <div>
           <label htmlFor="email">Your Email</label>
           <input name="email " type="email" id="email" />
         </div>
-
         <div>
           <label htmlFor="password">Password</label>
           <input name="password" type="password" id="password" />
@@ -87,6 +89,7 @@ const SignUp = () => {
           <input name="phoneNumber" type="tel" id="phoneNumber" />
         </div>
         <button type="submit">Register</button>
+        </div>
       </form>
       <p>
         Have already an account?{" "}

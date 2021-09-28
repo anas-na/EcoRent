@@ -1,3 +1,7 @@
+<<<<<<< HEAD
+=======
+import './App.css'
+>>>>>>> 37c09054d1b1f6ebbb01618478c65f769c58022f
 import AuthRoute from "./components/AuthRoute.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home"
@@ -7,13 +11,15 @@ import UserProvider from "./providers/UserProvider.js";
 import FourOFour from "./pages/FourOFour"
 import MyItems from "./components/MyItems.js";
 import HowItWorks from "./pages/HowItWorks.js";
-import ItemNew from "./components/ItemNew.js";
+import ListAnItem from "./pages/New.js";
 import NavBar from "./components/NavBar";
+import ItemsList from "./components/ItemsList"
+import Index from "./pages/Index.js";
 
 function App() {
 
   return (
-    <div>
+    <div className='App'>
       <UserProvider>
       <Router>
       <NavBar />
@@ -21,11 +27,11 @@ function App() {
         <AuthRoute exact path="/" component={Home} />
         <Route exact path="/signup" component={SignUp}/>
         <Route exact path="/login" component={LogIn}/>
-
         <AuthRoute path ='/howItWorks' component={HowItWorks}/>
+        
         <AuthRoute path='/myItems' component={MyItems} />
-        <AuthRoute path ='/items/new' component={ItemNew}/>
-        {/* <Route path='/items'  component={ItemList}/> */}
+        <AuthRoute path ='/items/new' component={ListAnItem}/>
+        <Route path='/items'  component={Index}/>
         {/* <Route path='/account' component={Account}/> */}
 
 

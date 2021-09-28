@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 import { apiURL } from "../util/apiURL";
 const API = apiURL();
 
+
 const ItemNew = () => {
   let history = useHistory();
   
@@ -40,7 +41,6 @@ const ItemNew = () => {
   };
   
   const handleCategory = (e) =>  {
-    debugger
     setItem({ ...item, [e.target.id]: Number(e.target.value) });
   }
 
