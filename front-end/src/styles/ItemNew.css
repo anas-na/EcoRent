@@ -1,79 +1,96 @@
 .formContainer {
-    background-color: #C6DABE;
-    height: 100vh;
-    margin: 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-image: url('./media/background.svg');
-    background-size: contain;
-    background-position: center;
-    background-repeat: no-repeat;
-    
+  background-color: #c6dabe;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-image: url("./media/background.svg");
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.formTitle{
-    font-family: Comfortaa Bold;
-    color: white;
-    font-size: 2.3em;
-    border: white;
+.formTitle {
+  font-family: Comfortaa Bold;
+  color: white;
+  font-size: 2.3em;
+  border: white;
 }
 
-Form {
-    background-color: #186E8B;
-    width: 28em;
-    height: 25em;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-family: Comfortaa Bold;
-    border-radius: 25px;
-    border: solid white .3em;
-    box-shadow: 5px 5px 8px #004d21;
+form {
+  background-color: #186e8b;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-family: Comfortaa Bold;
+  border-radius: 25px;
+  border: solid white 0.3em;
+  box-shadow: 5px 5px 8px #004d21;
+}
 
+.newItemForm {
+  width: 28em;
+  height: 25em;
+}
+
+.inputs {
+  margin: 5%;
+  margin-bottom: 0;
 }
 
 input {
-    width: 23em;
-    margin: .5em;
-    height: 1.5em;
-    border-radius: 25px;
-    border: 0;
-    font-size: 1em;
+  width: 23em;
+  margin: 0.5em;
+  border-radius: 17px;
+  border: 0;
+  font-size: 1em;
+  align-self: center;
+  padding: 3px;
 }
- 
+
+form input[type="email"],
+input[type="password"],
+input[type="text"]
+ {
+  padding-left: 0.5em;
+}
+
 select {
-    height: 1.9em;
-    margin: .5em;
-    width: 28.5em;
-    border-radius: 25px;
+  height: 1.9em;
+  margin: 0.5em;
+  border-radius: 17px;
 }
 
 div.inputs {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
- .button {
-    width: 7em;
-    height: 2em;
-    border: 1px;
-    border-color: white;
-    background-color: #98BD89;
-    color: white;
-    font-family: Comfortaa Bold;
-    font-size: 1.1em;
+.button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 7em;
+  height: 2em;
+  border: solid white 2px;
+  background-color: #98bd89;
+  color: white;
+  font-family: Comfortaa Bold;
+  font-size: 1.1em;
+  margin-bottom: 1em;
+  padding: 0.4em;
 }
 
 label {
-    color: white;
-    font-size: larger;
-    padding-left: 7px;
+  color: white;
+  font-size: larger;
+  padding-left: 7px;
 }
 
 .button:hover {
-    background-color: white;
-    color: #186E8B;
-    cursor: pointer;
+  background-color: white;
+  color: #186e8b;
+  cursor: pointer;
 }
