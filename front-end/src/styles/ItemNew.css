@@ -29,7 +29,13 @@ Form {
     justify-content: center;
     font-family: Comfortaa Bold;
     border-radius: 25px;
+    border: solid white .3em;
 
+}
+
+form:hover{
+    background-color: #008037;
+    
 }
 
 input {
