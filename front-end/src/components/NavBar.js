@@ -1,15 +1,44 @@
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
+import "../styles/NavBar.css";
+import logo from "../styles/media/EcoRent.svg";
+import { useContext } from "react";
+import { UserContext } from "../providers/UserProvider";
 
 const NavBar = () => {
-return(
-    <nav>
-        <Link to ='/items'>Items</Link>
-        <Link to='/myItems'>My Items</Link>
-        <Link to='/account'>Account</Link>
-        <Link to='/items/new'>List An Item</Link>
+  const user = useContext(UserContext);
 
-    </nav>
-)
-} 
+  if (user) {
+    return (
+      <nav>
+        <div className="navContainer">
+          <div>
+            <img src={logo} className="logo" />
+          </div>
+          <div className="links">
+            <Link to="/items">Items</Link>
+            <Link to="/myItems">My Items</Link>
+            <Link to="/account">Account</Link>
+            <Link to="/items/new">List An Item</Link>
+          </div>
+        </div>
+      </nav>
+    );
+  } else {
+    return (
+      <nav>
+          <div className='navContainer'>
+        <div>
+          <img src={logo} className="logo" />
+        </div>
+        <div className="links">
+          <Link to="/howItWorks">How It Works</Link>
+          <Link to="/about">About</Link>
+          <Link to="/signUpLogIn">SignUp/LogIn</Link>
+        </div>
+        </div>
+      </nav>
+    );
+  }
+};
 
 export default NavBar;

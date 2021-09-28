@@ -1,0 +1,79 @@
+.formContainer {
+    background-color: #C6DABE;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url('./media/background.svg');
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    
+}
+
+.formTitle{
+    font-family: Comfortaa Bold;
+    color: white;
+    font-size: 2.3em;
+    border: white;
+}
+
+Form {
+    background-color: #186E8B;
+    width: 28em;
+    height: 25em;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-family: Comfortaa Bold;
+    border-radius: 25px;
+    border: solid white .3em;
+    box-shadow: 5px 5px 8px #004d21;
+
+}
+
+input {
+    width: 23em;
+    margin: .5em;
+    height: 1.5em;
+    border-radius: 25px;
+    border: 0;
+    font-size: 1em;
+}
+ 
+select {
+    height: 1.9em;
+    margin: .5em;
+    width: 28.5em;
+    border-radius: 25px;
+}
+
+div.inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+ .button {
+    width: 7em;
+    height: 2em;
+    border: 1px;
+    border-color: white;
+    background-color: #98BD89;
+    color: white;
+    font-family: Comfortaa Bold;
+    font-size: 1.1em;
+}
+
+label {
+    color: white;
+    font-size: larger;
+    padding-left: 7px;
+}
+
+.button:hover {
+    background-color: white;
+    color: #186E8B;
+    cursor: pointer;
+}
