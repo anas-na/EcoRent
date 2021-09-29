@@ -1,108 +1,104 @@
-import React from "react";
-import { useHistory } from "react-router";
+import React, { useEffect } from "react";
+import { useHistory, Redirect } from "react-router";
 import useUser from "../hooks/useUser";
 import { apiURL } from "../util/apiURL";
-import axios from "axios"
+import { useContext } from "react";
+import { UserContext } from "../providers/UserProvider";
+import axios from "axios";
 const API = apiURL();
 
 const SignUp = () => {
-  const { signUp } = useUser();
-  console.log("hello")
+  const user = useContext(UserContext);
+  const { signUpFireBase } = useUser();
   const history = useHistory();
+
   const handleSignUp = async (event) => {
     event.preventDefault();
-    
+
     let {
       firstName,
       lastName,
+      displayName,
       phoneNumber,
       dateOfBirth,
       address,
       email,
       password,
     } = event.target.elements;
-    
-    const body = { firstName,
-      lastName,
-      phoneNumber,
-      dateOfBirth,
-      address,
-      email,
-      password };
+
+    const body = {
+      firstName: firstName.value,
+      lastName: lastName.value,
+      phoneNumber: phoneNumber.value,
+      dateOfBirth: dateOfBirth.value,
+      address: address.value,
+      email: email.value,
+      password: password.value,
+    };
     try {
-      await signUp(
-        firstName.value,
-        lastName.value,
-        phoneNumber.value,
-        dateOfBirth.value,
-        address.value,
+      const res = await signUpFireBase(
         email.value,
-        password.value
-        );
-      axios.post(`${API}/users`, body);
+        password.value,
+        displayName.value
+      );
+      body.id = res.user.uid;
+      await axios.post(`${API}/users`, body);
       history.push("/");
     } catch (error) {
-      alert(error);
+      console.log("SignUp Function:", error);
     }
   };
-    
-//     return (
-//       <section>
-//       <h2>Create an account</h2>
-//       <form onSubmit={handleSignUp}>
-//         <div>
-//           <input name='firstName' type='text' id='firstName' />
-//           <label className='form-label' htmlFor='firstName'>
-//             First Name
-//           </label>
-//         </div>
-//         <div>
-//           <input name='lastName' type='text' id='lastName' />
-//           <label className='form-label' htmlFor='lastName'>
-//             Last Name
-//           </label>
-//         </div>
-//         <div>
-//           <input name='displayName' type='text' id='displayName' />
-//           <label className='form-label' htmlFor='displayName'>
-//             Display Name
-//           </label>
-//         </div>
-
-//         <div>
-//           <input name='email ' type='email' id='email' />
-//           <label className='form-label' htmlFor='email'>
-//             Your Email
-//           </label>
-//         </div>
-
-//         <div>
-//           <input name='password' type='password' id='password' />
-//           <label htmlFor='password'>Password</label>
-//         </div>
-//         <div>
-//           <input name='address' type='adress' id='address' />
-//           <label htmlFor='address'>Adress</label>
-//         </div>
-//         <div>
-//           <input name='dateOfBirth' type='date' id='dateOfBirth' />
-//           <label htmlFor='dateOfBirth'>Date Of Birth</label>
-//         </div>
-//         <div>
-//           <input name='phoneNumber' type='tel' id='phoneNumber' />
-//           <label htmlFor='phoneNumber'>Phone Number</label>
-//         </div>
-       
-//         <button type='submit'>Register</button>
-//       </form>
-//       <p>
-//         Have already an account?{" "}
-//         <a href='/login' className='fw-bold text-body'>
-//           <u>Login here</u>
-//         </a>
-//       </p>
-//     </section>
-//   );
+  
+   if(user) {
+    return <Redirect to="/" />;
+}
+   
+  return (
+    <section>
+      <h2>Create an account</h2>
+      <form onSubmit={handleSignUp}>
+        <div>
+          <label htmlFor="firstName">First Name</label>
+          <input name="firstName" type="text" id="firstName" />
+        </div>
+        <div>
+          <label htmlFor="lastName">Last Name</label>
+          <input name="lastName" type="text" id="lastName" />
+        </div>
+        <div>
+          <label htmlFor="displayName">Display Name</label>
+          <input name="displayName" type="text" id="displayName" />
+          </div>
+        <div>
+          <label htmlFor="email">Your Email</label>
+          <input name="email " type="email" id="email" />
+        </div>
+        <div>
+          <label htmlFor="password">Password</label>
+          <input name="password" type="password" id="password" />
+        </div>
+        <div>
+          <label htmlFor="address">Address</label>
+          <input name="address" type="address" id="address" />
+        </div>
+        <div>
+          <label htmlFor="dateOfBirth">Date Of Birth</label>
+          <input name="dateOfBirth" type="date" id="dateOfBirth" />
+        </div>
+        <div>
+          <label htmlFor="phoneNumber">Phone Number</label>
+          <input name="phoneNumber" type="tel" id="phoneNumber" />
+        </div>
+        <button type="submit">Register</button>
+      </form>
+      <p>
+        Have already an account?{" "}
+        <a href="/login" className="fw-bold text-body">
+          <u>Login here</u>
+        </a>
+      </p>
+    </section>
+  );
 };
 
 export default SignUp;

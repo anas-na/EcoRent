@@ -1,5 +1,3 @@
-import { useState, useEffect } from "react";
-import { apiURL } from "./util/apiURL.js";
 import AuthRoute from "./components/AuthRoute.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home"
@@ -9,32 +7,33 @@ import UserProvider from "./providers/UserProvider.js";
 import FourOFour from "./pages/FourOFour"
 import MyItems from "./components/MyItems.js";
 import HowItWorks from "./pages/HowItWorks.js";
-
-
-const API = apiURL();
+import ItemNew from "./components/ItemNew.js";
+import NavBar from "./components/NavBar";
+import ItemsList from "./components/ItemsList"
+import Index from "./pages/Index.js";
+import Profile from "./components/Profile.js";
 
 function App() {
-  // useEffect(() => {
-    
-  // }, []);
+
   return (
     <div>
       <UserProvider>
       <Router>
+      <NavBar />
       <Switch>
         <AuthRoute exact path="/" component={Home} />
         <Route exact path="/signup" component={SignUp}/>
         <Route exact path="/login" component={LogIn}/>
 
-        <Route path ='/howItWorks'> <HowItWorks /> </Route>
-        <Route path='/myItems' component={MyItems} />
-        {/* <Route path='/items'  component={ItemList}/>
-        <Route path='/account' component={Account}/>
-        <Route path ='/listItem' component={ItemNew}/> */}
+        <AuthRoute path ='/howItWorks' component={HowItWorks}/>
+        <AuthRoute path='/myItems' component={MyItems} />
+        <AuthRoute path ='/items/new' component={ItemNew}/>
+        <Route path='/items'  component={Index}/>
+        <Route path='/myprofile' component={Profile}/>
+        {/* <Route path='/account' component={Account}/> */}
 
 
         <Route  path="*" component={FourOFour}/>
-        
       </Switch>
       </Router>
       </UserProvider>

@@ -1,21 +1,34 @@
 import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import useUser from "../hooks/useUser"
+import { UserContext } from "../providers/UserProvider";
+import { useContext, useState, useEffect } from "react";
+import { useUser } from "../hooks/useUser";
 
 const AuthRoute = ({ component: AuthorizeComponent, ...allProps }) => {
-  debugger
-    const { user } = useUser()
-    if (!user) {
-      console.log("ABOUT TO REDIRECT TO LOGIN")
-    }
-    // <AuthRoute exact path="/" component={Home} />
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 500);
+  }, []);
+
+  const user = useContext(UserContext);
+
+  if (loading) {
+    return <div>loading ...</div>;
+  }
+
   return (
     <Route
       {...allProps}
-      render={(routeProps) => user 
-        ? (<AuthorizeComponent { ...routeProps } />) 
-        : (<Redirect to={"/login"} />)
-    }
+      render={(routeProps) =>
+        user ? (
+          <AuthorizeComponent {...routeProps} />
+        ) : (
+          <Redirect to={"/login"} />
+        )
+      }
     />
   );
 };

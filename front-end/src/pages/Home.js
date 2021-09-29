@@ -3,7 +3,6 @@ import useUser from "../hooks/useUser";
 import { useContext } from "react";
 import { UserContext } from "../providers/UserProvider";
 import SignUp from "./Signup";
-
 import { storage } from "../services/Firebase";
 import {
   getStorage,
@@ -19,7 +18,6 @@ const Home = () => {
   const [image, setImage] = useState("");
   const [imageAsUrl, setImageAsUrl] = useState("");
 
-  console.log(image);
   const handleImage = (event) => {
     const img = event.target.files[0];
     setImage((image) => img);
@@ -42,7 +40,7 @@ const Home = () => {
         // Upload completed successfully, now we can get the download URL
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log("File available at", downloadURL);
-          setImageAsUrl(downloadURL);
+          setImageAsUrl(downloadURL)
         });
       }
     );
@@ -59,8 +57,8 @@ const Home = () => {
 
   return (
     <div>
-      {string ? string.email : "Hi"}
-      <h1>Welcome To EcoRent ${}</h1>
+      {string ? string.email : "Hi you are in Home"}
+      <h1>Welcome To EcoRent</h1>
       <button onClick={() => handleLogOut()}>Log Out</button>
       <form>
         <input type="file" onChange={handleImage} />
