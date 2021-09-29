@@ -12,6 +12,7 @@ import ListAnItem from "./pages/New.js";
 import NavBar from "./components/NavBar";
 import ItemsList from "./components/ItemsList"
 import Index from "./pages/Index.js";
+import Profile from "./components/Profile.js";
 
 function App() {
 
@@ -29,6 +30,7 @@ function App() {
         <AuthRoute path='/myItems' component={MyItems} />
         <AuthRoute path ='/items/new' component={ListAnItem}/>
         <Route path='/items'  component={Index}/>
+        <Route path='/myprofile' component={Profile}/>
         {/* <Route path='/account' component={Account}/> */}
 
 
