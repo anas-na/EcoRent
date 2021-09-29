@@ -1,0 +1,42 @@
+.hiwContainer {
+    background-image: url('./media/background2.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-color: #c6dabe;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.listContainer {
+    display: flex;
+    align-self: center;
+    width:70%;
+    height: 55%;
+    background-image: url('./media/liBackground.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    justify-content: center;
+    align-items: center;
+}
+
+li {
+    width: 10em;
+    height: 11em;
+    overflow: scroll;
+    margin: 1em;
+    border: solid white 0.3em;
+    background: rgb(201, 226, 102, 0.7);  
+    font-family:  Comfortaa Bold;
+    color: white;
+    padding: .5em;
+}
+ol {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 76%;
+    height: 45%;
+}

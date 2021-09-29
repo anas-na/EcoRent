@@ -16,7 +16,7 @@ const ItemListItem = ({ item }) => {
     getCategories();
   }, []);
   if (!categories) {
-    return <p>Loading</p>;
+    return <h6>Loading</h6>;
   }
 
   const category = categories.filter(
@@ -26,11 +26,12 @@ const ItemListItem = ({ item }) => {
 
       
     <div className='singleItem'>
-      <Link to={`/items/${item.id}`} className='itemName'>{item.name}</Link>
-      <p>Category: {category[0].name}</p>
-      <p>Price: ${item.price}</p>
-      <p>Location: {item.location}</p>
+      <Link to={`/items/${item.id}`} className='itemName'>{item.name}
+      <h4>Category: {category[0].name}</h4>
+      <h4>Price: ${item.price}</h4>
+      <h4>Location: {item.location}</h4>
       <img src={item.image} />
+      </Link>
    
 
     </div>

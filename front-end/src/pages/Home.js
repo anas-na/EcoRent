@@ -55,6 +55,16 @@ const Home = () => {
     }
   };
 
+const imagePlaceHolder = (img) => {
+  if(imageAsUrl === ''){
+    return <div></div>
+  } else {
+    return(
+      <img src={imageAsUrl} alt="newItemImg" />
+    )
+  }
+}
+
   return (
     <div>
       {string ? string.email : "Hi you are in Home"}
@@ -63,7 +73,8 @@ const Home = () => {
       <form>
         <input type="file" onChange={handleImage} />
         <button onClick={handleUpload}>Upload</button>
-        <img src={imageAsUrl} alt="image_test" />
+       {imagePlaceHolder()}
+       
       </form>
     </div>
   );
