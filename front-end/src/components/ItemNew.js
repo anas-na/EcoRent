@@ -64,6 +64,7 @@ import {
     description: "",
     price: 0.0,
     location: "",
+    photo:''
     user_id: ""
   });
   console.log(user)

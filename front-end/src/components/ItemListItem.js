@@ -37,9 +37,7 @@ const ItemListItem = ({ item }) => {
       {/* <h4>Category: {category[0].name}</h4> */}
       <h4>Price: ${item.price}</h4>
       <h4>Location: {item.location}</h4>
-      {/* <h4>{item.user_id}</h4> */}
-
-      <img src={item.image} />
+      <img src={item.image} className='itemImage'/>
       </Link>
    
 
