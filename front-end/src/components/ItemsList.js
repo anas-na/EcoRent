@@ -26,7 +26,7 @@ const ItemsList = () => {
 	return (
 		<div>
 			<section className='itemsContainer'>
-				<h1>Items </h1>
+				<h1>Items</h1>
 					<div className='allItemsContainer'>
 						{items.map((item) => {
 							return <ItemListItem key={item.id} item={item}/>;

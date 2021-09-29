@@ -4,7 +4,6 @@ import { useHistory } from "react-router";
 import { apiURL } from "../util/apiURL";
 import { useContext } from "react";
 import { UserContext } from "../providers/UserProvider";
-
 import { storage } from "../services/Firebase";
 import {
   getStorage,
@@ -21,6 +20,7 @@ import {
   const [image, setImage] = useState("");
   const [imageAsUrl, setImageAsUrl] = useState("");
 
+
   const addItem = async (newItem) => {
     try {
       await axios.post(`${API}/items`, newItem);
@@ -35,7 +35,28 @@ import {
     setImage((image) => img);
   };
 
-  
+  const handleUpload = (event) => {
+    event.preventDefault();
+    const storage = getStorage();
+    const storageRef = ref(storage, "items/" + image.name);
+    const uploadTask = uploadBytesResumable(storageRef, image);
+    uploadTask.on(
+      "state_changed",
+      (snapShot) => {
+        console.log(snapShot);
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          console.log("File available at", downloadURL);
+          setImageAsUrl(downloadURL)
+        });
+      }
+    );
+  };
+
   const [item, setItem] = useState({
     category_id: 0,
     photo: "",
@@ -100,7 +121,7 @@ import {
     return <option value={category.id}>{category.name}</option>;
   });
 
-  
+
   const imagePlaceHolder = (img) => {
     if(imageAsUrl === ''){
       return <div></div>
@@ -113,7 +134,6 @@ import {
 
   return (
     <section className="formContainer">
-
       <h1 className="formTitle">List An Item</h1>
 
       <section className="newItemForm">
@@ -165,12 +185,12 @@ import {
             />
             <div className='imageUpload'>
             <input id="photo" type="file" onChange={handleImage}/>
+
             <button onClick={handleUpload} className='button1'>Upload</button>
             {imagePlaceHolder()}
             </div>
           </div>
           <input type="submit" className="button" />
-
         </form>
       </section>
     </section>
