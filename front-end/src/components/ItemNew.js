@@ -61,6 +61,7 @@ import {
     description: "",
     price: 0.0,
     location: "",
+    photo:''
   });
 
   const [categories, setCategories] = useState([]);
@@ -96,8 +97,9 @@ import {
     } else {
       return(
         <img src={imageAsUrl} alt="newItemImg" />
-      )
-    }
+        )
+      }
+      setItem({...item,[item.photo]:imageAsUrl})
   }
 
   return (
