@@ -1,0 +1,54 @@
+.navContainer {
+  background-color: #186e8b;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.links {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-around;
+}
+
+.navTitle {
+  color: white;
+  margin: 0;
+  font-family: Warung;
+  font-size: 2.4em;
+}
+
+a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.5em;
+  font-family: Comfortaa;
+}
+
+a:hover {
+  color: #98bd89;
+  font-family: Comfortaa Bold;
+  cursor: pointer;
+}
+
+@font-face {
+  font-family: Comfortaa;
+  src: url("../styles/fonts/Comfortaa-Regular.ttf");
+}
+
+@font-face {
+  font-family: Comfortaa Bold;
+  src: url("../styles/fonts/Comfortaa-Bold.ttf");
+}
+
+@font-face {
+  font-family: Warung;
+  src: url("../styles/fonts/Warung\ Kopi\ Bold.otf");
+}
+
+.logo {
+  max-height: 5em;
+  margin: 1.5%;
+}

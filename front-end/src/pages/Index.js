@@ -1,4 +1,5 @@
 import ItemsList from "../components/ItemsList";
+import '../styles/ItemList.css'
 
 function Index() {
   return (

@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 import { apiURL } from "../util/apiURL";
 const API = apiURL();
 
+
 const ItemNew = () => {
   let history = useHistory();
   
@@ -59,19 +60,18 @@ const ItemNew = () => {
 
   return (
     <section className="formContainer">
-      <h1>Add New Item</h1>
-      <section className="form">
+      <h1 className='formTitle'>List An Item</h1>
 
-
+      <section className="newItemForm">
         <form onSubmit={handleSubmit}>
-
-          <label htmlFor="name">Name: </label>
+         <div className='inputs'> 
+          <label htmlFor="name">Name  </label>
           <input type='text' id="name" value={item.name} onChange={handleChange} required />
 
-          <label htmlFor='description'>Description: </label>
+          <label htmlFor='description'>Description  </label>
           <input type='textarea' id='description' value={item.description} onChange={handleChange} required/>
 
-          <label htmlFor="category">Category: </label>
+          <label htmlFor="category">Category  </label>
 
           <select id="category_id" required onChange={handleCategory}>
             <option disabled defaultValue>
@@ -80,7 +80,7 @@ const ItemNew = () => {
             {options}
           </select>
 
-          <label htmlFor="price">Price: </label>
+          <label htmlFor="price">Price  </label>
           <input 
           id='price'
           type='text'
@@ -89,7 +89,7 @@ const ItemNew = () => {
             required
           />
 
-          <label htmlFor="location">Location: </label>
+          <label htmlFor="location">Location </label>
           <input
           id='location'
           type='text'
@@ -97,8 +97,8 @@ const ItemNew = () => {
             onChange={handleChange}
             required
           />
-
-          <input type="submit" />
+        </div>
+          <input type="submit" className='button' />
         </form>
       </section>
     </section>
