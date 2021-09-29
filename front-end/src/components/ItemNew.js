@@ -61,6 +61,7 @@ import {
     description: "",
     price: 0.0,
     location: "",
+    photo:''
   });
 
   const [categories, setCategories] = useState([]);
@@ -102,7 +103,6 @@ import {
 
   return (
     <section className="formContainer">
-
       <h1 className="formTitle">List An Item</h1>
 
       <section className="newItemForm">
@@ -159,7 +159,6 @@ import {
             </div>
           </div>
           <input type="submit" className="button" />
-
         </form>
       </section>
     </section>
