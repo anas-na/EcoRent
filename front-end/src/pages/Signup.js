@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import { useHistory, Redirect } from "react-router";
+import { Redirect, useHistory } from "react-router";
 import useUser from "../hooks/useUser";
 import { apiURL } from "../util/apiURL";
 import { useContext } from "react";
