@@ -97,9 +97,8 @@ import {
     } else {
       return(
         <img src={imageAsUrl} alt="newItemImg" />
-        )
-      }
-      setItem({...item,[item.photo]:imageAsUrl})
+      )
+    }
   }
 
   return (
