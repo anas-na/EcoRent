@@ -48,6 +48,7 @@ input {
   font-size: 1em;
   align-self: center;
   padding: 3px;
+
 }
 
 form input[type="email"],
@@ -56,6 +57,7 @@ input[type="text"]
  {
   padding-left: 0.5em;
 }
+
 
 select {
   height: 1.9em;
@@ -107,3 +109,4 @@ button.button1 {
   width: 7em;
   margin-bottom: 1em;
 }
+

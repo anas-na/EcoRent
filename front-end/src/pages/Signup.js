@@ -68,6 +68,7 @@ const SignUp = () => {
         <div>
           <label htmlFor="displayName">Display Name</label>
           <input name="displayName" type="text" id="displayName" />
+          </div>
         <div>
           <label htmlFor="email">Your Email</label>
           <input name="email " type="email" id="email" />
