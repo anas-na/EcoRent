@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
 import { apiURL } from "../util/apiURL";
+import { useContext } from "react";
+import { UserContext } from "../providers/UserProvider";
 
 import { storage } from "../services/Firebase";
 import {
@@ -13,6 +15,7 @@ import {
 
   const API = apiURL();
   const ItemNew = () => {
+  const user = useContext(UserContext);
   let history = useHistory();
 
   const [image, setImage] = useState("");
@@ -40,7 +43,9 @@ import {
     description: "",
     price: 0.0,
     location: "",
+    user_id: ""
   });
+  console.log(user)
   const handleUpload = (event) => {
     event.preventDefault();
     const storage = getStorage();
@@ -58,10 +63,11 @@ import {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log("File available at", downloadURL);
           setImageAsUrl(downloadURL)
+          setItem({ ...item, photo: downloadURL })
         });
       }
     );
-    
+   
   };
 
 
@@ -71,8 +77,10 @@ import {
     const getCategories = async () => {
       const res = await axios.get(`${API}/categories`);
       setCategories(res.data);
+      
     };
     getCategories();
+    setItem({ ...item, user_id: user.uid })
   }, []);
 
   const handleChange = (e) => {
@@ -100,7 +108,6 @@ import {
       return(
         <img src={imageAsUrl} alt="newItemImg" />
         )
-        // setItem({ ...item, [item.photo]:imageAsUrl })
       }
     }
 
