@@ -30,6 +30,7 @@ CREATE TABLE categories (
 CREATE TABLE items (
     id SERIAL PRIMARY KEY, 
     category_id INT,
+    photo TEXT NOT NULL,
     name TEXT,
     description TEXT,
     price INT,

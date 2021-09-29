@@ -25,7 +25,7 @@ function App() {
         <AuthRoute exact path="/" component={Home} />
         <Route exact path="/signup" component={SignUp}/>
         <Route exact path="/login" component={LogIn}/>
-        <AuthRoute path ='/howItWorks' component={HowItWorks}/>
+        <Route path ='/howItWorks' component={HowItWorks}/>
         
         <AuthRoute path='/myItems' component={MyItems} />
         <AuthRoute path ='/items/new' component={ListAnItem}/>

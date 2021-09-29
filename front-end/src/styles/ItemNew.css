@@ -48,6 +48,7 @@ input {
   font-size: 1em;
   align-self: center;
   padding: 3px;
+
 }
 
 form input[type="email"],
@@ -56,6 +57,7 @@ input[type="text"]
  {
   padding-left: 0.5em;
 }
+
 
 select {
   height: 1.9em;
@@ -94,3 +96,17 @@ label {
   color: #186e8b;
   cursor: pointer;
 }
+
+.imageUpload {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 6em;
+}
+
+button.button1 {
+  height: 2em;
+  width: 7em;
+  margin-bottom: 1em;
+}
+

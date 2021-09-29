@@ -8,7 +8,6 @@ const API = apiURL();
 const ItemsList = () => {
     const [items, setItems] = useState([]);
 	
-
 	useEffect(() => {
 		const fetchItems = async () => {
 			try {
@@ -19,7 +18,6 @@ const ItemsList = () => {
 				console.log(err);
 			}
 		};
-		
 		fetchItems();
 	}, []);
 
@@ -28,7 +26,7 @@ const ItemsList = () => {
 	return (
 		<div>
 			<section className='itemsContainer'>
-				<h1>Items </h1>
+				<h1>Items</h1>
 					<div className='allItemsContainer'>
 						{items.map((item) => {
 							return <ItemListItem key={item.id} item={item}/>;
