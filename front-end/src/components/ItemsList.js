@@ -8,7 +8,6 @@ const API = apiURL();
 const ItemsList = () => {
     const [items, setItems] = useState([]);
 	
-
 	useEffect(() => {
 		const fetchItems = async () => {
 			try {
@@ -19,7 +18,6 @@ const ItemsList = () => {
 				console.log(err);
 			}
 		};
-		
 		fetchItems();
 	}, []);
 

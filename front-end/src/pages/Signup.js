@@ -89,6 +89,7 @@ const SignUp = () => {
           <label htmlFor="phoneNumber">Phone Number</label>
           <input name="phoneNumber" type="tel" id="phoneNumber" />
         </div>
+        <div>
         <button type="submit">Register</button>
         </div>
       </form>

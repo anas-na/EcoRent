@@ -32,7 +32,15 @@ import {
     setImage((image) => img);
   };
 
-
+  
+  const [item, setItem] = useState({
+    category_id: 0,
+    photo: "",
+    name: "",
+    description: "",
+    price: 0.0,
+    location: "",
+  });
   const handleUpload = (event) => {
     event.preventDefault();
     const storage = getStorage();
@@ -53,15 +61,9 @@ import {
         });
       }
     );
+    
   };
 
-  const [item, setItem] = useState({
-    category_id: 0,
-    name: "",
-    description: "",
-    price: 0.0,
-    location: "",
-  });
 
   const [categories, setCategories] = useState([]);
 
@@ -90,15 +92,17 @@ import {
     return <option value={category.id}>{category.name}</option>;
   });
 
+  
   const imagePlaceHolder = (img) => {
     if(imageAsUrl === ''){
       return <div></div>
     } else {
       return(
         <img src={imageAsUrl} alt="newItemImg" />
-      )
+        )
+        // setItem({ ...item, [item.photo]:imageAsUrl })
+      }
     }
-  }
 
   return (
     <section className="formContainer">
@@ -153,7 +157,7 @@ import {
               required
             />
             <div className='imageUpload'>
-            <input type="file" onChange={handleImage}/>
+            <input id="photo" type="file" onChange={handleImage}/>
             <button onClick={handleUpload} className='button1'>Upload</button>
             {imagePlaceHolder()}
             </div>
