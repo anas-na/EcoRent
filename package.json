@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/joinpursuit/pern-final-project#readme",
   "dependencies": {
-    "mdb-ui-kit": "^3.9.0"
+    "mdb-ui-kit": "^3.9.0",
+    "react-google-maps": "^9.4.5"
   }
 }
