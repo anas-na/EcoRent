@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
 import { apiURL } from "../util/apiURL";
-
+import { useContext } from "react";
+import { UserContext } from "../providers/UserProvider";
 import { storage } from "../services/Firebase";
 import {
   getStorage,
@@ -13,10 +14,12 @@ import {
 
   const API = apiURL();
   const ItemNew = () => {
+  const user = useContext(UserContext);
   let history = useHistory();
 
   const [image, setImage] = useState("");
   const [imageAsUrl, setImageAsUrl] = useState("");
+
 
   const addItem = async (newItem) => {
     try {
@@ -31,7 +34,6 @@ import {
     const img = event.target.files[0];
     setImage((image) => img);
   };
-
 
   const handleUpload = (event) => {
     event.preventDefault();
@@ -57,12 +59,39 @@ import {
 
   const [item, setItem] = useState({
     category_id: 0,
+    photo: "",
     name: "",
     description: "",
     price: 0.0,
     location: "",
     photo:''
+    user_id: ""
   });
+  console.log(user)
+  const handleUpload = (event) => {
+    event.preventDefault();
+    const storage = getStorage();
+    const storageRef = ref(storage, "items/" + image.name);
+    const uploadTask = uploadBytesResumable(storageRef, image);
+    uploadTask.on(
+      "state_changed",
+      (snapShot) => {
+        console.log(snapShot);
+      },
+      (err) => {
+        console.log(err);
+      },
+      () => {
+        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+          console.log("File available at", downloadURL);
+          setImageAsUrl(downloadURL)
+          setItem({ ...item, photo: downloadURL })
+        });
+      }
+    );
+   
+  };
+
 
   const [categories, setCategories] = useState([]);
 
@@ -70,8 +99,10 @@ import {
     const getCategories = async () => {
       const res = await axios.get(`${API}/categories`);
       setCategories(res.data);
+      
     };
     getCategories();
+    setItem({ ...item, user_id: user.uid })
   }, []);
 
   const handleChange = (e) => {
@@ -91,15 +122,16 @@ import {
     return <option value={category.id}>{category.name}</option>;
   });
 
+
   const imagePlaceHolder = (img) => {
     if(imageAsUrl === ''){
       return <div></div>
     } else {
       return(
         <img src={imageAsUrl} alt="newItemImg" />
-      )
+        )
+      }
     }
-  }
 
   return (
     <section className="formContainer">
@@ -153,7 +185,8 @@ import {
               required
             />
             <div className='imageUpload'>
-            <input type="file" onChange={handleImage}/>
+            <input id="photo" type="file" onChange={handleImage}/>
+
             <button onClick={handleUpload} className='button1'>Upload</button>
             {imagePlaceHolder()}
             </div>
