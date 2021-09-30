@@ -3,6 +3,7 @@ import { getStorage, ref } from "firebase/storage";
 import firebase from 'firebase/compat/app';
 import { getAuth } from 'firebase/auth';
 import 'firebase/storage'; 
+import 'firebase/database'
 
 const firebaseConfig = {
     apiKey: process.env.REACT_APP_API_KEY,
@@ -13,6 +14,7 @@ const firebaseConfig = {
     appId: process.env.REACT_APP_APP_ID,
     measurementId: process.env.REACT_APP_MEASUREMENT_ID
 };
+
 
 
 const app = firebase.initializeApp(firebaseConfig);

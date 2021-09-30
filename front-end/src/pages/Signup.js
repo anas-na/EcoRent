@@ -57,46 +57,46 @@ const SignUp = () => {
     <section>
       <h2>Create an account</h2>
       <form onSubmit={handleSignUp}>
-        <div>
+        
           <label htmlFor="firstName">First Name</label>
           <input name="firstName" type="text" id="firstName" />
-        </div>
-        <div>
+       
+      
           <label htmlFor="lastName">Last Name</label>
           <input name="lastName" type="text" id="lastName" />
-        </div>
-        <div>
+        
+        
           <label htmlFor="displayName">Display Name</label>
           <input name="displayName" type="text" id="displayName" />
-        <div>
+     
+        
           <label htmlFor="email">Your Email</label>
           <input name="email " type="email" id="email" />
-        </div>
-        <div>
+       
+   
           <label htmlFor="password">Password</label>
           <input name="password" type="password" id="password" />
-        </div>
-        <div>
+      
           <label htmlFor="address">Address</label>
           <input name="address" type="address" id="address" />
-        </div>
-        <div>
+      
           <label htmlFor="dateOfBirth">Date Of Birth</label>
           <input name="dateOfBirth" type="date" id="dateOfBirth" />
-        </div>
-        <div>
+        
           <label htmlFor="phoneNumber">Phone Number</label>
           <input name="phoneNumber" type="tel" id="phoneNumber" />
-        </div>
         <button type="submit">Register</button>
-        </div>
+      
       </form>
+
+        <div>
       <p>
         Have already an account?{" "}
         <a href="/login" className="fw-bold text-body">
           <u>Login here</u>
         </a>
       </p>
+      </div>
     </section>
   );
 };

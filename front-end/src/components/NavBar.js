@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { NavLink, Link } from "react-router-dom";
 import "../styles/NavBar.css";
 import logo from "../styles/media/EcoRent.svg";
 import { useContext } from "react";
@@ -15,10 +15,10 @@ const NavBar = () => {
             <Link to="/"><img src={logo} className="logo" /></Link>
           </div>
           <div className="links">
-            <Link to="/items">Items</Link>
-            <Link to="/myItems">My Items</Link>
-            <Link to="/account">Account</Link>
-            <Link to="/items/new">List An Item</Link>
+            <NavLink to="/items" activeStyle={{color: '#98bd89'}}>Items</NavLink>
+            <NavLink to="/myItems" activeStyle={{color: '#98bd89'}}>My Items</NavLink>
+            <NavLink to="/items/new" activeStyle={{color: '#98bd89'}}>List An Item</NavLink>
+            <NavLink to="/account" activeStyle={{color: '#98bd89'}}>Account</NavLink>
           </div>
         </div>
       </nav>
@@ -30,11 +30,11 @@ const NavBar = () => {
         <div>
           <Link to="/"><img src={logo} className="logo" /></Link>
         </div>
-        <div className="links">
-          <Link to="/howItWorks">How It Works</Link>
-          <Link to="/about">About</Link>
-          <Link to="/signUpLogIn">SignUp/LogIn</Link>
-        </div>
+          <div className="links">
+            <NavLink to="/howItWorks">How It Works</NavLink>
+            <NavLink to="/about">About</NavLink>
+            <NavLink to="/login">SignUp/LogIn</NavLink>
+          </div>
         </div>
       </nav>
     );

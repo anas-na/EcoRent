@@ -1,3 +1,4 @@
+import '../styles/Login.css'
 import React from "react";
 import useUser from "../hooks/useUser";
 import { useHistory, Redirect } from "react-router";
@@ -24,37 +25,38 @@ const LogIn = () => {
   }
 
   return (
-    <section>
-      <h2>Login</h2>
-      <p>Please enter your login and password!</p>
-      <form onSubmit={handleLogIn}>
-        <div>
-          <input
-            type="email"
-            id="email"
-            className="form-control form-control-lg"
-          />
-          <label htmlFor="email">Email</label>
-        </div>
+    <section className="formContainer">
+      <h1 className="formTitle">Login</h1>
 
-        <div>
-          <input
-            type="password"
-            id="password"
-            className="form-control form-control-lg"
-          />
-          <label htmlFor="password">Password</label>
-        </div>
-        <button type="submit">Login</button>
-      </form>
+      <div className="loginForm">
+        <form onSubmit={handleLogIn}>
+          <h2>Please enter your email and password!</h2>
+          <div className="inputs">
+            <label htmlFor="email">Email</label>
+            <input
+              type="email"
+              id="email"
+              className="form-control form-control-lg"
+            />
 
-      <div>
-        <p>
-          Don't have an account?{" "}
-          <a href="/signup" className="text-white-50 fw-bold">
-            Sign Up
-          </a>
-        </p>
+          
+              <label htmlFor="password">Password</label>
+              <input
+                type="password"
+                id="password"
+                className="form-control form-control-lg"
+              />
+            
+          <input type="submit" className="button" />
+          </div>
+         
+          <div className='signUp'>
+            <p>Don't have an account? </p>
+            <a href="/signup" className='button1'>
+              Sign Up
+            </a>
+      </div>
+        </form>
       </div>
     </section>
   );
