@@ -85,8 +85,6 @@ const SignUp = () => {
         
           <label htmlFor="phoneNumber">Phone Number</label>
           <input name="phoneNumber" type="tel" id="phoneNumber" />
-    
-
         <button type="submit">Register</button>
       
         </form>

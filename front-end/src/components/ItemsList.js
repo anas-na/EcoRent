@@ -12,7 +12,6 @@ const ItemsList = () => {
 		const fetchItems = async () => {
 			try {
 				const res = await axios.get(`${API}/items`);
-				console.log(res.data)
 				setItems(res.data);
 			} catch (err) {
 				console.log(err);

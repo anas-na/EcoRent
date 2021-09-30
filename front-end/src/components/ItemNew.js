@@ -24,7 +24,7 @@ import {
   const addItem = async (newItem) => {
     try {
       await axios.post(`${API}/items`, newItem);
-      history.push(`/myitems`);
+      history.push(`/items`);
     } catch (err) {
       console.log(err);
     }
@@ -35,8 +35,21 @@ import {
     setImage((image) => img);
   };
 
+
+
+  const [item, setItem] = useState({
+    category_id: 0,
+    photo: "",
+    name: "",
+    description: "",
+    price: 0.0,
+    location: "",
+    photo:'',
+    user_id: ""
+  });
+  console.log(user)
   const handleUpload = (event) => {
-    event.preventDefault();
+    event.pxreventDefault();
     const storage = getStorage();
     const storageRef = ref(storage, "items/" + image.name);
     const uploadTask = uploadBytesResumable(storageRef, image);
@@ -52,44 +65,12 @@ import {
         getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
           console.log("File available at", downloadURL);
           setImageAsUrl(downloadURL)
+          setItem({ ...item, photo: downloadURL })
         });
       }
     );
-  };
-
-  const [item, setItem] = useState({
-    category_id: 0,
-    photo: "",
-    name: "",
-    description: "",
-    price: 0.0,
-    location: "",
-    user_id: ""
-  });
-  console.log(user)
-  // const handleUpload = (event) => {
-  //   event.pxreventDefault();
-  //   const storage = getStorage();
-  //   const storageRef = ref(storage, "items/" + image.name);
-  //   const uploadTask = uploadBytesResumable(storageRef, image);
-  //   uploadTask.on(
-  //     "state_changed",
-  //     (snapShot) => {
-  //       console.log(snapShot);
-  //     },
-  //     (err) => {
-  //       console.log(err);
-  //     },
-  //     () => {
-  //       getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-  //         console.log("File available at", downloadURL);
-  //         setImageAsUrl(downloadURL)
-  //         setItem({ ...item, photo: downloadURL })
-  //       });
-  //     }
-  //   );
    
-  // };
+  };
 
 
   const [categories, setCategories] = useState([]);

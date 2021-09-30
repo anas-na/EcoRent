@@ -12,7 +12,7 @@ const NavBar = () => {
       <nav>
         <div className="navContainer">
           <div>
-            <img src={logo} className="logo" />
+            <Link to="/"><img src={logo} className="logo" /></Link>
           </div>
           <div className="links">
             <NavLink to="/items" activeStyle={{color: '#98bd89'}}>Items</NavLink>
@@ -26,15 +26,15 @@ const NavBar = () => {
   } else {
     return (
       <nav>
-        <div className="navContainer">
-          <div>
-            <img src={logo} className="logo" />
-          </div>
-          <div className="links">
-            <NavLink to="/howItWorks">How It Works</NavLink>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/login">SignUp/LogIn</NavLink>
-          </div>
+          <div className='navContainer'>
+        <div>
+          <Link to="/"><img src={logo} className="logo" /></Link>
+        </div>
+        <div className="links">
+          <Link to="/howItWorks">How It Works</Link>
+          <Link to="/about">About</Link>
+          <Link to="/signUpLogIn">SignUp/LogIn</Link>
+        </div>
         </div>
       </nav>
     );
