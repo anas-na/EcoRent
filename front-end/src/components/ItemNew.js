@@ -35,27 +35,7 @@ import {
     setImage((image) => img);
   };
 
-  const handleUpload = (event) => {
-    event.preventDefault();
-    const storage = getStorage();
-    const storageRef = ref(storage, "items/" + image.name);
-    const uploadTask = uploadBytesResumable(storageRef, image);
-    uploadTask.on(
-      "state_changed",
-      (snapShot) => {
-        console.log(snapShot);
-      },
-      (err) => {
-        console.log(err);
-      },
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log("File available at", downloadURL);
-          setImageAsUrl(downloadURL)
-        });
-      }
-    );
-  };
+
 
   const [item, setItem] = useState({
     category_id: 0,
@@ -64,7 +44,7 @@ import {
     description: "",
     price: 0.0,
     location: "",
-    photo:''
+    photo:'',
     user_id: ""
   });
   console.log(user)
