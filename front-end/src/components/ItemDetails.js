@@ -2,7 +2,7 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { apiURL } from "../util/apiURL";
-
+import GoogleMap from  "../util/GoogleMap";
 const API = apiURL();
 
 const ItemDetails = () => {
@@ -15,27 +15,29 @@ const ItemDetails = () => {
         const res = await axios.get(`${API}/items/${id}`);
         console.log(res);
         setItem(res.data);
-        debugger;
       } catch (error) {
         console.log(error);
       }
-    }
+    };
     getItem();
   }, [id]);
 
+  console.log(item)
+
   return (
     <div>
-        <article>
-            <div>
-            <p>Category:</p>
-            <p>Name: {item.name}</p>
-            <p>Description: {item.description}</p>
-            <p>Price: ${item.price}</p>
-            <p>Location: {item.location}</p>
-            </div>
-        </article>
+      {/* <article>
+        <div>
+          <p>Category:</p>
+          <p>Name: {item.name}</p>
+          <p>Description: {item.description}</p>
+          <p>Price: ${item.price}</p>
+          <p>Location: {item.location}</p>
+        </div>
+      </article> */}
+      <GoogleMap />
     </div>
-  )
+  );
 };
 
 export default ItemDetails;

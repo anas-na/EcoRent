@@ -18,6 +18,10 @@ function App() {
 
   return (
     <div className='App'>
+      <script 
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCboyUY2hGDoFXzjzQ2W78KYbnHv6vMKT4" 
+      async
+    ></script>
       <UserProvider>
       <Router>
       <NavBar />
