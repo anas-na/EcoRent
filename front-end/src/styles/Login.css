@@ -1,0 +1,51 @@
+p {
+  color: #fdf3eb;
+  margin-bottom: 0.3em;
+  margin-top: 0;
+  font-size: 1.2em;
+}
+
+h2 {
+  color: #fdf3eb;
+  font-size: 1.3em;
+  margin-bottom: 0;
+  text-align: center;
+  padding: 6px;
+}
+.loginForm {
+  height: 22.5em !important;
+}
+
+.signUp {
+  text-align: center;
+  width: 100%;
+  padding-bottom: 1em;
+  margin: 0;
+  height: 4em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: .5em;
+}
+
+.button1 {
+  border: solid white 2px;
+  border-color: white;
+  background-color: #98bd89;
+  color: white;
+  font-family: Comfortaa Bold;
+  font-size: 1.1em;
+  border-radius: 17px;
+  display: flex;
+  justify-content: center;
+  width: 5.8em;
+  height: 0.9em;
+  align-items: center;
+  padding: .4em;
+}
+
+.loginButton:hover {
+  background-color: white;
+  color: #186e8b;
+  cursor: pointer;
+}

@@ -13,6 +13,7 @@ import NavBar from "./components/NavBar";
 import Index from "./pages/Index.js";
 import ItemDetails from './components/ItemDetails';
 import ItemNew from './components/ItemNew';
+import Profile from "./components/Profile.js";
 
 function App() {
 
@@ -34,6 +35,7 @@ function App() {
         <AuthRoute path='/myItems' component={MyItems} />
         <AuthRoute path ='/items/new' component={ItemNew}/>
         <Route path='/items'  component={Index}/>
+        <Route path='/myprofile' component={Profile}/>
         {/* <Route path='/account' component={Account}/> */}
 
 
