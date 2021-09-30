@@ -2,7 +2,8 @@
 
 INSERT INTO users (id, first_name, last_name, phone_number, date_of_birth, address, email, password) VALUES 
 ('LKsCOf3HykTTIk4RN54h1Q0f1p92', 'Adam', 'Tahiri', 3472829710, '1994-12-03', '383 Raritan Avenue', 'tahiri08@hotmail.com', 'pursuit24'),
-('BPC19CTufQXRv3Gxa0vBvsR8u462', 'Anas', 'Nahil', 3471234567, '1980-01-01', '111 Made Up Street', 'JohnDoe@gmail.com', 'password123');
+('BPC19CTufQXRv3Gxa0vBvsR8u462', 'Anas', 'Nahil', 3471234567, '1980-01-01', '111 Made Up Street', 'JohnDoe@gmail.com', 'password123'),
+('RuDhufPQTOTqSb3zEV3JOWgoqDq2', 'Demi', 'J', 6468675309, '1989-08-09', '111 New Street', 'Nodough@gmail.com', 'demidemidemi');
 
 
 INSERT INTO categories (name) VALUES

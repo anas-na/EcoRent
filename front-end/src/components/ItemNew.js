@@ -67,29 +67,29 @@ import {
     user_id: ""
   });
   console.log(user)
-  const handleUpload = (event) => {
-    event.preventDefault();
-    const storage = getStorage();
-    const storageRef = ref(storage, "items/" + image.name);
-    const uploadTask = uploadBytesResumable(storageRef, image);
-    uploadTask.on(
-      "state_changed",
-      (snapShot) => {
-        console.log(snapShot);
-      },
-      (err) => {
-        console.log(err);
-      },
-      () => {
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log("File available at", downloadURL);
-          setImageAsUrl(downloadURL)
-          setItem({ ...item, photo: downloadURL })
-        });
-      }
-    );
+  // const handleUpload = (event) => {
+  //   event.pxreventDefault();
+  //   const storage = getStorage();
+  //   const storageRef = ref(storage, "items/" + image.name);
+  //   const uploadTask = uploadBytesResumable(storageRef, image);
+  //   uploadTask.on(
+  //     "state_changed",
+  //     (snapShot) => {
+  //       console.log(snapShot);
+  //     },
+  //     (err) => {
+  //       console.log(err);
+  //     },
+  //     () => {
+  //       getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+  //         console.log("File available at", downloadURL);
+  //         setImageAsUrl(downloadURL)
+  //         setItem({ ...item, photo: downloadURL })
+  //       });
+  //     }
+  //   );
    
-  };
+  // };
 
 
   const [categories, setCategories] = useState([]);

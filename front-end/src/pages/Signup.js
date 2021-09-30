@@ -85,14 +85,13 @@ const SignUp = () => {
         
           <label htmlFor="phoneNumber">Phone Number</label>
           <input name="phoneNumber" type="tel" id="phoneNumber" />
-        </div>
-        <div>
+    
 
         <button type="submit">Register</button>
       
-      </form>
-
+        </form>
         <div>
+      
       <p>
         Have already an account?{" "}
         <a href="/login" className="fw-bold text-body">

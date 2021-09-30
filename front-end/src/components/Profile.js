@@ -18,13 +18,13 @@ import { apiURL } from "../util/apiURL";
 const API = apiURL();
 
 const Profile = () => {
-  const [users, setUsers] = useState(null);
-  const [items, setItems] = useState(null);
+  const [items, setItems] = useState([]);
+  const [users, setUsers] = useState([]);
   const [currentUserItems, setCurrentUserItems] = useState(null);
   const [currentUser, setCurrentUser] = useState({});
 
   const fbUser = useContext(UserContext);
-  console.log(fbUser)
+  // console.log(fbUser)
 
   const getUser = async () => {
     let users = await axios.get(`${API}/users`);
@@ -39,37 +39,50 @@ const Profile = () => {
     // debugger
   };
 
-  // const getCurrentUserItems = () =>{
-  //   if (fbUser) {
-  //     console.log(fbUser.uid);
-  //     let theItems = items.filter((item) => fbUser.uid === item.user_id);
-  //     setCurrentUserItems(theItems[0]);
-  //   }
-  // }
+  const getCurrentUserItems = () =>{
+    if (!fbUser) {
+       console.log("loading")
+    }else if(items){
+      console.log(fbUser.uid);
+      let theItems 
+      theItems = items.filter((item) => fbUser.uid === item.user_id);
+      console.log("THE ITEMS",theItems)
+      setCurrentUserItems(theItems);
+      // debugger
+    }
+  }
 
-  // const getCurrentUser = () => {
-  //   if (fbUser) {
-  //     console.log(fbUser.uid);
-  //     let theUser = users.filter((user) => fbUser.uid === user.id);
-  //     setCurrentUser(theUser[0]);
-  //   }
-  // };
+  const getCurrentUser = () => {
+    if (!fbUser) {
+      console.log("loading")
+   }else{
+      console.log(fbUser.uid);
+      let theUser = users.filter((user) => fbUser.uid === user.id);
+      setCurrentUser(theUser[0]);
+      // debugger
+    }
+  };
 
   useEffect(() => {
     getUser();
     getAllItems();
-    // getCurrentUser();
-    // getCurrentUserItems();
+    getCurrentUserItems();
+    getCurrentUser();
   }, [fbUser]);
   return (
     <div>
       {/* <h3>In Profile</h3> */}
-      {/* <h3>{currentUser.first_name}</h3> */}
+      <h3>{currentUser.first_name}</h3>
       {/* <img src={user.img} alt={user.name} /> */}
-      {/* <h5>{currentUser.email}</h5>
+      <h5>{currentUser.email}</h5>
       <h5>{currentUser.address}</h5>
-      <h5>{currentUser.items}</h5>
-      <h5>{currentUser.rating}</h5> */}
+      {/* <div className ='userItems'>
+        {currentUserItems.map((item)=>{
+          return <li>{item}</li>
+        })}
+      </div> */}
+      {/* <h5>{currentUser.items}</h5> */}
+      {/* <h5>{currentUser.rating}</h5> */}
       {/* <button onClick={handleEdit}>Edit</button> */}
     </div>
   );
