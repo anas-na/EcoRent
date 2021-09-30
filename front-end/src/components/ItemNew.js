@@ -21,7 +21,7 @@ import {
   const addItem = async (newItem) => {
     try {
       await axios.post(`${API}/items`, newItem);
-      history.push(`/myitems`);
+      history.push(`/items`);
     } catch (err) {
       console.log(err);
     }
