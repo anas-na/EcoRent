@@ -36,7 +36,7 @@ const ItemDetails = () => {
         }
       })
       console.log("GEOCODE RES", res);
-      setCoordinates((await res).data.results[0].geometry.location);
+      setCoordinates(res.data.results[0].geometry.location);
     } catch (error) {
       console.log(error);
     }
