@@ -17,7 +17,7 @@ const NavBar = () => {
           <div className="links">
             <NavLink to="/items" activeStyle={{color: '#98bd89'}}>Items</NavLink>
             <NavLink to="/myItems" activeStyle={{color: '#98bd89'}}>My Items</NavLink>
-            <NavLink to="/items/new" activeStyle={{color: '#98bd89'}}>List An Item</NavLink>
+            <NavLink to="/newItem" activeStyle={{color: '#98bd89'}}>List An Item</NavLink>
             <NavLink to="/account" activeStyle={{color: '#98bd89'}}>Account</NavLink>
           </div>
         </div>

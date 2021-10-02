@@ -31,11 +31,11 @@ function App() {
         <Route exact path="/signup" component={SignUp}/>
         <Route exact path="/login" component={LogIn}/>
         <Route path='/howItWorks' component={HowItWorks}/>
-        <AuthRoute path='/items/new' component={ItemNew}/>
+        <AuthRoute path='/newItem' component={ItemNew}/>
         <AuthRoute exact path='/items/:id' component={ItemDetails} />
         <AuthRoute path='/myItems' component={MyItems} />
         <Route path='/items'  component={Index}/>
-        <Route path='/myprofile' component={Profile}/>
+        <AuthRoute path='/myprofile' component={Profile}/>
         {/* <Route path='/account' component={Account}/> */}
 
 
