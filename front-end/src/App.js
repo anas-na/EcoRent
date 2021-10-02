@@ -30,10 +30,10 @@ function App() {
         <AuthRoute exact path="/" component={Home} />
         <Route exact path="/signup" component={SignUp}/>
         <Route exact path="/login" component={LogIn}/>
-        <AuthRoute path ='/howItWorks' component={HowItWorks}/>
-        <AuthRoute path='/items/:id' component={ItemDetails} />
+        <Route path='/howItWorks' component={HowItWorks}/>
+        <AuthRoute path='/items/new' component={ItemNew}/>
+        <AuthRoute exact path='/items/:id' component={ItemDetails} />
         <AuthRoute path='/myItems' component={MyItems} />
-        <AuthRoute path ='/items/new' component={ItemNew}/>
         <Route path='/items'  component={Index}/>
         <Route path='/myprofile' component={Profile}/>
         {/* <Route path='/account' component={Account}/> */}
