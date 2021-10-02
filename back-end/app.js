@@ -38,11 +38,11 @@ app.post('/pay', async (req, res) => {
 
 const generateResponse = (intent) => {
   if (intent.status === 'succeeded') {
-
     return {
       success: true
     };
   } else {
+
     return {
       error: 'Invalid PaymentIntent status'
     };
