@@ -10,8 +10,6 @@ const ItemDetails = () => {
   const [coordinates, setCoordinates] = useState({});
   const { id } = useParams();
 
-  console.log(coordinates)
-
   useEffect(() => {
     const getItem = async () => {
       try {
@@ -45,15 +43,15 @@ const ItemDetails = () => {
 
   return (
     <div>
-      {/* <article>
-        <div>
+      <article>
+        <div className='singleItem'>
           <p>Category:</p>
           <p>Name: {item.name}</p>
           <p>Description: {item.description}</p>
           <p>Price: ${item.price}</p>
           <p>Location: {item.location}</p>
         </div>
-      </article> */}
+      </article>
       <GoogleMap coordinates={coordinates}/>
     </div>
   );

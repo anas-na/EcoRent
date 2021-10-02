@@ -34,7 +34,7 @@ const ItemListItem = ({ item }) => {
       <Link to={`/items/${item.id}`} className='itemName'>{item.name}
 
       <img src={item.photo} />
-      {/* <h4>Category: {category[0].name}</h4> */}
+      <h4>Category: {category[0].name}</h4>
       <h4>Price: ${item.price}</h4>
       <h4>Location: {item.location}</h4>
       <img src={item.image} className='itemImage'/>
