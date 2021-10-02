@@ -20,11 +20,10 @@ const API = apiURL();
 const Profile = () => {
   const [items, setItems] = useState([]);
   const [users, setUsers] = useState([]);
-  const [currentUserItems, setCurrentUserItems] = useState(null);
+  const [currentUserItems, setCurrentUserItems] = useState([]);
   const [currentUser, setCurrentUser] = useState({});
 
   const fbUser = useContext(UserContext);
-  // console.log(fbUser)
 
   const getUser = async () => {
     let users = await axios.get(`${API}/users`);
@@ -36,7 +35,6 @@ const Profile = () => {
     let allItems = await axios.get(`${API}/items`);
     console.log(allItems.data);
     setItems(allItems.data);
-    // debugger
   };
 
   const getCurrentUserItems = () =>{
@@ -48,7 +46,7 @@ const Profile = () => {
       theItems = items.filter((item) => fbUser.uid === item.user_id);
       console.log("THE ITEMS",theItems)
       setCurrentUserItems(theItems);
-      // debugger
+    
     }
   }
 
@@ -59,7 +57,6 @@ const Profile = () => {
       console.log(fbUser.uid);
       let theUser = users.filter((user) => fbUser.uid === user.id);
       setCurrentUser(theUser[0]);
-      // debugger
     }
   };
 
@@ -76,13 +73,18 @@ const Profile = () => {
       {/* <img src={user.img} alt={user.name} /> */}
       <h5>{currentUser.email}</h5>
       <h5>{currentUser.address}</h5>
-      {/* <div className ='userItems'>
+      <label htmlFor="userItems">My Items </label>
+
+      <div className ='userItems'>
         {currentUserItems.map((item)=>{
-          return <li>{item}</li>
+          return <div>
+            {/* display currentUser item names & reviews */}
+
+            <li>{item.name}</li>
+            <p>{item.review}</p>
+            </div>
         })}
-      </div> */}
-      {/* <h5>{currentUser.items}</h5> */}
-      {/* <h5>{currentUser.rating}</h5> */}
+      </div>
       {/* <button onClick={handleEdit}>Edit</button> */}
     </div>
   );

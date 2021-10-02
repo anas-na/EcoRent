@@ -1,6 +1,6 @@
 //Demi
 
-import ItemEdit from "../Components/ItemEdit";
+import ItemEdit from "../Components/ItemEdit.js";
 
 function Edit({ updateItem }) {
   return (

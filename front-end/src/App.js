@@ -14,6 +14,7 @@ import Index from "./pages/Index.js";
 import ItemDetails from './components/ItemDetails';
 import ItemNew from './components/ItemNew';
 import Profile from "./components/Profile.js";
+// import Edit from "./pages/Edit"
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
         <AuthRoute path ='/items/new' component={ItemNew}/>
         <Route path='/items'  component={Index}/>
         <Route path='/myprofile' component={Profile}/>
+        {/* <Route path='/editItems' component={Edit}/> */}
         {/* <Route path='/account' component={Account}/> */}
 
 
