@@ -32,11 +32,12 @@ function App() {
         <Route exact path="/signup" component={SignUp}/>
         <Route exact path="/login" component={LogIn}/>
         <Route path='/howItWorks' component={HowItWorks}/>
-        <AuthRoute path='/newItem' component={ItemNew}/>
+        <AuthRoute path='/newitem' component={ItemNew}/>
         <AuthRoute exact path='/items/:id' component={ItemDetails} />
         <AuthRoute path='/myItems' component={MyItems} />
         <Route path='/items'  component={Index}/>
         <AuthRoute path='/myprofile' component={Profile}/>
+        <Route path='/editItems' component={Edit}/>
         {/* <Route path='/account' component={Account}/> */}
 
 
