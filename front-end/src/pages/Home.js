@@ -15,36 +15,36 @@ import { useState } from "react";
 const Home = () => {
   const string = useContext(UserContext);
   const { logOut } = useUser();
-  const [image, setImage] = useState("");
-  const [imageAsUrl, setImageAsUrl] = useState("");
+  // const [image, setImage] = useState("");
+  // const [imageAsUrl, setImageAsUrl] = useState("");
 
-  const handleImage = (event) => {
-    const img = event.target.files[0];
-    setImage((image) => img);
-  };
+  // const handleImage = (event) => {
+  //   const img = event.target.files[0];
+  //   setImage((image) => img);
+  // };
 
-  const handleUpload = (event) => {
-    event.preventDefault();
-    const storage = getStorage();
-    const storageRef = ref(storage, "images/" + image.name);
-    const uploadTask = uploadBytesResumable(storageRef, image);
-    uploadTask.on(
-      "state_changed",
-      (snapShot) => {
-        console.log(snapShot);
-      },
-      (err) => {
-        console.log(err);
-      },
-      () => {
-        // Upload completed successfully, now we can get the download URL
-        getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-          console.log("File available at", downloadURL);
-          setImageAsUrl(downloadURL)
-        });
-      }
-    );
-  };
+  // const handleUpload = (event) => {
+  //   event.preventDefault();
+  //   const storage = getStorage();
+  //   const storageRef = ref(storage, "images/" + image.name);
+  //   const uploadTask = uploadBytesResumable(storageRef, image);
+  //   uploadTask.on(
+  //     "state_changed",
+  //     (snapShot) => {
+  //       console.log(snapShot);
+  //     },
+  //     (err) => {
+  //       console.log(err);
+  //     },
+  //     () => {
+  //       // Upload completed successfully, now we can get the download URL
+  //       getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
+  //         console.log("File available at", downloadURL);
+  //         setImageAsUrl(downloadURL)
+  //       });
+  //     }
+  //   );
+  // };
 
   const handleLogOut = () => {
     try {
@@ -55,27 +55,28 @@ const Home = () => {
     }
   };
 
-const imagePlaceHolder = (img) => {
-  if(imageAsUrl === ''){
-    return <div></div>
-  } else {
-    return(
-      <img src={imageAsUrl} alt="newItemImg" />
-    )
-  }
-}
+// const imagePlaceHolder = (img) => {
+//   if(imageAsUrl === ''){
+//     return <div></div>
+//   } else {
+//     return(
+//       <img src={imageAsUrl} alt="newItemImg" />
+//     )
+//   }
+// }
 
+console.log(string)
   return (
     <div>
       {string ? string.email : "Hi you are in Home"}
       <h1>Welcome To EcoRent</h1>
       <button onClick={() => handleLogOut()}>Log Out</button>
-      <form>
+      {/* <form>
         <input type="file" onChange={handleImage} />
         <button onClick={handleUpload}>Upload</button>
        {imagePlaceHolder()}
        
-      </form>
+      </form> */}
     </div>
   );
 };

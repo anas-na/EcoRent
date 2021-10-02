@@ -5,8 +5,7 @@ export const stripePaymentMethodHandler = async (data, cb) => {
   console.log(data)
   const { price, result } = data;
   if (result.error) {
-    // show error in payment form
-    // cb(result);
+    cb(result);
   } else {
     const paymentResponse = await stripePayment({
       payment_method_id: result.paymentMethod.id,
@@ -15,7 +14,7 @@ export const stripePaymentMethodHandler = async (data, cb) => {
       price: price
     });
     console.log(paymentResponse);
-    // cb(paymentResponse);
+    cb(paymentResponse);
   }
 }
 

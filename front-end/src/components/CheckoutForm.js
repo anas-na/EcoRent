@@ -5,27 +5,11 @@ import {
 } from '@stripe/react-stripe-js';
 import { stripePaymentMethodHandler } from './script';
 
-const CARD_ELEMENT_OPTIONS = {
-  style: {
-    base: {
-      lineHeight: "27px",
-      color: "#212529",
-      fontSize: "1.1rem",
-      "::placeholder": {
-        color: "#aab7c4",
-      },
-    },
-    invalid: {
-      color: "#fa755a",
-      iconColor: "#fa755a",
-    },
-  },
-};
 
-export default function CheckoutForm({item}, props) {
+export default function CheckoutForm(props) {
+    const { item } = props
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
-
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
 
@@ -38,8 +22,6 @@ export default function CheckoutForm({item}, props) {
     event.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js has not yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
       return;
     }
 
@@ -59,7 +41,7 @@ export default function CheckoutForm({item}, props) {
     stripePaymentMethodHandler({
       result: paymentMethodResult,
       price: item.price
-    }, );
+    }, handleResponse);
   };
 //   callback method to handle the response
   const handleResponse = response => {
@@ -108,7 +90,6 @@ export default function CheckoutForm({item}, props) {
             <CardNumberElement
               id="cc-number"
               className="form-control"
-              options={CARD_ELEMENT_OPTIONS}
             />
           </div>
         </div>
@@ -119,7 +100,6 @@ export default function CheckoutForm({item}, props) {
             <CardExpiryElement
               id="expiry"
               className="form-control"
-              options={CARD_ELEMENT_OPTIONS}
             />
           </div>
           <div className="col-md-6 mb-3">
@@ -127,7 +107,6 @@ export default function CheckoutForm({item}, props) {
             <CardCvcElement
               id="cvc"
               className="form-control"
-              options={CARD_ELEMENT_OPTIONS}
             />
           </div>
         </div>

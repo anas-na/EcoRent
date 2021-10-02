@@ -26,6 +26,7 @@ const successMessage = () => {
 const ItemDetails = () => {
   const [paymentCompleted, setPaymentCompleted] = useState(false);
   const [item, setItem] = useState({});
+  const [coordinates, setCoordinates] = useState({});
   const { id } = useParams();
   useEffect(() => {
     const getItem = async () => {
@@ -38,9 +39,25 @@ const ItemDetails = () => {
       }
     };
     getItem();
+    geoCode();
   }, [id]);
 
-  console.log(item)
+  const geoCode = async () => {
+    const location = item.location;
+    try {
+      const res = axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+        params: {
+          address: location,
+          key: process.env.REACT_APP_GOOGLE_KEY
+        }
+      })
+      console.log("GEOCODE RES", res);
+      setCoordinates(res.data.results[0].geometry.location);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
 
   return (
     <div>
@@ -48,16 +65,16 @@ const ItemDetails = () => {
        <Elements stripe={stripePromise}>
       <CheckoutForm item={item} setPaymentCompleted={setPaymentCompleted}/>
       </Elements>}
-      {/* <article>
-        <div>
+      <article>
+        <div className='singleItem'>
           <p>Category:</p>
           <p>Name: {item.name}</p>
           <p>Description: {item.description}</p>
           <p>Price: ${item.price}</p>
           <p>Location: {item.location}</p>
         </div>
-      </article> */}
-      {/* <GoogleMap /> */}
+      </article>
+      <GoogleMap coordinates={coordinates}/>
     </div>
   );
 };
