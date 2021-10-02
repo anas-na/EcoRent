@@ -36,10 +36,10 @@ const ItemListItem = ({ item }) => {
       <div className='imageContainer'><img src={item.image} className='itemImage'/></div>
       <Link to={`/items/${item.id}`} className='itemName'>{item.name}
       <img src={item.photo} />
-      </Link>
       <h4>Category: {category[0].name}</h4>
       <h4>Price: ${item.price}</h4>
       <h4>Location: {item.location}</h4>
+      </Link>
 
     </div>
   );
