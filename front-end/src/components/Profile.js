@@ -20,7 +20,7 @@ const API = apiURL();
 const Profile = () => {
   const [items, setItems] = useState([]);
   const [users, setUsers] = useState([]);
-  const [currentUserItems, setCurrentUserItems] = useState([]);
+  const [currentUserItems, setCurrentUserItems] = useState(null);
   const [currentUser, setCurrentUser] = useState({});
 
   const fbUser = useContext(UserContext);
@@ -44,8 +44,7 @@ const Profile = () => {
       console.log(fbUser.uid);
       let theItems 
       theItems = items.filter((item) => fbUser.uid === item.user_id);
-      console.log("THE ITEMS",theItems)
-      setCurrentUserItems(theItems);
+      theItems.length > 0 ? setCurrentUserItems(theItems) : setCurrentUserItems(null)
     
     }
   }
@@ -54,7 +53,6 @@ const Profile = () => {
     if (!fbUser) {
       console.log("loading")
    }else{
-      console.log(fbUser.uid);
       let theUser = users.filter((user) => fbUser.uid === user.id);
       setCurrentUser(theUser[0]);
     }
@@ -69,21 +67,22 @@ const Profile = () => {
   return (
     <div>
       {/* <h3>In Profile</h3> */}
-      <h3>{currentUser.first_name}</h3>
+      <h3>{currentUser.first_name > 0 ? "Welcome" + currentUser.first_name + "!": "You're not signed in! Please log in/sign up :)"} </h3>
       {/* <img src={user.img} alt={user.name} /> */}
       <h5>{currentUser.email}</h5>
       <h5>{currentUser.address}</h5>
       <label htmlFor="userItems">My Items </label>
 
       <div className ='userItems'>
-        {currentUserItems.map((item)=>{
+        {currentUserItems ? 
+        currentUserItems.map((item)=>{
           return <div>
             {/* display currentUser item names & reviews */}
 
             <li>{item.name}</li>
             <p>{item.review}</p>
             </div>
-        })}
+        }) : "No Items yet! Go ahead and list one to get started!"}
       </div>
       {/* <button onClick={handleEdit}>Edit</button> */}
     </div>
