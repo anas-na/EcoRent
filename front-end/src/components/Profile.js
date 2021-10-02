@@ -24,10 +24,10 @@ const Profile = () => {
   const [currentUser, setCurrentUser] = useState({});
 
   const fbUser = useContext(UserContext);
+  // debugger
 
   const getUser = async () => {
     let users = await axios.get(`${API}/users`);
-    console.log(users.data);
     setUsers(users.data);
   };
 
@@ -53,8 +53,10 @@ const Profile = () => {
     if (!fbUser) {
       console.log("loading")
    }else{
-      let theUser = users.filter((user) => fbUser.uid === user.id);
+     let theUser = users.filter((user) => fbUser.uid === user.id);
+     debugger
       setCurrentUser(theUser[0]);
+      
     }
   };
 
@@ -67,7 +69,7 @@ const Profile = () => {
   return (
     <div>
       {/* <h3>In Profile</h3> */}
-      <h3>{currentUser.first_name > 0 ? "Welcome" + currentUser.first_name + "!": "You're not signed in! Please log in/sign up :)"} </h3>
+      <h3>{currentUser.first_name.length > 0 ? "Welcome " + currentUser.first_name + "!": "You're not signed in! Please log in/sign up :)"} </h3>
       {/* <img src={user.img} alt={user.name} /> */}
       <h5>{currentUser.email}</h5>
       <h5>{currentUser.address}</h5>
