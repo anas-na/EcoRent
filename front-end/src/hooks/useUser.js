@@ -13,7 +13,7 @@ const useUser = () => {
   const user = useContext(UserContext);
 
   const signUpFireBase = async (email, password, displayName) => {
-    const res = await createUserWithEmailAndPassword(auth, email, password);
+    const res = await createUserWithEmailAndPassword(auth, email, password, displayName);
     return res;
   };
 

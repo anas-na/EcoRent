@@ -7,6 +7,7 @@ const API = apiURL();
 
 const ItemDetails = () => {
   const [item, setItem] = useState({});
+  const [coordinates, setCoordinates] = useState({});
   const { id } = useParams();
 
   useEffect(() => {
@@ -20,22 +21,38 @@ const ItemDetails = () => {
       }
     };
     getItem();
+    geoCode();
   }, [id]);
 
-  console.log(item)
+  const geoCode = async () => {
+    const location = item.location;
+    try {
+      const res = axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+        params: {
+          address: location,
+          key: process.env.REACT_APP_GOOGLE_KEY
+        }
+      })
+      console.log("GEOCODE RES", res);
+      setCoordinates(res.data.results[0].geometry.location);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
 
   return (
     <div>
-      {/* <article>
-        <div>
+      <article>
+        <div className='singleItem'>
           <p>Category:</p>
           <p>Name: {item.name}</p>
           <p>Description: {item.description}</p>
           <p>Price: ${item.price}</p>
           <p>Location: {item.location}</p>
         </div>
-      </article> */}
-      <GoogleMap />
+      </article>
+      <GoogleMap coordinates={coordinates}/>
     </div>
   );
 };

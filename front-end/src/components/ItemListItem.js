@@ -25,8 +25,8 @@ const ItemListItem = ({ item }) => {
   const category = categories.filter(
     (category) => category.id === item.category_id
   );
-  console.log(user)
-  console.log(item)
+  // console.log(user)
+  // console.log(item)
   return (
 
       
