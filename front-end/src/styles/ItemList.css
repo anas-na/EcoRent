@@ -27,10 +27,10 @@
 .allItemsContainer {
   display: flex;
   flex-wrap: wrap;
-  max-height: 100vh;
   padding: 0px 50px 25px 50px;
   align-items: center;
   justify-content: center;
+  padding-bottom: .5em;
 }
 
 .itemsContainer {
@@ -39,7 +39,6 @@
   background-image: url("./media/background2.svg");
   background-size: contain;
   display: flex;
-  /* justify-content: space-evenly; */
   flex-direction: column;
   align-items: center;
 }
@@ -48,4 +47,13 @@ h1 {
   font-family: Comfortaa Bold;
   color: white;
   font-size: 2.5em;
+}
+
+ a.itemName {
+  max-width: 1em;
+}
+
+img {
+  max-width: 8em;
+  padding: .5em;
 }

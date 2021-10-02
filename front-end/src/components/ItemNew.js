@@ -49,7 +49,7 @@ import {
   });
   console.log(user)
   const handleUpload = (event) => {
-    event.preventDefault();
+    event.pxreventDefault();
     const storage = getStorage();
     const storageRef = ref(storage, "items/" + image.name);
     const uploadTask = uploadBytesResumable(storageRef, image);

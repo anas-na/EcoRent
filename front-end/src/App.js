@@ -8,12 +8,13 @@ import UserProvider from "./providers/UserProvider.js";
 import FourOFour from "./pages/FourOFour"
 import MyItems from "./components/MyItems.js";
 import HowItWorks from "./pages/HowItWorks.js";
-import ListAnItem from "./pages/New.js";
+// import ListAnItem from "./pages/New.js";
 import NavBar from "./components/NavBar";
 import Index from "./pages/Index.js";
 import ItemDetails from './components/ItemDetails';
 import ItemNew from './components/ItemNew';
 import Profile from "./components/Profile.js";
+import Edit from "./pages/Edit.js"
 
 function App() {
 
@@ -36,6 +37,7 @@ function App() {
         <AuthRoute path='/myItems' component={MyItems} />
         <Route path='/items'  component={Index}/>
         <Route path='/myprofile' component={Profile}/>
+        <Route path='/editItems' component={Edit}/>
         {/* <Route path='/account' component={Account}/> */}
 
 
