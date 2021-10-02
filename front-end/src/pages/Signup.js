@@ -81,9 +81,9 @@ const SignUp = () => {
           <input name="phoneNumber" type="tel" id="phoneNumber" />
         <button type="submit">Register</button>
       
-      </form>
-
+        </form>
         <div>
+      
       <p>
         Have already an account?{" "}
         <a href="/login" className="fw-bold text-body">
