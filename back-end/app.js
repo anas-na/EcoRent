@@ -26,7 +26,7 @@ app.post('/pay', async (req, res) => {
       payment_method: req.body.payment_method_id,
       // description: res.body.description,
       amount: req.body.price * 100,
-      currency: 'usd',
+      currency: 'USD',
       confirmation_method: 'manual',
       confirm: true
     });
