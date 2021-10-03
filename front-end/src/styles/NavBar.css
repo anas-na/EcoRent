@@ -93,7 +93,6 @@ nav ul li:hover {
 .dropdown {
   display: none;
 }
-
 nav #user-menu{
   background-color: #186E8B;
 }
@@ -110,4 +109,10 @@ nav #user-menu{
   text-align: right;
   margin-left: 0.5rem;
   font-family: Mulish;
+}
+
+.dropdownButton {
+  background-color: white !important;
+  color: black;
+  border-radius: 25px;
 }
