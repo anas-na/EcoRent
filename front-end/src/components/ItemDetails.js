@@ -4,7 +4,8 @@ import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { apiURL } from "../util/apiURL";
-import GoogleMap from "../util/GoogleMap";
+import GoogleMap from  "./GoogleMap";
+import Calendar from "./Calendar";
 import CheckoutForm from "./CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
@@ -40,38 +41,38 @@ const ItemDetails = () => {
   const [item, setItem] = useState({});
   const [coordinates, setCoordinates] = useState({});
   const { id } = useParams();
-  useEffect(() => {
-    const getItem = async () => {
-      try {
-        const res = await axios.get(`${API}/items/${id}`);
-        console.log(res);
-        setItem(res.data);
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    getItem();
-    geoCode();
-  }, [id]);
-
-  const geoCode = async () => {
-    const location = item.location;
+  
+  const getItem = async () => {
     try {
-      const res = axios.get(
-        "https://maps.googleapis.com/maps/api/geocode/json",
-        {
-          params: {
-            address: location,
-            key: process.env.REACT_APP_GOOGLE_KEY,
-          },
+      const res = await axios.get(`${API}/items/${id}`);
+      setItem(res.data);
+      return res.data;
+    } catch (error) {
+      throw error;
+    }
+  };
+  
+  useEffect(() => {
+    getItem().then((res) => {
+      geoCode(res);
+    }).catch((error) => {
+      alert(error.message);
+    });
+  }, []);
+
+  const geoCode = async (location) => {
+    try {
+      const res = await axios.get('https://maps.googleapis.com/maps/api/geocode/json', {
+        params: {
+          address: location.location,
+          key: process.env.REACT_APP_GOOGLE_KEY
         }
       );
-      console.log("GEOCODE RES", res);
       setCoordinates(res.data.results[0].geometry.location);
     } catch (error) {
       console.log(error);
     }
-  };
+  }
 
   return (
     <div className="detailContainer">
@@ -87,7 +88,7 @@ const ItemDetails = () => {
       <div>
         <GoogleMap coordinates={coordinates} className="mapsContainer" />
       </div>
-
+      <Calendar />
       <BookingForm item_id={id} owner_id={item.user_id} />
       <div className="payementContainer">
         {" "}
