@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { NotificationContext } from "../providers/NotificationContext";
-import { db } from "../services/Firebase";
+import {db} from "../services/Firebase";
 
 export const LoadNotifications = async (user) => {
   const { notifications } = useContext(NotificationContext);
