@@ -10,7 +10,7 @@ const getAllUsers = async () => {
     }
 };
 
-const getUser = async () => {
+const getUser = async (id) => {
     try {
         const user = await db.one("SELECT * FROM users WHERE id = $1", id);
         return user;
