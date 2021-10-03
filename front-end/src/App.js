@@ -8,7 +8,7 @@ import UserProvider from "./providers/UserProvider.js";
 import FourOFour from "./pages/FourOFour"
 import MyItems from "./components/MyItems.js";
 import HowItWorks from "./pages/HowItWorks.js";
-import ListAnItem from "./pages/New.js";
+// import ListAnItem from "./pages/New.js";
 import NavBar from "./components/NavBar";
 import Index from "./pages/Index.js";
 import ItemDetails from './components/ItemDetails';
@@ -31,12 +31,13 @@ function App() {
         <AuthRoute exact path="/" component={Home} />
         <Route exact path="/signup" component={SignUp}/>
         <Route exact path="/login" component={LogIn}/>
-        <Route path ='/howItWorks' component={HowItWorks}/>
-        <AuthRoute path='/items/:id' component={ItemDetails} />
+        <Route path='/howItWorks' component={HowItWorks}/>
+        <AuthRoute path='/newitem' component={ItemNew}/>
+        <AuthRoute exact path='/items/:id' component={ItemDetails} />
         <AuthRoute path='/myItems' component={MyItems} />
-        <AuthRoute path ='/items/new' component={ItemNew}/>
         <Route path='/items'  component={Index}/>
-        <Route path='/myprofile' component={Profile}/>
+        <AuthRoute path='/myprofile' component={Profile}/>
+        <Route path='/editItems' component={Edit}/>
         {/* <Route path='/account' component={Account}/> */}
         <AuthRoute path='notifications' component={Notifications}/>
 

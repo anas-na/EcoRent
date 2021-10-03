@@ -1,3 +1,4 @@
+import '../styles/ItemNew.css'
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useHistory } from "react-router";
@@ -49,7 +50,7 @@ import {
   });
   console.log(user)
   const handleUpload = (event) => {
-    event.preventDefault();
+    event.pxreventDefault();
     const storage = getStorage();
     const storageRef = ref(storage, "items/" + image.name);
     const uploadTask = uploadBytesResumable(storageRef, image);

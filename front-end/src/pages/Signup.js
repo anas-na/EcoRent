@@ -18,7 +18,6 @@ const SignUp = () => {
     let {
       firstName,
       lastName,
-      displayName,
       phoneNumber,
       dateOfBirth,
       address,
@@ -38,8 +37,7 @@ const SignUp = () => {
     try {
       const res = await signUpFireBase(
         email.value,
-        password.value,
-        displayName.value
+        password.value
       );
       body.id = res.user.uid;
       await axios.post(`${API}/users`, body);
@@ -64,11 +62,7 @@ const SignUp = () => {
       
           <label htmlFor="lastName">Last Name</label>
           <input name="lastName" type="text" id="lastName" />
-        
-        
-          <label htmlFor="displayName">Display Name</label>
-          <input name="displayName" type="text" id="displayName" />
-     
+
         
           <label htmlFor="email">Your Email</label>
           <input name="email " type="email" id="email" />
@@ -87,9 +81,9 @@ const SignUp = () => {
           <input name="phoneNumber" type="tel" id="phoneNumber" />
         <button type="submit">Register</button>
       
-      </form>
-
+        </form>
         <div>
+      
       <p>
         Have already an account?{" "}
         <a href="/login" className="fw-bold text-body">
