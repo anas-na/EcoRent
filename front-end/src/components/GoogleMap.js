@@ -4,7 +4,7 @@ import Marker from "../components/Marker";
 
 const AnyReactComponent = ({ marker }) => <div>{marker}</div>;
 
-const GoogleMap = ({ coordinates }) => {
+const GoogleMap = ({ coordinates, item }) => {
   const [show, setShow] = useState(false)
 
   const handleMarkerClick = () => {
@@ -25,7 +25,7 @@ const GoogleMap = ({ coordinates }) => {
           <AnyReactComponent
             lat={coordinates.lat}
             lng={coordinates.lng}
-            marker={<Marker handleMarkerClick={handleMarkerClick} show={show}/>}
+            marker={<Marker handleMarkerClick={handleMarkerClick} show={show} item={item}/>}
           />
         </GoogleMapReact> : null }
       </div>
