@@ -4,6 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  margin-bottom: 5px;
+  box-shadow: 0px 3px 7px #0a2900;
 }
 
 .links {
@@ -11,6 +13,7 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-around;
+
 }
 
 .navTitle {
@@ -32,6 +35,7 @@ a:hover {
   font-family: Comfortaa Bold;
   cursor: pointer;
 }
+
 
 @font-face {
   font-family: Comfortaa;

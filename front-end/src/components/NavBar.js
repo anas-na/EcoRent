@@ -31,10 +31,10 @@ const NavBar = () => {
             <Link to="/"><img src={logo} className="logo" /></Link>
           </div>
           <div className="links">
-            <NavLink to="/items" activeStyle={{color: '#98bd89'}}>Items</NavLink>
-            <NavLink to="/myItems" activeStyle={{color: '#98bd89'}}>My Items</NavLink>
-            <NavLink to="/newitem" activeStyle={{color: '#98bd89'}}>List An Item</NavLink>
-            <NavLink to="/account" activeStyle={{color: '#98bd89'}}>Account</NavLink>
+            <NavLink to="/items" activeStyle={{color: '#98bd89', fontSize: '1.8em', fontWeight:' bold'}}>Items</NavLink>
+            <NavLink to="/myItems" activeStyle={{color: '#98bd89', fontSize: '1.8em', fontWeight:' bold'}}>My Items</NavLink>
+            <NavLink to="/newitem" activeStyle={{color: '#98bd89', fontSize: '1.8em', fontWeight:' bold'}}>List An Item</NavLink>
+            <NavLink to="/account" activeStyle={{color: '#98bd89', fontSize: '1.8em', fontWeight:' bold'}}>Account</NavLink>
           </div>
           <img
             src={logo}
@@ -66,9 +66,9 @@ const NavBar = () => {
           <Link to="/"><img src={logo} className="logo" /></Link>
         </div>
           <div className="links">
-            <NavLink to="/howItWorks">How It Works</NavLink>
-            <NavLink to="/about">About</NavLink>
-            <NavLink to="/login">SignUp/LogIn</NavLink>
+            <NavLink to="/howItWorks" activeStyle={{color: '#98bd89', fontSize: '1.8em', fontWeight:' bold'}} >How It Works</NavLink>
+            <NavLink to="/about" activeStyle={{color: '#98bd89', fontSize: '1.8em', fontWeight:' bold'}} >About</NavLink>
+            <NavLink to="/login" activeStyle={{color: '#98bd89', fontSize: '1.8em', fontWeight:' bold'}} >SignUp/LogIn</NavLink>
           </div>
         </div>
       </nav>
