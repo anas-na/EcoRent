@@ -1,4 +1,4 @@
-import { NavLink, Link, use } from "react-router-dom";
+import { NavLink, Link, useHistory } from "react-router-dom";
 import "../styles/NavBar.css";
 import logo from "../styles/media/EcoRent.svg";
 import useUser from "../hooks/useUser";
@@ -9,6 +9,10 @@ const NavBar = () => {
   const user = useContext(UserContext);
   const { logOut } = useUser();
   const [open, setOpen] = useState(false);
+
+  let history = useHistory()
+
+  const navigateTo = () => history.push('/myprofile')
 
   const handleLogOut = () => {
     try {
@@ -63,16 +67,7 @@ const NavBar = () => {
             >
               List An Item
             </NavLink>
-            <NavLink
-              to="/account"
-              activeStyle={{
-                color: "#98bd89",
-                fontSize: "1.8em",
-                fontWeight: " bold",
-              }}
-            >
-              Account
-            </NavLink>
+          
           </div>
 
 
@@ -83,19 +78,17 @@ const NavBar = () => {
               className="profile"
               onClick={handleDropdown}
             />
+      
             <ul className={!open ? "dropdown" : null} id="user-menu">
+              <div className='dropButtons'>
 
-              <button className="dropdownButton">
-                <NavLink exact to="/myprofile">
-                  Profile
-                </NavLink>
-              </button>
+              <button className="button1" onClick={navigateTo}>Profile</button>
 
-              <button onClick={handleLogOut} className="dropdownButton">
-                Sign Out
-              </button>
+              <button onClick={handleLogOut} className="button1">Sign Out</button>
 
+              </div>
             </ul>
+           
           </section>
 
 

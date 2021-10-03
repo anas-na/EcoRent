@@ -67,6 +67,7 @@ const ItemDetails = () => {
           address: location.location,
           key: process.env.REACT_APP_GOOGLE_KEY
         }
+      }
       );
       setCoordinates(res.data.results[0].geometry.location);
     } catch (error) {
