@@ -8,7 +8,6 @@ import UserProvider from "./providers/UserProvider.js";
 import FourOFour from "./pages/FourOFour"
 import MyItems from "./components/MyItems.js";
 import HowItWorks from "./pages/HowItWorks.js";
-// import ListAnItem from "./pages/New.js";
 import NavBar from "./components/NavBar";
 import Index from "./pages/Index.js";
 import ItemDetails from './components/ItemDetails';
