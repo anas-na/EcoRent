@@ -1,9 +1,12 @@
+// components
+import BookingForm from "./BookingForm";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { apiURL } from "../util/apiURL";
 import GoogleMap from  "../util/GoogleMap";
 const API = apiURL();
+
 
 const ItemDetails = () => {
   const [item, setItem] = useState({});
@@ -36,6 +39,7 @@ const ItemDetails = () => {
         </div>
       </article> */}
       <GoogleMap />
+      <BookingForm item_id={id} owner_id={item.user_id}/>
     </div>
   );
 };

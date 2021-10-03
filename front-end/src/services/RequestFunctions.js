@@ -1,12 +1,9 @@
 import { useContext } from "react";
-import { UserContext } from "../providers/UserProvider";
 import { NotificationContext } from "../providers/NotificationContext";
 import { db } from "../services/Firebase";
 
-const user = useContext(UserContext);
-const { notifications } = useContext(NotificationContext);
-
-export const loadNotifications = async (user) => {
+export const LoadNotifications = async (user) => {
+  const { notifications } = useContext(NotificationContext);
   let notificationsArr = [];
   await db
     .collection("bookings")
