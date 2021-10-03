@@ -12,7 +12,7 @@ const Calendar = () => {
             // startDate={startDate}
             // endData={endDate}
             minDays={2}
-            maxDays={5}
+            maxDays={30}
             />
         </div>
     )
