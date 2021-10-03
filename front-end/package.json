@@ -5,6 +5,7 @@
   "dependencies": {
     "@stripe/react-stripe-js": "^1.5.0",
     "@stripe/stripe-js": "^1.19.0",
+    "@syncfusion/ej2-react-calendars": "^19.3.43",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.2.7",
     "@testing-library/user-event": "^12.8.3",
