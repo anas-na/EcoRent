@@ -26,28 +26,23 @@ app.post('/pay', async (req, res) => {
       payment_method: req.body.payment_method_id,
       // description: res.body.description,
       amount: req.body.price * 100,
-      currency: 'usd',
+      currency: 'USD',
       confirmation_method: 'manual',
       confirm: true
     });
-    // console.log(req)
-    // Send the res to the client
     res.send(generateResponse(intent));
   } catch (e) {
-    // Display error on client
     return res.send({ error: e.message });
   }
 });
 
 const generateResponse = (intent) => {
   if (intent.status === 'succeeded') {
-    // The payment didn’t need any additional actions and completed!
-    // Handle post-payment fulfillment
     return {
       success: true
     };
   } else {
-    // Invalid status
+
     return {
       error: 'Invalid PaymentIntent status'
     };

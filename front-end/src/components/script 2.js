@@ -1,11 +1,12 @@
 import { apiURL } from "../util/apiURL";
 const API = apiURL();
 
-export const stripePaymentMethodHandler = async (data, cb) => {
+export const stripePaymentMethodHandler = async (data) => {
   console.log(data)
   const { price, result } = data;
   if (result.error) {
-    cb(result);
+    // show error in payment form
+    return result
   } else {
     const paymentResponse = await stripePayment({
       payment_method_id: result.paymentMethod.id,
@@ -14,10 +15,12 @@ export const stripePaymentMethodHandler = async (data, cb) => {
       price: price
     });
     console.log(paymentResponse);
-    cb(paymentResponse);
+    return paymentResponse
+    // cb(paymentResponse);
   }
 }
 
+// place backend API call for payment
 const stripePayment = async data => {
   const res = await fetch(`${API}/pay`, {
     method: 'POST',
