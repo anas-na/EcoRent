@@ -34,9 +34,11 @@
 }
 
 .itemsContainer {
+  min-height: 100vh;
   overflow: scroll;
   background-color: #c6dabe;
   background-image: url("./media/background2.svg");
+  background-attachment: fixed;
   background-size: contain;
   display: flex;
   flex-direction: column;

@@ -7,6 +7,7 @@ import { UserContext } from "../providers/UserProvider";
 import axios from "axios";
 const API = apiURL();
 
+
 const SignUp = () => {
   const user = useContext(UserContext);
   const { signUpFireBase } = useUser();
