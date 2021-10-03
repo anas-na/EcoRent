@@ -8,7 +8,7 @@ const Calendar = () => {
 
     return (
         <div>
-            <DateRangePickerComponent id="daterangepicker" placeholder='Select Rental Dates' 
+            <DateRangePickerComponent placeholder='Select Rental Dates' 
             // startDate={startDate}
             // endData={endDate}
             minDays={2}
