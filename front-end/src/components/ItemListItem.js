@@ -31,7 +31,7 @@ const ItemListItem = ({ item }) => {
   // console.log(item)
   return (
     <div className='singleItem' >
-      <div className='imageContainer'><img src={item.image} className='itemImage'/></div>
+      <div className='imageContainer'><img src={item.image} className='itemPhoto'/></div>
       <Link to={`/items/${item.id}`} className='itemName'>{item.name}
       <img src={item.photo} />
       </Link>

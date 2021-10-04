@@ -9,10 +9,13 @@
 }
 
 .links {
+  align-items: center;
   display: flex;
   flex-direction: row;
-  width: 100%;
-  justify-content: space-around;
+  width: 80%;
+  justify-content: space-evenly;
+  /* padding: 10px; */
+  /* padding: 0px, 10px, 0px, 10px; */
 }
 
 .navTitle {
@@ -52,7 +55,7 @@ a:hover {
 
 .logo {
   max-height: 3.5em;
-  margin: 1.5%;
+  margin: 0;
 }
 
 nav .profile {
@@ -79,6 +82,7 @@ nav ul {
 nav #user-menu {
   background: rgba(255, 255, 255, 0.7);
   width: 8em;
+  box-shadow: 0px 3px 7px #0a2900;
 }
 
 .dropButtons {

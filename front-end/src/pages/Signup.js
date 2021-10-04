@@ -1,3 +1,4 @@
+import '../styles/SignUp.css'
 import React, { useEffect } from "react";
 import { Redirect, useHistory } from "react-router";
 import useUser from "../hooks/useUser";
@@ -53,10 +54,15 @@ const SignUp = () => {
 }
    
   return (
-    <section>
-      <h2>Create an account</h2>
+    <section className='formContainer'>
+
+      <h1 className='formTitle'>Create An Account</h1>
+
+        <div className='signupForm'>
+
       <form onSubmit={handleSignUp}>
-        
+
+        <section className='inputs'>
           <label htmlFor="firstName">First Name</label>
           <input name="firstName" type="text" id="firstName" />
        
@@ -80,17 +86,17 @@ const SignUp = () => {
         
           <label htmlFor="phoneNumber">Phone Number</label>
           <input name="phoneNumber" type="tel" id="phoneNumber" />
-        <button type="submit">Register</button>
-      
-        </form>
-        <div>
-      
-      <p>
-        Have already an account?{" "}
-        <a href="/login" className="fw-bold text-body">
-          <u>Login here</u>
+        <input type="submit" className='button'/>
+        </section>
+       
+
+        <div className='signUp'>
+      <p> Already have an account?</p>
+        <a href="/login" className="button1">
+          Login 
         </a>
-      </p>
+        </div>
+        </form>
       </div>
     </section>
   );
