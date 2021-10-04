@@ -4,6 +4,8 @@
   display: flex;
   align-items: center;
   justify-content: space-around;
+  margin-bottom: 5px;
+  box-shadow: 0px 3px 7px #0a2900;
 }
 
 .links {
@@ -51,4 +53,59 @@ a:hover {
 .logo {
   max-height: 3.5em;
   margin: 1.5%;
+}
+
+nav .profile {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border: 3px solid #eae6f6;
+}
+nav ul {
+  position: absolute;
+  top: 40px;
+  right: 45px;
+
+  border-radius: 10px;
+  display: flex;
+  width: 6em;
+}
+
+.dropdown {
+  display: none;
+}
+
+nav #user-menu {
+  background: rgba(255, 255, 255, 0.7);
+  width: 8em;
+}
+
+.dropButtons {
+  display: flex;
+  flex-direction: column;
+  height: 7.3em;
+  justify-content: end;
+  align-items: center;
+  width: 5.5em;
+}
+
+/* .dropdownButton {
+  border-radius: 25px !important;
+  font-size: 1.4em !important;
+  width: 6em;
+  border: solid white 2px;
+  display: flex;
+  justify-content: center;
+} */
+
+.ddbContainer {
+  display: flex;
+  align-items: center;
+  height: 6em;
+  width: 10em;
+}
+
+.dropdownMenu {
+  padding-right: 20px;
 }

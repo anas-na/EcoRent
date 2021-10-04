@@ -12,9 +12,9 @@
 
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
-// import { useParams } from "react-router-dom";
 import { UserContext } from "../providers/UserProvider";
 // import useUser from "../hooks/useUser";
+import loadingScreen from "../util/loading";
 
 import { apiURL } from "../util/apiURL";
 
@@ -24,7 +24,6 @@ const Profile = () => {
   const [items, setItems] = useState([]);
   const [user, setUser] = useState([]);
   const [currentUserItems, setCurrentUserItems] = useState(null);
-  // const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
   
   const fbUser = useContext(UserContext);
@@ -35,7 +34,7 @@ const Profile = () => {
         if(fbUser){
           const { uid } = fbUser;
         let res = await axios.get(`${API}/users/${uid}`);
-        // debugger
+        debugger
         setUser(res.data);
         }
       } catch (error) {
@@ -45,7 +44,6 @@ const Profile = () => {
     
 
   const getItems = async () => {
-    // let allItems = await axios.get(`${API}/items/${uid}`);
     let allItems = await axios.get(`${API}/items`);
     console.log(allItems.data);
     // debugger
@@ -54,28 +52,16 @@ const Profile = () => {
 
   const getCurrentUserItems = () => {
     if (!fbUser) {
-      console.log("loading");
-      //  debugger
-    } else if (items) {
+       loadingScreen()
+    }else if(items){
       console.log(fbUser.uid);
       let theItems;
       theItems = items.filter((item) => fbUser.uid === item.user_id);
-      theItems.length > 0
-        ? setCurrentUserItems(theItems)
-        : setCurrentUserItems(null);
-        // debugger
+      theItems.length > 0 ? setCurrentUserItems(theItems) : setCurrentUserItems(null)
+    
     }
-  };
+  }
 
-  // const getCurrentUser = () => {
-  //   if (!fbUser) {
-  //     console.log("loading");
-  //   } else {
-  //     let theUser = users.filter((user) => fbUser.uid === user.id);
-  //     debugger;
-  //     setCurrentUser(theUser[0]);
-  //   }
-  // };
 
   useEffect(() => {
     setTimeout(() => {
@@ -86,7 +72,6 @@ const Profile = () => {
       getCurrentUserItems(user);
 
     })
-    // getCurrentUser();
   }, [fbUser]);
 
   if (loading) {

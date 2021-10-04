@@ -16,9 +16,7 @@ CREATE TABLE users (
     phone_number BIGINT NOT NULL,
     date_of_birth DATE NOT NULL,
     address TEXT NOT NULL,
-    email TEXT NOT NULL,
-    password TEXT NOT NULL
-    
+    email TEXT NOT NULL
 );
 
 

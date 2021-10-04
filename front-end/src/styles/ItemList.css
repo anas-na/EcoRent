@@ -34,9 +34,11 @@
 }
 
 .itemsContainer {
+  min-height: 100vh;
   overflow: scroll;
   background-color: #c6dabe;
   background-image: url("./media/background2.svg");
+  background-attachment: fixed;
   background-size: contain;
   display: flex;
   flex-direction: column;
@@ -47,6 +49,7 @@ h1 {
   font-family: Comfortaa Bold;
   color: white;
   font-size: 2.5em;
+  margin-top: 0;
 }
 
  a.itemName {
@@ -56,4 +59,19 @@ h1 {
 img {
   max-width: 8em;
   padding: .5em;
+}
+
+input.search {
+width: 12em;
+border: solid white 2px;
+box-shadow: 1px 5px 8px #0A2900;
+border: solid white 0.2em;
+}
+
+.searchContainer {
+  width: 75%;
+  display: flex;
+  height: 3em;
+  justify-content: flex-end;
+  padding-top: 5px;
 }
