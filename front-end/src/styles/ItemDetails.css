@@ -35,7 +35,7 @@ img.marker {
 .itemOmg {
     width: 50%;
     display: flex;
-    flex-direction: column-reverse;
+    flex-direction: column;
     align-self: flex-start;
 }
 
@@ -61,4 +61,21 @@ h6 {
     margin: 1em;
     font-family: Confortaa Bold;
     font-size: 1.1em;
+}
+
+.paymentContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding:2em;
+    border: solid #186e8b 0.3em;
+    border-radius: 20px;
+    width: 80%;
+    margin: 1em;
+    background: rgba(255, 255, 255, 0.7);
+}
+
+.checkoutContainer {
+    width: 80%;
 }

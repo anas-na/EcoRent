@@ -94,7 +94,7 @@ const ItemDetails = () => {
 
     
         <div className='itemOmg'>
-          <img src={item.photo} className='descPhoto' /><h5>{item.name}</h5>
+          <h5>{item.name}</h5><img src={item.photo} className='descPhoto' />
         
       </div>
         <section className='descContainer'>
@@ -115,6 +115,7 @@ const ItemDetails = () => {
         {paymentCompleted ? (
           successMessage()
         ) : (
+       
           <Elements stripe={stripePromise}>
             <CheckoutForm
               item={item}
@@ -122,6 +123,7 @@ const ItemDetails = () => {
               className="paymentContainer"
             />
           </Elements>
+       
         )}
       </div>
     </div>
