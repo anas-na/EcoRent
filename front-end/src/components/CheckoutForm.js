@@ -52,16 +52,16 @@ export default function CheckoutForm(props) {
   };
 
   return (
-    <section>
+    <section className='checkoutContainer'>
     
       <h4 className="d-flex justify-content-between align-items-center mb-3">
-        <span className="text-muted">Pay with card</span>
       </h4>
+        <h6>Pay with card</h6>
       <form onSubmit={handleSubmit}>
 
         <div className="row">
-          <div className="col-md-6 mb-3">
             <label htmlFor="cc-name">Name on card</label>
+          <div className="col-md-6 mb-3">
             <input
               id="cc-name"
               type="text"
@@ -70,8 +70,8 @@ export default function CheckoutForm(props) {
               onChange={e => setName(e.target.value)}
             />
           </div>
-          <div className="col-md-6 mb-3">
             <label htmlFor="cc-email">Email</label>
+          <div className="col-md-6 mb-3">
             <input
               id="cc-email"
               type="text"
@@ -83,8 +83,8 @@ export default function CheckoutForm(props) {
         </div>
 
         <div className="row">
-          <div className="col-md-12 mb-3">
             <label htmlFor="cc-number">Card Number</label>
+          <div className="col-md-12 mb-3">
             <CardNumberElement
               id="cc-number"
               className="form-control"
@@ -92,16 +92,16 @@ export default function CheckoutForm(props) {
           </div>
         </div>
 
-        <div className="row">
-          <div className="col-md-6 mb-3">
+     
             <label htmlFor="expiry">Expiration Date</label>
+          <div className="col-md-6 mb-3">
             <CardExpiryElement
               id="expiry"
               className="form-control"
             />
-          </div>
-          <div className="col-md-6 mb-3">
+         
             <label htmlFor="cvc">CVC</label>
+          <div className="col-md-6 mb-3">
             <CardCvcElement
               id="cvc"
               className="form-control"
