@@ -4,9 +4,12 @@ import "react-datepicker/dist/react-datepicker.css";
 
 const DayPicker = ({ startDate, endDate, setStartDate, setEndDate }) => {
 
+  console.log(startDate);
+  console.log(endDate);
+
     return (
       <>
-      <label for="startDatePicker">Start Date</label>
+      <label style={{color: "black"}}for="startDatePicker">Start Date</label>
       <DatePicker id="startDatePicker" selected={startDate} onChange={(date) => setStartDate(date)} />
       <label for="endDatePicker">End Date</label>
       <DatePicker id="endDatePicker" selected={endDate} onChange={(date) => setEndDate(date)} />
