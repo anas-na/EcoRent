@@ -9,7 +9,8 @@
   background-size: contain;
   background-position: center;
   background-attachment: fixed;
-  padding-top: 3em;
+  padding-top: 2em;
+  padding-bottom: 4em;
 }
 
 .formTitle {

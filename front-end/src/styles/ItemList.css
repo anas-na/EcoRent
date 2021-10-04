@@ -74,4 +74,8 @@ border: solid white 0.2em;
   height: 3em;
   justify-content: flex-end;
   padding-top: 5px;
+
 }
+  h4 {
+    font-family: Comfortaa;
+  }
