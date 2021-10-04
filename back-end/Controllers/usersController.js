@@ -14,7 +14,7 @@ users.get("/", async (req, res) => {
 });
 
 users.get("/:id", async (req, res) => {
-    const { id } = req.params;
+  const  id  = req.params.id;
     res.json(await getUser(id));
 });
 
