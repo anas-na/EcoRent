@@ -82,7 +82,7 @@ const ItemDetails = () => {
 
     
         <div className='itemOmg'>
-          <img src={item.photo} className='descPhoto' /><h5>{item.name}</h5>
+          <h5>{item.name}</h5><img src={item.photo} className='descPhoto' />
         
       </div>
         <section className='descContainer'>
@@ -96,13 +96,15 @@ const ItemDetails = () => {
 
     
       </div>
+      {/* <BookingForm item_id={id} owner_id={item.user_id} /> */}
+
+      <div className="paymentContainer">
       <Calendar />
-      <BookingForm item_id={id} owner_id={item.user_id} />
-      <div className="payementContainer">
         {" "}
         {paymentCompleted ? (
           successMessage()
         ) : (
+       
           <Elements stripe={stripePromise}>
             <CheckoutForm
               item={item}
@@ -110,6 +112,7 @@ const ItemDetails = () => {
               className="paymentContainer"
             />
           </Elements>
+       
         )}
       </div>
     </div>
