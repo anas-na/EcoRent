@@ -1,0 +1,64 @@
+.detailContainer {
+    height: 100%;
+    width: 100%;
+    background-color: #c6dabe;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("./media/background2.svg");
+    background-attachment: fixed;
+    background-size: contain;
+}
+
+img.marker {
+    width: 2.5em;
+    background: transparent;
+}
+
+.details {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding:2em;
+    border: solid #186e8b 0.3em;
+    border-radius: 20px;
+    width: 80%;
+    margin: 1em;
+    background: rgba(255, 255, 255, 0.7);
+
+}
+
+.descContainer {
+    width: 30%;
+    justify-content: space-evenly;
+}
+.itemOmg {
+    width: 50%;
+    display: flex;
+    flex-direction: column-reverse;
+    align-self: flex-start;
+}
+
+.descPhoto{
+    min-width: 19em;
+}
+
+h5 {
+    font-size: 2.5em;
+    font-family: Comfortaa Bold;
+    color: #186e8b;
+}
+
+h6 {
+    font-family: Comfortaa Bold;
+    font-size: 1.1em;
+    color: #186e8b;
+    margin: 2px;
+
+}
+
+.detailLine {
+    margin: 1em;
+    font-family: Confortaa Bold;
+    font-size: 1.1em;
+}

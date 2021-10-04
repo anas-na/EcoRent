@@ -1,6 +1,7 @@
 import { NavLink, Link, useHistory } from "react-router-dom";
 import "../styles/NavBar.css";
-import logo from "../styles/media/EcoRent.svg";
+import logo from '../styles/media/EcoRent.svg'
+import blankPhoto from '../styles/media/blankUser.png'
 import useUser from "../hooks/useUser";
 import { useContext, useState } from "react";
 import { UserContext } from "../providers/UserProvider";
@@ -73,7 +74,7 @@ const NavBar = () => {
             </div>
           <section className="dropdownMenu">
             <img
-              src={logo}
+              src={blankPhoto}
               alt="user"
               className="profile"
               onClick={handleDropdown}
