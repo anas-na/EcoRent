@@ -1,8 +1,8 @@
 import loadingGif from '../styles/media/loading.gif' 
 
-const loadingScreen = () => {
+const LoadingScreen = () => {
     return <div className='loadingContainer'><img src={loadingGif} alt='loading...' /></div>
 }
 
 
-export default loadingScreen 
+export default LoadingScreen;
