@@ -1,0 +1,13 @@
+.inputs {
+    display: flex;
+    flex-direction: column;
+}
+
+.signupForm {
+    width: 27em;
+    
+}
+
+input#dateOfBirth {
+    width: 29em;
+}

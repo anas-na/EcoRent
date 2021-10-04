@@ -26,11 +26,15 @@ const LogIn = () => {
 
   return (
     <section className="formContainer">
+
       <h1 className="formTitle">Login</h1>
 
       <div className="loginForm">
+
         <form onSubmit={handleLogIn}>
+
           <h2>Please enter your email and password!</h2>
+          
           <div className="inputs">
             <label htmlFor="email">Email</label>
             <input
