@@ -47,8 +47,6 @@ const BookingForm = ({ owner_id, item_id}) => {
             <h1> Rent Form </h1>
             <label for="rent-form">Send Message to Renter</label>
             <input id="rent-form" type="text" value={message} onChange={(e) => setMessage(e.target.value)} />
-            // Date range stuff is here
-            // Render Total Price
             <button type="submit">Submit</button>
         </form>
     )

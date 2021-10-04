@@ -1,4 +1,5 @@
 // components
+import '../styles/ItemDetails.css'
 import BookingForm from "./BookingForm";
 import axios from "axios";
 import { useParams } from "react-router-dom";
@@ -43,7 +44,17 @@ const ItemDetails = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const { id } = useParams();
+
+  const totalReservationPrice = () => {
+    let start = startDate.getDate();
+    let end = endDate.getDate();
+    const total = (end - start) * item.price
+    console.log(total);
+    return total;
+  }
   
+  totalReservationPrice()
+
   const getItem = async () => {
     try {
       const res = await axios.get(`${API}/items/${id}`);
@@ -78,17 +89,24 @@ const ItemDetails = () => {
 
   return (
     <div className="detailContainer">
-      <div className="details">
-        <img src={item.photo} />
-        <p>Name: {item.name}</p>
-        <p>Category:</p>
-        <p>Description: {item.description}</p>
-        <p>Price: ${item.price}/Day</p>
-        <p>Location: {item.location}</p>
-      </div>
 
-      <div>
-        <GoogleMap coordinates={coordinates} className="mapsContainer" item={item}/>
+    <div className="details">
+
+    
+        <div className='itemOmg'>
+          <img src={item.photo} className='descPhoto' /><h5>{item.name}</h5>
+        
+      </div>
+        <section className='descContainer'>
+        <div className='detailLine'><h6>Description: </h6> {item.description}</div>
+        <div className='detailLine'> <h6>Category:</h6> {item.category}</div>
+        <div className='detailLine'><h6>Price:</h6> ${item.price}</div>
+        <div className='detailLine'><h6>Location:</h6> {item.location}
+        <GoogleMap coordinates={coordinates} className="mapsContainer" />
+        </div>
+        </section>
+
+    
       </div>
       <DayPicker  startDate={startDate} endDate={endDate} setStartDate={setStartDate} setEndDate={setEndDate} />
       <BookingForm item_id={id} owner_id={item.user_id}/>

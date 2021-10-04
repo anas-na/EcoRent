@@ -36,7 +36,7 @@ function App() {
         <AuthRoute exact path='/items/:id' component={ItemDetails} />
         <AuthRoute path='/myItems' component={MyItems} />
         <Route path='/items'  component={Index}/>
-        <AuthRoute path='/myprofile' component={Profile}/>
+        <Route path='/myprofile' component={Profile}/>
         <Route path='/editItems' component={Edit}/>
         {/* <Route path='/account' component={Account}/> */}
         <AuthRoute path='notifications' component={Notifications}/>

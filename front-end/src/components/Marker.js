@@ -12,7 +12,7 @@ const Marker = ({ handleMarkerClick, show, item }) => {
         <InfoWindow show={show} item={item}/>
       </div>
       <button onClick={handleMarkerClick}>
-        <img src="https://img.icons8.com/doodle/48/000000/marker--v1.png" />
+        <img src="https://img.icons8.com/doodle/48/000000/marker--v1.png" className='marker' />
       </button>
     </div>
   );
