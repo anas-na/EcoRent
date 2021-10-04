@@ -31,12 +31,12 @@ const NavBar = () => {
     return (
       <nav>
         <div className="navContainer">
-          <div>
+
             <Link to="/">
               <img src={logo} className="logo" />
             </Link>
-          </div>
-          <div className="links">
+         
+       <div className="links">
             <NavLink
               to="/items"
               activeStyle={{
@@ -68,17 +68,16 @@ const NavBar = () => {
               List An Item
             </NavLink>
           
-          </div>
 
 
+            </div>
           <section className="dropdownMenu">
             <img
               src={logo}
               alt="user"
               className="profile"
               onClick={handleDropdown}
-            />
-      
+              />
             <ul className={!open ? "dropdown" : null} id="user-menu">
               <div className='dropButtons'>
 
@@ -99,11 +98,11 @@ const NavBar = () => {
     return (
       <nav>
         <div className="navContainer">
-          <div>
+          
             <Link to="/">
               <img src={logo} className="logo" />
             </Link>
-          </div>
+          
           <div className="links">
             <NavLink
               to="/howItWorks"
@@ -125,16 +124,7 @@ const NavBar = () => {
             >
               About
             </NavLink>
-            <NavLink
-              to="/login"
-              activeStyle={{
-                color: "#98bd89",
-                fontSize: "1.8em",
-                fontWeight: " bold",
-              }}
-            >
-              SignUp/LogIn
-            </NavLink>
+         
           </div>
         </div>
       </nav>
