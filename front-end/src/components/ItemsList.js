@@ -20,29 +20,31 @@ const ItemsList = () => {
     fetchItems();
   }, []);
 
-  const sortByAsc = () => {
-    const sortedItems = [...items].sort((a, b) => a.price - b.price);
-    setItems(sortedItems);
-  };
+  // const sortByAsc = () => {
+  //   const sortedItems = [...items].sort((a, b) => a.price - b.price);
+  //   setItems(sortedItems);
+  // };
 
-  const sortByDesc = () => {
-    setItems([...items].sort((a, b) => b.price - a.price));
-  };
+  // const sortByDesc = () => {
+  //   setItems([...items].sort((a, b) => b.price - a.price));
+  // };
 
   return (
     <div>
       <section className="itemsContainer">
+      <div className='searchContainer'>
+          <input type="text" placeholder="Search For Items..."  className='search' onChange={e => {setSearch(e.target.value)}}/>
+       </div>
         <h1>Items</h1>
-        <form>
-          <input type="text" placeholder="Search For Items..." onChange={e => {setSearch(e.target.value)}}/>
-        </form>
-		<label>Sort By</label>
+
+		{/* <label>Sort By</label>
 		<select>
 			<option value="Ascending">Ascending</option>
 			<option value="Descending">Descending</option>
 		</select>
 		<button onClick={sortByAsc}>Ascending</button>
-		<button onClick={sortByDesc}>Descending</button>
+		<button onClick={sortByDesc}>Descending</button> */}
+
         <div className="allItemsContainer">
           {items.filter((item => {
 			  if(search === "") {

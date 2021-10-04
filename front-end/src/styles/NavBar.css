@@ -13,7 +13,6 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-around;
-
 }
 
 .navTitle {
@@ -36,7 +35,6 @@ a:hover {
   cursor: pointer;
 }
 
-
 @font-face {
   font-family: Comfortaa;
   src: url("../styles/fonts/Comfortaa-Regular.ttf");
@@ -57,57 +55,57 @@ a:hover {
   margin: 1.5%;
 }
 
-nav img {
-  max-width: 50px;
-}
-nav .profile{
+nav .profile {
   border-radius: 50%;
   width: 50px;
   height: 50px;
   object-fit: contain;
-  border: 3px solid #EAE6F6;
-  cursor: pointer;
+  border: 3px solid #eae6f6;
 }
 nav ul {
   position: absolute;
   top: 40px;
   right: 45px;
-  padding: 1rem 3rem 1rem 1.5rem;
-  list-style: none;
+
   border-radius: 10px;
-  font-size: 15px;    
-  box-shadow: 2px 5px 10px 2px rgba(0, 0, 0, 0.1);
-}
-
-li {
-  width: 100%;
-}
-
-
-
-
-nav ul li:hover {
-  background-color: #186E8B;
+  display: flex;
+  width: 6em;
 }
 
 .dropdown {
   display: none;
 }
 
-nav #user-menu{
-  background-color: #186E8B;
+nav #user-menu {
+  background: rgba(255, 255, 255, 0.7);
+  width: 8em;
 }
 
-#user-menu a {
-  color: #fff;
+.dropButtons {
+  display: flex;
+  flex-direction: column;
+  height: 7.3em;
+  justify-content: end;
+  align-items: center;
+  width: 5.5em;
 }
 
-#user-menu button {
-  background: none;
-  border: none;
-  color: #186E8B;
-  font-size: 20px;
-  text-align: right;
-  margin-left: 0.5rem;
-  font-family: Mulish;
+/* .dropdownButton {
+  border-radius: 25px !important;
+  font-size: 1.4em !important;
+  width: 6em;
+  border: solid white 2px;
+  display: flex;
+  justify-content: center;
+} */
+
+.ddbContainer {
+  display: flex;
+  align-items: center;
+  height: 6em;
+  width: 10em;
+}
+
+.dropdownMenu {
+  padding-right: 20px;
 }
