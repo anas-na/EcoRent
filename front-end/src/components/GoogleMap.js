@@ -13,7 +13,7 @@ const GoogleMap = ({ coordinates }) => {
 
   return (
     <div id="googleMap">
-      <div style={{ height: "50vh", width: "50vw" }}>
+      <div style={{ height: "30vh", width: "32vw" }}>
         {coordinates.lat && coordinates.lng ? <GoogleMapReact
           bootstrapURLKeys={{ key: process.env.REACT_APP_GOOGLE_KEY }}
           defaultCenter={{

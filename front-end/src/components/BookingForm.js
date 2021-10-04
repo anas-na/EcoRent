@@ -46,8 +46,8 @@ const BookingForm = ({ owner_id, item_id}) => {
         <form onSubmit={handleSubmit}>
             <h1> Rent Form </h1>
             <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} />
-            // Date range stuff is here
-            // Render Total Price
+            {/* // Date range stuff is here
+            // Render Total Price */}
             <button type="submit">Submit</button>
         </form>
     )
