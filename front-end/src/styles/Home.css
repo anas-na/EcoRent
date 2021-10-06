@@ -1,0 +1,41 @@
+.homeContainer {
+  height: 100vh;
+  width: 100%;
+  background-image: url("./media/HomeBG.svg");
+  background-position: center;
+  background-size: contain;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+
+  background-color: #c6dabe;
+}
+
+.textContainer {
+  width: 50em;
+  padding: 2em;
+  height: 25%;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: space-between; */
+  font-family: Comfortaa Bold;
+  color: #098a25;
+}
+
+h10 {
+  font-size: 2em;
+  width: auto;
+  color: white;
+
+  padding-top: 1em;
+}
+
+h9 {
+  font-size: 3.5em;
+  font-family: Comfortaa Bold;
+  color: #186e8b;
+}
+
+h11 {
+  color: #186e8b;
+}
+
