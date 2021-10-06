@@ -1,7 +1,6 @@
 .hiwContainer {
   background-image: url("./media/background2.svg");
   background-size: contain;
-  background-repeat: no-repeat;
   background-color: #c6dabe;
   height: 100vh;
   margin: 0;

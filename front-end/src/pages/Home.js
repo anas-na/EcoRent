@@ -1,3 +1,4 @@
+import '../styles/Home.css'
 import React from "react";
 import useUser from "../hooks/useUser";
 import { useContext } from "react";
@@ -67,16 +68,11 @@ const Home = () => {
 
 console.log(string)
   return (
-    <div>
-      {string ? string.email : "Hi you are in Home"}
-      <h1>Welcome To EcoRent</h1>
-      <button onClick={() => handleLogOut()}>Log Out</button>
-      {/* <form>
-        <input type="file" onChange={handleImage} />
-        <button onClick={handleUpload}>Upload</button>
-       {imagePlaceHolder()}
-       
-      </form> */}
+    <div className='homeContainer'>
+     <div className='textContainer'>
+      <h9>Welcome To EcoRent</h9>
+     <h10>Rent <h11>anything</h11>, from <h11>anyone</h11>, <h11>anywhere</h11> in the five boroughs.</h10>
+     </div>
     </div>
   );
 };
