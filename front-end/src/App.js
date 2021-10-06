@@ -15,6 +15,8 @@ import ItemNew from './components/ItemNew';
 import Profile from "./components/Profile.js";
 import Notifications from './components/Notifications';
 import Edit from '../src/pages/Edit'
+import { About } from './pages/About';
+
 
 function App() {
 
@@ -40,7 +42,7 @@ function App() {
         <Route path='/editItems' component={Edit}/>
         {/* <Route path='/account' component={Account}/> */}
         <AuthRoute path='notifications' component={Notifications}/>
-
+        <Route path='/about' component={About} />
 
         <Route  path="*" component={FourOFour}/>
       </Switch>
