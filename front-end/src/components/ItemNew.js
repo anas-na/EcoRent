@@ -142,7 +142,7 @@ import {
             <label htmlFor="category">Category </label>
 
             <select id="category_id" required onChange={handleCategory}>
-              <option disabled defaultValue>
+              <option selected='selected'>
                 Select A Category
               </option>
               {options}
