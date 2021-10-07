@@ -45,20 +45,22 @@ const ItemDetails = () => {
   const [startDate, setStartDate] = useState(new Date());
   const [endDate, setEndDate] = useState(new Date());
   const { id } = useParams();
-
-
-  // console.log("START DATE", startDate);
-  // console.log("END DATE", endDate);
   
   const totalReservationPrice = () => {
-    let start = startDate.getDate();
-    let end = endDate.getDate();
-    const total = (end - start) * item.price
-    console.log("TOTAL PRICE", total);
-    return total;
+    if(startDate && endDate) {
+      let start = startDate.getDate();
+      let end = endDate.getDate();
+      const total = (end - start) * item.price
+      if(total === 0) {
+        return item.price
+      }
+      return total;
+    } else {
+      return item.price
+    }
   }
   
-  totalReservationPrice()
+  const totalPrice = totalReservationPrice()
 
   const getItem = async () => {
     try {
@@ -125,7 +127,7 @@ const ItemDetails = () => {
           <Elements stripe={stripePromise}>
             <CheckoutForm
               item={item}
-              totalReservationPrice={totalReservationPrice}
+              totalPrice={totalPrice}
               setPaymentCompleted={setPaymentCompleted}
               className="paymentContainer"
             />

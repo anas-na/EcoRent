@@ -45,8 +45,6 @@ const Profile = () => {
 
   const getItems = async () => {
     let allItems = await axios.get(`${API}/items`);
-    console.log(allItems.data);
-    // debugger
     setItems(allItems.data);
   };
 
@@ -54,7 +52,6 @@ const Profile = () => {
     if (!fbUser) {
        LoadingScreen()
     }else if(items){
-      console.log(fbUser.uid);
       let theItems;
       theItems = items.filter((item) => fbUser.uid === item.user_id);
       theItems.length > 0 ? setCurrentUserItems(theItems) : setCurrentUserItems(null)

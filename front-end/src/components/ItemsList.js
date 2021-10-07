@@ -10,21 +10,6 @@ const ItemsList = () => {
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(false);
 
-  //   useEffect(() => {
-  // 	setLoading(true);
-  //     const fetchItems = async () => {
-  //       try {
-  //         const res = await axios.get(`${API}/items`);
-  //         setItems(res.data);
-  // 		setLoading(false);
-  //       } catch (err) {
-  //         console.log(err);
-  // 		setLoading(false);
-  //       }
-  //     };
-  //     fetchItems();
-  //   }, []);
-
   // const sortByAsc = () => {
   //   const sortedItems = [...items].sort((a, b) => a.price - b.price);
   //   setItems(sortedItems);
@@ -33,6 +18,7 @@ const ItemsList = () => {
   // const sortByDesc = () => {
   //   setItems([...items].sort((a, b) => b.price - a.price));
   // };
+  
   const fetchItems = () => {
     setLoading(true);
     axios
