@@ -166,7 +166,7 @@ import {
               required
             />
             <div className='imageUpload'>
-            <input id="photo" type="file" onChange={handleImage}/>
+            <input className="photo" type="file" onChange={handleImage}/>
 
             <button onClick={handleUpload} className='button1'>Upload</button>
             {imagePlaceHolder()}
