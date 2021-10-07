@@ -6,11 +6,11 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { apiURL } from "../util/apiURL";
 import GoogleMap from  "./GoogleMap";
-// import Calendar from "./Calendar";
+import Calendar from "./Calendar";
 import CheckoutForm from "./CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import DayPicker from "./DayPicker";
+// import DayPicker from "./DayPicker";
 
 const API = apiURL();
 const stripePromise = loadStripe(
@@ -46,11 +46,15 @@ const ItemDetails = () => {
   const [endDate, setEndDate] = useState(new Date());
   const { id } = useParams();
 
+
+  // console.log("START DATE", startDate);
+  // console.log("END DATE", endDate);
+  
   const totalReservationPrice = () => {
     let start = startDate.getDate();
     let end = endDate.getDate();
     const total = (end - start) * item.price
-    console.log(total);
+    console.log("TOTAL PRICE", total);
     return total;
   }
   
@@ -101,15 +105,16 @@ const ItemDetails = () => {
         <section className='descContainer'>
         <div className='detailLine'><h6>Description: </h6> {item.description}</div>
         <div className='detailLine'> <h6>Category:</h6> {item.category}</div>
-        <div className='detailLine'><h6>Price:</h6> ${item.price}</div>
+        <div className='detailLine'><h6>Price:</h6>${item.price}</div>
         <div className='detailLine'><h6>Location:</h6> {item.location}
-        <GoogleMap coordinates={coordinates} className="mapsContainer" />
+        <GoogleMap coordinates={coordinates} className="mapsContainer" item={item} />
         </div>
         </section>
 
     
       </div>
-      <DayPicker  startDate={startDate} endDate={endDate} setStartDate={setStartDate} setEndDate={setEndDate} />
+      {/* <DayPicker  startDate={startDate} endDate={endDate} setStartDate={setStartDate} setEndDate={setEndDate} /> */}
+      <Calendar  startDate={startDate} endDate={endDate} setStartDate={setStartDate} setEndDate={setEndDate} />
       <BookingForm item_id={id} owner_id={item.user_id}/>
       <div className="payementContainer">
         {" "}
