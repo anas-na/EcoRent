@@ -125,6 +125,7 @@ const ItemDetails = () => {
           <Elements stripe={stripePromise}>
             <CheckoutForm
               item={item}
+              totalReservationPrice={totalReservationPrice}
               setPaymentCompleted={setPaymentCompleted}
               className="paymentContainer"
             />
