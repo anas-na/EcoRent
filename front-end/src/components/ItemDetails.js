@@ -119,5 +119,5 @@ const ItemDetails = () => {
     </div>
   );
 };
-
+      
 export default ItemDetails;
