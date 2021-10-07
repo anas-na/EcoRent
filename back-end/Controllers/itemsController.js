@@ -14,7 +14,6 @@ items.get("/", async (req, res) => {
 
 items.get("/:id", async (req, res) => {
     const { id } = req.params;
-    console.log("FIRING ON LINE 15", req.params)
     res.json(await getItem(id));
 });
 
