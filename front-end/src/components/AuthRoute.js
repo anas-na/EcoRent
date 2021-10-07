@@ -3,7 +3,7 @@ import { Route, Redirect } from "react-router-dom";
 import { UserContext } from "../providers/UserProvider";
 import { useContext, useState, useEffect } from "react";
 import { useUser } from "../hooks/useUser";
-import loadingScreen from '../util/loading'
+import LoadingScreen from './LoadingScreen';
 
 const AuthRoute = ({ component: AuthorizeComponent, ...allProps }) => {
   const [loading, setLoading] = useState(true);
@@ -17,7 +17,7 @@ const AuthRoute = ({ component: AuthorizeComponent, ...allProps }) => {
   const user = useContext(UserContext);
 
   if (loading) {
-    loadingScreen()
+    LoadingScreen()
   }
 
   return (

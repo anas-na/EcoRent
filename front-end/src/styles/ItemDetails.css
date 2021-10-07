@@ -11,6 +11,18 @@
 }
 
 img.marker {
+    /* background: linear-gradient(
+        45deg,rgba(255,255,255,1) 50%,rgba(255,255,255,0) 51%,rgba(255,255,255,0) 100%);
+            box-shadow: -2px 2px 2px 0 rgb(178 178 178 / 40%);
+            content: "";
+            height: 15px;
+            left: 0;
+            position: absolute;
+            top: 0;
+            transform: translate(-50%,-50%) rotate(
+        -45deg);
+            width: 15px; */
+    position: absolute;
     width: 2.5em;
     background: transparent;
 }

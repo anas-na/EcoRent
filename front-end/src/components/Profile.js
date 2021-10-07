@@ -14,7 +14,7 @@ import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../providers/UserProvider";
 // import useUser from "../hooks/useUser";
-import loadingScreen from "../util/loading";
+import LoadingScreen from "../components/LoadingScreen";
 
 import { apiURL } from "../util/apiURL";
 
@@ -52,7 +52,7 @@ const Profile = () => {
 
   const getCurrentUserItems = () => {
     if (!fbUser) {
-       loadingScreen()
+       LoadingScreen()
     }else if(items){
       console.log(fbUser.uid);
       let theItems;
