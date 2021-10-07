@@ -41,8 +41,25 @@ const ItemDetails = () => {
   const [paymentCompleted, setPaymentCompleted] = useState(false);
   const [item, setItem] = useState({});
   const [coordinates, setCoordinates] = useState({});
+  const [startDate, setStartDate] = useState(new Date());
+  const [endDate, setEndDate] = useState(new Date());
   const { id } = useParams();
-  
+
+  const totalReservationPrice = () => {
+    if(startDate && endDate) {
+      let start = startDate.getDate();
+      let end = endDate.getDate();
+      const total = (end - start) * item.price
+      if(total === 0) {
+        return item.price
+      }
+      return total;
+    } else {
+      return item.price
+    }
+  }
+  const totalPrice = totalReservationPrice()
+
   const getItem = async () => {
     try {
       const res = await axios.get(`${API}/items/${id}`);
@@ -100,7 +117,7 @@ const ItemDetails = () => {
       {/* <BookingForm item_id={id} owner_id={item.user_id} /> */}
 
       <div className="paymentContainer">
-      <Calendar />
+      <Calendar startDate={startDate} endDate={endDate} setStartDate={setStartDate} setEndDate={setEndDate} />
         {" "}
         {paymentCompleted ? (
           successMessage()
@@ -108,6 +125,7 @@ const ItemDetails = () => {
        
           <Elements stripe={stripePromise}>
             <CheckoutForm
+            totalPrice={totalPrice}
               item={item}
               setPaymentCompleted={setPaymentCompleted}
               className="paymentContainer"
