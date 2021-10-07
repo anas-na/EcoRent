@@ -27,8 +27,7 @@ const ItemListItem = ({ item }) => {
   const category = categories.filter(
     (category) => category.id === item.category_id
   );
-  // console.log(user)
-  // console.log(item)
+  
   return (
     <div className='singleItem' >
       <div className='imageContainer'><img src={item.image} className='itemPhoto'/></div>

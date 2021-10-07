@@ -2,7 +2,6 @@ import { apiURL } from "../util/apiURL";
 const API = apiURL();
 
 export const stripePaymentMethodHandler = async (data, cb) => {
-  console.log(data)
   const { price, result } = data;
   if (result.error) {
     cb(result);

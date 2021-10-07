@@ -14,7 +14,7 @@ import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../providers/UserProvider";
 // import useUser from "../hooks/useUser";
-import loadingScreen from "../util/loading";
+import LoadingScreen from "../components/LoadingScreen";
 
 import { apiURL } from "../util/apiURL";
 
@@ -45,16 +45,13 @@ const Profile = () => {
 
   const getItems = async () => {
     let allItems = await axios.get(`${API}/items`);
-    console.log(allItems.data);
-    // debugger
     setItems(allItems.data);
   };
 
   const getCurrentUserItems = () => {
     if (!fbUser) {
-       loadingScreen()
+       LoadingScreen()
     }else if(items){
-      console.log(fbUser.uid);
       let theItems;
       theItems = items.filter((item) => fbUser.uid === item.user_id);
       theItems.length > 0 ? setCurrentUserItems(theItems) : setCurrentUserItems(null)
