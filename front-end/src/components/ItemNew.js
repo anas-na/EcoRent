@@ -48,7 +48,7 @@ import {
     photo:'',
     user_id: ""
   });
-  console.log(user)
+  
   const handleUpload = (event) => {
     event.preventDefault();
     const storage = getStorage();

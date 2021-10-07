@@ -7,7 +7,7 @@ import { stripePaymentMethodHandler } from './script';
 
 
 export default function CheckoutForm(props) {
-    const { item } = props
+    const { item, totalPrice } = props
   const [loading, setLoading] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
   const [name, setName] = useState('');
@@ -111,7 +111,7 @@ export default function CheckoutForm(props) {
 
         <hr className="mb-4" />
         <button className="btn btn-dark w-100" type="submit" disabled={loading}>
-          {loading ? <div className="spinner-border spinner-border-sm text-light" role="status"></div> : `$${item.price}`}
+          {loading ? <div className="spinner-border spinner-border-sm text-light" role="status"></div> : `$${totalPrice}`}
         </button>
         {errorMsg && <div className="text-danger mt-2">{errorMsg}</div>}
       </form>
