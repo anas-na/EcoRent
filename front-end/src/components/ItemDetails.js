@@ -10,7 +10,6 @@ import Calendar from "./Calendar";
 import CheckoutForm from "./CheckoutForm";
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-// import DayPicker from "./DayPicker";
 
 const API = apiURL();
 const stripePromise = loadStripe(
@@ -42,26 +41,8 @@ const ItemDetails = () => {
   const [paymentCompleted, setPaymentCompleted] = useState(false);
   const [item, setItem] = useState({});
   const [coordinates, setCoordinates] = useState({});
-  const [startDate, setStartDate] = useState(new Date());
-  const [endDate, setEndDate] = useState(new Date());
   const { id } = useParams();
   
-  const totalReservationPrice = () => {
-    if(startDate && endDate) {
-      let start = startDate.getDate();
-      let end = endDate.getDate();
-      const total = (end - start) * item.price
-      if(total === 0) {
-        return item.price
-      }
-      return total;
-    } else {
-      return item.price
-    }
-  }
-  
-  const totalPrice = totalReservationPrice()
-
   const getItem = async () => {
     try {
       const res = await axios.get(`${API}/items/${id}`);
@@ -87,7 +68,8 @@ const ItemDetails = () => {
           address: location.location,
           key: process.env.REACT_APP_GOOGLE_KEY
         }
-      });
+      }
+      );
       setCoordinates(res.data.results[0].geometry.location);
     } catch (error) {
       console.log(error);
@@ -107,18 +89,18 @@ const ItemDetails = () => {
         <section className='descContainer'>
         <div className='detailLine'><h6>Description: </h6> {item.description}</div>
         <div className='detailLine'> <h6>Category:</h6> {item.category}</div>
-        <div className='detailLine'><h6>Price:</h6>${item.price}</div>
+        <div className='detailLine'><h6>Price:</h6> ${item.price}</div>
         <div className='detailLine'><h6>Location:</h6> {item.location}
-        <GoogleMap coordinates={coordinates} className="mapsContainer" item={item} />
+        <GoogleMap coordinates={coordinates} className="mapsContainer" />
         </div>
         </section>
 
     
       </div>
-      {/* <DayPicker  startDate={startDate} endDate={endDate} setStartDate={setStartDate} setEndDate={setEndDate} /> */}
-      <Calendar  startDate={startDate} endDate={endDate} setStartDate={setStartDate} setEndDate={setEndDate} />
-      <BookingForm item_id={id} owner_id={item.user_id}/>
-      <div className="payementContainer">
+      {/* <BookingForm item_id={id} owner_id={item.user_id} /> */}
+
+      <div className="paymentContainer">
+      <Calendar />
         {" "}
         {paymentCompleted ? (
           successMessage()
@@ -127,7 +109,6 @@ const ItemDetails = () => {
           <Elements stripe={stripePromise}>
             <CheckoutForm
               item={item}
-              totalPrice={totalPrice}
               setPaymentCompleted={setPaymentCompleted}
               className="paymentContainer"
             />
