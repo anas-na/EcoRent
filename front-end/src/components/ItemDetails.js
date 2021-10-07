@@ -75,7 +75,7 @@ const ItemDetails = () => {
       console.log(error);
     }
   }
-
+  
   return (
     <div className="detailContainer">
 

@@ -8,6 +8,7 @@ const NotificationCard = ({ message }) => {
     const API = apiURL()
     // what is message?
     console.log("Message:", message)
+    console.log(test);
 
     // accept logic is happening here
     // if accepted, update item in database to set owner_id to requestee
