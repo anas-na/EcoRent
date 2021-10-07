@@ -142,7 +142,7 @@ import {
             <label htmlFor="category">Category </label>
 
             <select id="category_id" required onChange={handleCategory}>
-              <option disabled defaultValue>
+              <option selected='selected'>
                 Select A Category
               </option>
               {options}
@@ -166,7 +166,7 @@ import {
               required
             />
             <div className='imageUpload'>
-            <input id="photo" type="file" onChange={handleImage}/>
+            <input className="photo" type="file" onChange={handleImage}/>
 
             <button onClick={handleUpload} className='button1'>Upload</button>
             {imagePlaceHolder()}
