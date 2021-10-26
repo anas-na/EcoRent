@@ -1,15 +1,15 @@
-### Renting App Repo 
+## Welcome to EcoRent!
 
 ## Live App:
 
 ```
-
+https://ecorent.netlify.app
 ```
 
 ## Heroku:
 
 ```
-
+https://still-forest-94069.herokuapp.com/
 ```
 
 
@@ -19,4 +19,3 @@
 * Anas Nahil
 * Carina Taveras
 * Demi Jobi
-* Vanessa Watson
