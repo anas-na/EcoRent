@@ -1,4 +1,3 @@
-\c eco_rent_dev;
 
 INSERT INTO users (id, first_name, last_name, phone_number, date_of_birth, address, email) VALUES 
 ('dPneoZt769MvZBp1VGfJkEq417j1', 'Adam', 'Tahiri', 3472829710, '1994-12-03', '383 Raritan Avenue', 'tahiri08@hotmail.com'),

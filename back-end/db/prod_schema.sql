@@ -1,8 +1,3 @@
-DROP DATABASE IF EXISTS eco_rent_dev;
-CREATE DATABASE eco_rent_dev;
-
-\c eco_rent_dev;
-
 DROP TABLE IF EXISTS users;
 DROP TABLE IF EXISTS categories;
 DROP TABLE IF EXISTS items;
