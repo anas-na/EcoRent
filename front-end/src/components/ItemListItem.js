@@ -28,7 +28,6 @@ const ItemListItem = ({ item }) => {
     (category) => category.id === item.category_id
   );
   
-  console.log(category)
   return (
     <div className='singleItem' >
       <div className='imageContainer'><img src={item.image} className='itemPhoto'/></div>

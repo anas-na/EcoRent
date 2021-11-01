@@ -7,21 +7,30 @@ import NotificationCard from "./NotificationCard";
 
 const Notifications = () => {
     const user = useContext(UserContext)
-    const { notifications } = useContext(NotificationContext)
+    // const { notifications } = useContext(NotificationContext)
     const [messages, setMessages] = useState([])
 
     // iterate through the messages and create cards for each message
+    // useEffect(() => {
+    //     if (user) {
+    //         LoadNotifications(user)
+    //         setMessages(notifications)
+    //     }
+    // }, [user])
+
     useEffect(() => {
-        if (user) {
-            LoadNotifications(user)
-            setMessages(notifications)
-        }
-    }, [user])
+        (async () => {
+            if (user) {
+                let notifications = await LoadNotifications(user)
+                setMessages(notifications)
+            }
+        })()
+    }, [user]);
 
     let notificationCards = messages.map((message) => {
         return <NotificationCard message={message} key={message.id}/>
     })
-
+// console.log(messages)
     return (
         <div>
             {notificationCards}

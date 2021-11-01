@@ -17,6 +17,4 @@ const Marker = ({ handleMarkerClick, show, item }) => {
   );
 };
 
-//change style to position absolute
-
 export default Marker;

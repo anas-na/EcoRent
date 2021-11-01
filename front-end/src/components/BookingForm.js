@@ -14,10 +14,6 @@ const BookingForm = ({ owner_id, item_id}) => {
     const user = useContext(UserContext)
     const API = apiURL()
 
-    // Total estimate price
-    // const {price} = selectedItemDetails
-    // const total = daterange.length * price
-
     const handleSubmit = async (e) => {
         e.preventDefault()
         try {
@@ -46,8 +42,6 @@ const BookingForm = ({ owner_id, item_id}) => {
         <form onSubmit={handleSubmit}>
             <h1> Rent Form </h1>
             <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} />
-            {/* // Date range stuff is here
-            // Render Total Price */}
             <button type="submit">Submit</button>
         </form>
     )

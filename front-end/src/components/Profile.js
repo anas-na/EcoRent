@@ -1,15 +1,3 @@
-//Demi
-
-//Profile picture
-//Name
-//Email
-//Location
-//My Items
-//Edit button
-//User Rating
-
-//Edit Profile - option to add prof pic
-
 import axios from "axios";
 import { useState, useEffect, useContext } from "react";
 import { UserContext } from "../providers/UserProvider";
@@ -20,21 +8,24 @@ import { apiURL } from "../util/apiURL";
 
 const API = apiURL();
 
-const Profile = () => {
+const Profile = (props) => {
+
+  
+  // console.log(props.history.location.state.request)
+
   const [items, setItems] = useState([]);
   const [user, setUser] = useState([]);
   const [currentUserItems, setCurrentUserItems] = useState(null);
   const [loading, setLoading] = useState(true);
   
   const fbUser = useContext(UserContext);
-// debugger
+  console.log(user)
  
     const getUser = async () => {
       try {
         if(fbUser){
           const { uid } = fbUser;
         let res = await axios.get(`${API}/users/${uid}`);
-        debugger
         setUser(res.data);
         }
       } catch (error) {
@@ -45,10 +36,13 @@ const Profile = () => {
 
   const getItems = async () => {
     let allItems = await axios.get(`${API}/items`);
+    // console.log('getItems func',allItems.data)
     setItems(allItems.data);
   };
 
   const getCurrentUserItems = () => {
+    // console.log("fbUser", fbUser)
+    // console.log("ITEMS", items)
     if (!fbUser) {
        LoadingScreen()
     }else if(items){
@@ -59,7 +53,6 @@ const Profile = () => {
     }
   }
 
-
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -67,12 +60,27 @@ const Profile = () => {
     getUser().then(user=>{
       getItems(user);
       getCurrentUserItems(user);
-
     })
   }, [fbUser]);
 
+  // useEffect(() => {
+  //   getUser();
+  // }, [fbUser]);
+
+  // useEffect(() => {
+  //   getItems()
+  // }, [])
+
+  // useEffect(() => {
+  //   if(items && user) {
+  //     setCurrentUserItems(items.filter((item) => user.uid === item.user_id))
+  //   }
+  // }, [items, user])
+
+  // console.log(currentUserItems)
+
   if (loading) {
-    return <div>loading ...</div>;
+    return LoadingScreen()
   }
   return (
     <div>

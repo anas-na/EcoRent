@@ -46,8 +46,9 @@ export default function CheckoutForm(props) {
     try {
       let selectedItemDetails = await handleSelectedItem(props.item_id);
       addDoc(collection(db, "bookings"), {
-        user_id: user.uid,
+        rentee_id: user.uid,
         item_details: selectedItemDetails,
+        renter_id: selectedItemDetails.user_id,
         item_id: props.item_id,
         message: message,
         start_date: props.startDate,
@@ -89,7 +90,7 @@ export default function CheckoutForm(props) {
         <h4 className="d-flex justify-content-between align-items-center mb-3"></h4>
         <h6>Pay with card</h6>
         <form onSubmit={handleSubmit}>
-          <h1>Rent Form</h1>
+          <h1>Send Message To Renter</h1>
         <input type="text" value={message} onChange={(e) => setMessage(e.target.value)} />
           <div className="row">
             <label htmlFor="cc-name">Name on card</label>
@@ -133,7 +134,7 @@ export default function CheckoutForm(props) {
 
           <hr className="mb-4" />
           <button
-            className="btn btn-dark w-100"
+            className="btn btn-dark w-100 button1"
             type="submit"
             disabled={loading}
           >
