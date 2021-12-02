@@ -7,6 +7,7 @@ import { useContext, useState } from "react";
 import { UserContext } from "../providers/UserProvider";
 
 const NavBar = () => {
+  
   const user = useContext(UserContext);
   const { logOut } = useUser();
   const [open, setOpen] = useState(false);
