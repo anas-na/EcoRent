@@ -1,4 +1,3 @@
-import "./App.css";
 import AuthRoute from "./components/AuthRoute.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
@@ -12,9 +11,12 @@ import Index from "./pages/Index.js";
 import ItemDetails from "./components/ItemDetails";
 import ItemNew from "./components/ItemNew";
 import Profile from "./components/Profile.js";
-import Notifications from "./components/Notifications";
-import Edit from "../src/pages/Edit";
-import { About } from "./pages/About";
+import Notifications from './components/Notifications';
+import Edit from '../src/pages/Edit'
+import { About } from './pages/About';
+import './App.css'
+
+
 function App() {
   return (
     <div className="App">

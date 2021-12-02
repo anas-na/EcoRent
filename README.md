@@ -1,4 +1,4 @@
-### Renting App Repo 
+## Welcome to EcoRent!
 
 ## Live App:
 
