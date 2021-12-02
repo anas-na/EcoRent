@@ -9,7 +9,7 @@ https://ecorent.netlify.app
 ## Heroku:
 
 ```
-https://still-forest-94069.herokuapp.com/
+https://still-forest-94069.herokuapp.com
 ```
 
 
