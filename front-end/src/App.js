@@ -1,4 +1,3 @@
-import './App.css'
 import AuthRoute from "./components/AuthRoute.js";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Home from "./pages/Home"
@@ -16,6 +15,7 @@ import Profile from "./components/Profile.js";
 import Notifications from './components/Notifications';
 import Edit from '../src/pages/Edit'
 import { About } from './pages/About';
+import './App.css'
 
 
 function App() {
